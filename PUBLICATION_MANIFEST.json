@@ -1084,16 +1084,16 @@
       "bytes": 2147
     },
     "apps/desktop/tests/run-chat-regressions.mjs": {
-      "sha256": "676f84e5fcf9df5b69210b211c3a03b2501a8e9eb06e8c451f6034560eaee1b6",
-      "bytes": 2173
+      "sha256": "8703807011e4ad725d5aea28463d2387c8f9cea0ff8bef1ac521e063e0cf6bb8",
+      "bytes": 2253
     },
     "apps/desktop/tests/run-data-source-regressions.mjs": {
-      "sha256": "f5eee5a404b9c405996f6b3c8154c1105ddc000ce014aeefdc8e77966a2ef86e",
-      "bytes": 1871
+      "sha256": "ac9c33913572fe96be50bf558d958b36e969a13ff9c1352a07b1a68fe60d364b",
+      "bytes": 1951
     },
     "apps/desktop/tests/run-model-install-regressions.mjs": {
-      "sha256": "bdc379d3666507d4ad084289a177b98686f2b27d76b7d2d85c8a23b26f6c69ab",
-      "bytes": 1765
+      "sha256": "87ea36df0959005a3689c972f3654d29904784af45cf1fa21bf2c510395ff3e3",
+      "bytes": 1845
     },
     "apps/desktop/tests/segmented-control.test.mjs": {
       "sha256": "a677226bb30acaf54a778be352763be90427feda8cad8c27e6cb573d149d2d5e",
@@ -1688,8 +1688,8 @@
       "bytes": 5664
     },
     "scripts/capture-showcase.mjs": {
-      "sha256": "a4901249502e132fec525d85fc573075693a0cda4c553a34e70a58537ef796df",
-      "bytes": 6890
+      "sha256": "aab30581f6a96e77de1ac2a22d8671ebae0b5ae79c0558b62b16699ab9ecf7f8",
+      "bytes": 6970
     },
     "scripts/check-powerbi-knowledge.py": {
       "sha256": "735b5daabb7852f57916eabc2f59b81a691f56402c42fcb7f6766b52b15537a1",
@@ -3788,6 +3788,6 @@
     "native payloads",
     "development runtime seals"
   ],
-  "refreshed_at": "2026-10-14T22:16:45.714777+00:00",
+  "refreshed_at": "2026-10-14T22:36:18.628414+00:00",
   "identity_scope": "Exported source and ZIP file bytes before Git line-ending conversion; not a cross-platform checkout-byte certification"
 }

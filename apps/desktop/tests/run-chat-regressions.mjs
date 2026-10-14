@@ -3,6 +3,7 @@
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { fileURLToPath } from "node:url";
+import { stripVTControlCharacters } from "node:util";
 
 const desktop = fileURLToPath(new URL("../", import.meta.url));
 const vite = fileURLToPath(new URL("../node_modules/vite/bin/vite.js", import.meta.url));
@@ -22,7 +23,7 @@ try {
   let ready = false;
   while (!ready && Date.now() < deadline) {
     if (server.exitCode !== null) throw new Error(`Isolated frontend failed to start:\n${serverOutput}`);
-    try { ready = serverOutput.includes(url) && (await fetch(url)).ok; } catch { /* Wait for Vite to bind its isolated port. */ }
+    try { ready = stripVTControlCharacters(serverOutput).includes(url) && (await fetch(url)).ok; } catch { /* Wait for Vite to bind its isolated port. */ }
     if (!ready) await new Promise(resolve => setTimeout(resolve, 200));
   }
   if (!ready) throw new Error(`Isolated frontend did not become ready:\n${serverOutput}`);

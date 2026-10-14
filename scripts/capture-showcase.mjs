@@ -7,6 +7,7 @@ import { mkdir, stat } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { resolve, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { stripVTControlCharacters } from "node:util";
 import { injectDemoNotice, showcaseFixture } from "./showcase-fixture.mjs";
 import { createShowcaseResponder } from "./showcase-api.mjs";
 
@@ -33,7 +34,7 @@ try {
   const deadline = Date.now() + 30_000;
   while (!ready && Date.now() < deadline) {
     if (server.exitCode !== null) throw new Error(`Isolated showcase server failed:\n${serverOutput}`);
-    try { ready = serverOutput.includes(origin) && (await fetch(origin)).ok; } catch { /* Wait for this exact server. */ }
+    try { ready = stripVTControlCharacters(serverOutput).includes(origin) && (await fetch(origin)).ok; } catch { /* Wait for this exact server. */ }
     if (!ready) await new Promise(resolve => setTimeout(resolve, 200));
   }
   if (!ready) throw new Error(`Showcase server did not become ready:\n${serverOutput}`);
