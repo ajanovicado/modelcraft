@@ -76,6 +76,6 @@ repository.
 
 ## Contact
 
-For support, use [Modelcraft's GitHub issues](https://github.com/adomaticoo/modelcraft/issues).
+For support, use [Modelcraft's GitHub issues](https://github.com/ajanovicado/modelcraft/issues).
 Do not include private data or credentials in a public issue. See `SECURITY.md`
 for private vulnerability reporting.

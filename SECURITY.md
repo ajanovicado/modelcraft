@@ -18,7 +18,7 @@ provider; model installation can download pinned weights when requested.
 
 Please report suspected vulnerabilities privately rather than in a public
 issue. Use **Report a vulnerability** on the repository's
-[Security page](https://github.com/adomaticoo/modelcraft/security). Include:
+[Security page](https://github.com/ajanovicado/modelcraft/security). Include:
 
 - A description of the issue and affected component (e.g. sidecar API, PBIP
   build pipeline, DuckDB aggregate layer, Tauri host).

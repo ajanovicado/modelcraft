@@ -3,7 +3,7 @@
 **A local AI workspace for Power BI: inspect data, discuss a report, review changes, and export a Power BI project.**
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![CI](https://github.com/adomaticoo/modelcraft/actions/workflows/ci.yml/badge.svg)](https://github.com/adomaticoo/modelcraft/actions/workflows/ci.yml)
+[![CI](https://github.com/ajanovicado/modelcraft/actions/workflows/ci.yml/badge.svg)](https://github.com/ajanovicado/modelcraft/actions/workflows/ci.yml)
 
 Modelcraft brings data profiling, a report canvas, semantic modeling, and DAX assistance into a Windows desktop application. A local model proposes bounded requests; typed contracts and deterministic code handle data access, validation, compilation, and reversible changes.
 
@@ -39,7 +39,7 @@ All gallery images use synthetic fixtures. [Reproduce the screenshots](docs/demo
 The interactive demo runs the real frontend with an in-memory synthetic API. It requires Node.js 22 and npm, and needs no model, Python, Rust, database credentials, or Power BI Desktop.
 
 ```powershell
-git clone https://github.com/adomaticoo/modelcraft.git
+git clone https://github.com/ajanovicado/modelcraft.git
 cd modelcraft/apps/desktop
 npm ci
 npm run demo
@@ -92,7 +92,7 @@ CI runs source, dependency, frontend, browser, and native compilation checks. Fi
 
 ## Current scope and downloads
 
-This is an MIT portfolio project under active development. [Download the source preview](https://github.com/adomaticoo/modelcraft/releases/tag/v0.1.0-portfolio.1) to run the demo or explore the implementation. A signed, clean-machine-qualified Windows installer is a separate milestone.
+This is an MIT portfolio project under active development. [Download the source preview](https://github.com/ajanovicado/modelcraft/releases/tag/v0.1.0-portfolio.1) to run the demo or explore the implementation. A signed, clean-machine-qualified Windows installer is a separate milestone.
 
 Supported paths include local-file analysis, reviewed new-project creation, and bounded editing of supported imported reports. Cloud inference, Power BI Service publishing, macros, and unrestricted existing-project migration are excluded. Database connectors and advanced model modes have additional prerequisites and qualification requirements. See [release gates](docs/release-checklist.md) and the [imported-report guide](docs/imported-report-editing-user-guide.md).
 
@@ -114,6 +114,6 @@ docs/                        Architecture, walkthroughs and release requirements
 
 Application code and the owner-authored runtime are **MIT licensed**. External models, packages, native tools, and reference material retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md) and [runtime provenance](docs/runtime-provenance.md).
 
-Maintained by [adomaticoo](https://github.com/adomaticoo). [Contributing](CONTRIBUTING.md) · [Privacy](PRIVACY.md) · [Security](SECURITY.md).
+Maintained by [ajanovicado](https://github.com/ajanovicado). [Contributing](CONTRIBUTING.md) · [Privacy](PRIVACY.md) · [Security](SECURITY.md).
 
 Power BI is a Microsoft trademark. Modelcraft is not affiliated with or endorsed by Microsoft.
