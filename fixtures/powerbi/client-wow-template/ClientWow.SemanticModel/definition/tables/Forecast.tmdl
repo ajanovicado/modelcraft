@@ -1,0 +1,110 @@
+table 'Forecast'
+	column Period
+		dataType: dateTime
+		sourceColumn: period
+
+	column 'Metric ID'
+		dataType: string
+		isHidden
+		sourceColumn: metric_id
+
+	column 'Point Forecast'
+		dataType: double
+		isHidden
+		sourceColumn: point_forecast
+
+	column 'Lower 80'
+		dataType: double
+		isHidden
+		sourceColumn: lower_80
+
+	column 'Upper 80'
+		dataType: double
+		isHidden
+		sourceColumn: upper_80
+
+	column 'Lower 95'
+		dataType: double
+		isHidden
+		sourceColumn: lower_95
+
+	column 'Upper 95'
+		dataType: double
+		isHidden
+		sourceColumn: upper_95
+
+	column Method
+		dataType: string
+		isHidden
+		sourceColumn: method
+
+	measure 'Forecast Net Sales' =
+		CALCULATE(
+			SUM('Forecast'[Point Forecast]),
+			'Forecast'[Metric ID] = "net_sales"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Forecast Net Sales Lower 80' =
+		CALCULATE(
+			SUM('Forecast'[Lower 80]),
+			'Forecast'[Metric ID] = "net_sales"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Forecast Net Sales Upper 80' =
+		CALCULATE(
+			SUM('Forecast'[Upper 80]),
+			'Forecast'[Metric ID] = "net_sales"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Forecast Net Sales Lower 95' =
+		CALCULATE(
+			SUM('Forecast'[Lower 95]),
+			'Forecast'[Metric ID] = "net_sales"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Forecast Net Sales Upper 95' =
+		CALCULATE(
+			SUM('Forecast'[Upper 95]),
+			'Forecast'[Metric ID] = "net_sales"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Forecast Gross Profit' =
+		CALCULATE(
+			SUM('Forecast'[Point Forecast]),
+			'Forecast'[Metric ID] = "gross_profit"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Next Quarter Forecast Net Sales' =
+		VAR FirstThreePeriods = TOPN(3, ALL('Forecast'[Period]), 'Forecast'[Period], ASC)
+		RETURN CALCULATE([Forecast Net Sales], KEEPFILTERS(FirstThreePeriods))
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Next Quarter Forecast Gross Profit' =
+		VAR FirstThreePeriods = TOPN(3, ALL('Forecast'[Period]), 'Forecast'[Period], ASC)
+		RETURN CALCULATE([Forecast Gross Profit], KEEPFILTERS(FirstThreePeriods))
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Forecast Provenance' =
+		"Approved " & SELECTEDVALUE('Forecast'[Method], "frozen forecast") & " · 3-fold rolling-origin backtest"
+
+	/// Zero-row preparation partition. Replace through Power BI Desktop with the
+	/// frozen approved six-month forecast, including its 80% interval columns.
+	partition 'Forecast' = m
+		mode: import
+		source =
+			#table(
+				type table [
+					period = datetime,
+					metric_id = text,
+					point_forecast = number,
+					lower_80 = number,
+					upper_80 = number
+				],
+				{}
+			)

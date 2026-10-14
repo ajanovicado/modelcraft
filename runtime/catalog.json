@@ -1,0 +1,14 @@
+{
+  "adaptive_profiles": 1,
+  "profiles": {
+    "standard": {
+      "config": "profiles/standard.json",
+      "sha256": "d5640dd01762cf34b74b031a43b98bfdf84bb6657ec24f8d08e783f291f671ce",
+      "qualified": false,
+      "qualification_scope": "Unqualified public-source example. No installed payload or live-model approval."
+    }
+  },
+  "rejected_profiles": {
+    "coder": "Retired; Qwen 4B is the only supported model."
+  }
+}

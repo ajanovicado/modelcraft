@@ -1,0 +1,3184 @@
+{
+ "version": 1,
+ "operations": [
+  "set_position",
+  "arrange",
+  "set_visual_hidden",
+  "delete_visual",
+  "duplicate_visual",
+  "add_visual",
+  "change_visual_type",
+  "set_fields",
+  "set_sort",
+  "rename_page",
+  "add_page",
+  "duplicate_page",
+  "delete_page",
+  "move_page",
+  "set_page_size",
+  "set_page_hidden",
+  "create_measure",
+  "update_measure",
+  "rename_measure",
+  "delete_measure"
+ ],
+ "names": [
+  "ADDABLE_TYPES",
+  "AddPage",
+  "AddVisual",
+  "Arrange",
+  "ChangeVisualType",
+  "ColorValue",
+  "CreateMeasure",
+  "DeleteMeasure",
+  "DeletePage",
+  "DeleteVisual",
+  "DocumentError",
+  "DuplicatePage",
+  "DuplicateVisual",
+  "EditBatch",
+  "EditOutcome",
+  "FieldRef",
+  "HexColor",
+  "MODEL_OPERATIONS",
+  "ModelInfo",
+  "MovePage",
+  "REPORT_OPERATIONS",
+  "ROOT",
+  "RenameMeasure",
+  "RenamePage",
+  "ReportOperation",
+  "SetFields",
+  "SetPageHidden",
+  "SetPageSize",
+  "SetPosition",
+  "SetSort",
+  "SetVisualHidden",
+  "ThemeColorRef",
+  "UpdateMeasure",
+  "_DISPLAY_UNITS",
+  "_HANDLERS",
+  "_MAX_STEPS",
+  "_OPERATION_ADAPTER",
+  "_SHAPE_ERRORS",
+  "__all__",
+  "_apply_add_page",
+  "_apply_add_visual",
+  "_apply_arrange",
+  "_apply_change_visual_type",
+  "_apply_delete_page",
+  "_apply_delete_visual",
+  "_apply_duplicate_page",
+  "_apply_duplicate_visual",
+  "_apply_move_page",
+  "_apply_rename_page",
+  "_apply_set_fields",
+  "_apply_set_page_hidden",
+  "_apply_set_page_size",
+  "_apply_set_position",
+  "_apply_set_sort",
+  "_apply_set_visual_hidden",
+  "_assign_roles",
+  "_category_selector",
+  "_check_create_measure",
+  "_check_delete_measure",
+  "_check_rename_measure",
+  "_check_update_measure",
+  "_color_arg",
+  "_describe_step",
+  "_drop_selectors",
+  "_field_projection",
+  "_has",
+  "_insert_page",
+  "_label",
+  "_new_page",
+  "_objects",
+  "_page_bounds",
+  "_projections",
+  "_query_state",
+  "_rename_references",
+  "_run_operations",
+  "_series_selector",
+  "_set",
+  "_uses_measure",
+  "_visual_op",
+  "_visual_type",
+  "_z_values",
+  "apply_operations",
+  "apply_report_operations",
+  "parse_operations",
+  "validate_document",
+  "visible_caption"
+ ],
+ "scenarios": {
+  "add_a_type_studio_cannot_add": {
+   "error": "Studio cannot add a map visual yet"
+  },
+  "add_aggregated_column": {
+   "summaries": [
+    "Added a stacked column chart of StoreName and Average of Salary to page '1'. Power BI titles it 'Average of Salary by StoreName' by itself."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The stacked column chart of StoreName overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "b649d1a2e9f69e2759b250ac56e0d63ab6e1fa33a2afb873183d04aa9126c3ae",
+     "bytes": 748,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":300,\"width\":400,\"tabOrder\":15000},\"visual\":{\"visualType\":\"columnChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"StoreName\"}]},\"Y\":{\"projections\":[{\"field\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimEmployee\"}},\"Property\":\"Salary\"}},\"Function\":1}},\"queryRef\":\"Average(DimEmployee.Salary)\",\"nativeQueryRef\":\"Average of Salary\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_an_unknown_field": {
+   "error": "DimStore has no column or measure named 'Nope'"
+  },
+  "add_an_unknown_type": {
+   "error": "Studio cannot add a hologram visual yet"
+  },
+  "add_card": {
+   "summaries": [
+    "Added a card of Table MTD Sales to page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The 'Table MTD Sales' card overlaps the table of Agent ID."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "efd9bb2778c14627539f61365681225503bb26650514b842b785fe98c3430dc9",
+     "bytes": 529,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":1620,\"y\":1100,\"z\":15000,\"height\":100,\"width\":300,\"tabOrder\":15000},\"visual\":{\"visualType\":\"card\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Table MTD Sales\"}},\"queryRef\":\"# Measures.Table MTD Sales\",\"nativeQueryRef\":\"Table MTD Sales\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_column_chart": {
+   "summaries": [
+    "Added a clustered column chart of ChannelName and Rank to page '1'. Its title is 'Rank by channel'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The 'Rank by channel' clustered column chart overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "d1cc308be6bec53db1c8d9e43a364e28b83704f4ad9defaac755523cb47173c8",
+     "bytes": 853,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":300,\"width\":400,\"tabOrder\":15000},\"visual\":{\"visualType\":\"clusteredColumnChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"ChannelName\"}]},\"Y\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]}}},\"drillFilterOtherVisuals\":true,\"visualContainerObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Rank by channel'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}"
+    }
+   },
+   "removed": []
+  },
+  "add_from_an_unknown_table": {
+   "summaries": [
+    "Added a card of Rank to page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "d9a75ec36fd34f35a59f46bfda573fa1753b618bd3c786c696b9ec1569a9a411",
+     "bytes": 490,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":120,\"width\":200,\"tabOrder\":15000},\"visual\":{\"visualType\":\"card\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_missing_a_required_role": {
+   "error": "A clustered column chart needs a field for Y-axis."
+  },
+  "add_names_in_the_wrong_case": {
+   "summaries": [
+    "Added a table of StoreName and Salary to page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The table of StoreName overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "a79e518043ea6b2071fa83ef97f8aa346e9f663686a15c0fecbf8bba00155dc2",
+     "bytes": 656,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":350,\"width\":600,\"tabOrder\":15000},\"visual\":{\"visualType\":\"tableEx\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"StoreName\"},{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimEmployee\"}},\"Property\":\"Salary\"}},\"queryRef\":\"DimEmployee.Salary\",\"nativeQueryRef\":\"Salary\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_numeric_column_with_no_aggregation_to_a_pie": {
+   "error": "How should Salary be summarized? Power BI has no default summary for it.",
+   "asks": {
+    "step": 1,
+    "options": [
+     {
+      "label": "Sum of Salary",
+      "fill": {
+       "fields": [
+        {
+         "table": "dimstore",
+         "name": "storename"
+        },
+        {
+         "table": "DimEmployee",
+         "name": "salary",
+         "aggregation": "Sum"
+        }
+       ]
+      }
+     },
+     {
+      "label": "Average of Salary",
+      "fill": {
+       "fields": [
+        {
+         "table": "dimstore",
+         "name": "storename"
+        },
+        {
+         "table": "DimEmployee",
+         "name": "salary",
+         "aggregation": "Average"
+        }
+       ]
+      }
+     },
+     {
+      "label": "Count (distinct) of Salary",
+      "fill": {
+       "fields": [
+        {
+         "table": "dimstore",
+         "name": "storename"
+        },
+        {
+         "table": "DimEmployee",
+         "name": "salary",
+         "aggregation": "Count"
+        }
+       ]
+      }
+     },
+     {
+      "label": "Minimum of Salary",
+      "fill": {
+       "fields": [
+        {
+         "table": "dimstore",
+         "name": "storename"
+        },
+        {
+         "table": "DimEmployee",
+         "name": "salary",
+         "aggregation": "Min"
+        }
+       ]
+      }
+     },
+     {
+      "label": "Maximum of Salary",
+      "fill": {
+       "fields": [
+        {
+         "table": "dimstore",
+         "name": "storename"
+        },
+        {
+         "table": "DimEmployee",
+         "name": "salary",
+         "aggregation": "Max"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "add_scatter": {
+   "summaries": [
+    "Added a scatter chart of StoreName, Rank and Table MTD Sales to page '1'. Power BI titles it 'Table MTD Sales by Rank and StoreName' by itself."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The scatter chart of StoreName overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "61bec5751e856017c0d38790c3a06a3af2d991fb43f368dc16f1521dda111091",
+     "bytes": 879,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":350,\"width\":500,\"tabOrder\":15000},\"visual\":{\"visualType\":\"scatterChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"StoreName\"}]},\"X\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]},\"Y\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Table MTD Sales\"}},\"queryRef\":\"# Measures.Table MTD Sales\",\"nativeQueryRef\":\"Table MTD Sales\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_scatter_of_two_measures": {
+   "summaries": [
+    "Added a scatter chart of Table MTD Sales and Rank to page '1'. Power BI titles it 'Rank by Table MTD Sales' by itself."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The scatter chart of Table MTD Sales overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "6de432c66c1c4a6244120ece3e732a7ade08346cc84765c95432ce1405e33a15",
+     "bytes": 694,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":350,\"width\":500,\"tabOrder\":15000},\"visual\":{\"visualType\":\"scatterChart\",\"query\":{\"queryState\":{\"X\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Table MTD Sales\"}},\"queryRef\":\"# Measures.Table MTD Sales\",\"nativeQueryRef\":\"Table MTD Sales\"}]},\"Y\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_slicer": {
+   "summaries": [
+    "Added a slicer of ChannelName to page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The slicer of ChannelName overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "10e29ce5dc3a82d8c66c6ff769c4adb1232db2906369bb9dfdcd88d4839af2d0",
+     "bytes": 512,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":280,\"width\":200,\"tabOrder\":15000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"ChannelName\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_table": {
+   "summaries": [
+    "Added a table of EmployeeKey, StoreName and Rank to page 'Details'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The table of EmployeeKey overlaps the action button at 40, 620."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000001/visual.json": {
+     "sha256": "94f4c1ff35f5e13035a15f4400deab6f807cc99bcacd46eafa7ca7fd973ea6fd",
+     "bytes": 818,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":320,\"z\":8000,\"height\":350,\"width\":1280,\"tabOrder\":8000},\"visual\":{\"visualType\":\"tableEx\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimEmployee\"}},\"Property\":\"EmployeeKey\"}},\"queryRef\":\"DimEmployee.EmployeeKey\",\"nativeQueryRef\":\"EmployeeKey\"},{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"StoreName\"},{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_to_an_unknown_page": {
+   "error": "There is no page named 'Nowhere'. Pages: '1'."
+  },
+  "add_with_no_room_for_a_field": {
+   "error": "A card has no room for dummy."
+  },
+  "add_without_fields": {
+   "invalid": [
+    [
+     "too_short",
+     [
+      "operations",
+      "0",
+      "add_visual",
+      "fields"
+     ]
+    ]
+   ]
+  },
+  "arrange_back": {
+   "summaries": [
+    "Sent the 'Total MTD Sales' stacked column chart to the back."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "30c8df01445bd0cbfedd84b3abb7d96cc0a53ed366ae0c2ad3785c6a0b4b025a",
+     "bytes": 5198
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/29ba010b20b2162d1536/visual.json": {
+     "sha256": "9a7695245e5d3156e4198cc6451f5b527163b8085b84120c7980e14a9d8be6f6",
+     "bytes": 4506
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/71a164765d9c63200302/visual.json": {
+     "sha256": "34a5cb96b29a65205b56b3cf70214a25ee4f7a8add6d17575de34214a935176b",
+     "bytes": 5543
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/9479353528b0eb22b958/visual.json": {
+     "sha256": "23befd6270f44be8b9c88760e6fbae031ae5581a59e9847b34825626c623183b",
+     "bytes": 6014
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/953a59a3cad98b0b5a39/visual.json": {
+     "sha256": "df341e26adbed07102d49899ede23f707fa832cb7f14517e9a899d24e7e0d82a",
+     "bytes": 2021,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"953a59a3cad98b0b5a39\",\"position\":{\"x\":534.2857142857143,\"y\":520,\"z\":2000,\"height\":105,\"width\":288.5714285714286,\"tabOrder\":1000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Top-Bottom-N\"}},\"Property\":\"Top-Bottom-N\"}},\"queryRef\":\"Top-Bottom-N.Top-Bottom-N\",\"nativeQueryRef\":\"Top-Bottom-N\",\"active\":true}]}}},\"objects\":{\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}],\"data\":[{\"properties\":{\"numericStart\":{\"expr\":{\"Literal\":{\"Value\":\"6D\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Top-Bottom-N\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Top-Bottom-N\"}},\"Right\":{\"Literal\":{\"Value\":\"6D\"}}}}}]}},\"responsive\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"numericInputStyle\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'\"}}}}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "36663ace963321aeaf505d365fda434a029848b55658ef44ff66ed86487f6beb",
+     "bytes": 2874
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/e82e02f93055d6b0b544/visual.json": {
+     "sha256": "c06f6f56e939911d14c8b483a7c466fd4371aea079e0fed866e905ce00faa0b7",
+     "bytes": 6370
+    }
+   },
+   "removed": []
+  },
+  "arrange_backward": {
+   "summaries": [
+    "Moved the 'Total MTD Sales' stacked column chart one step backward."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/71a164765d9c63200302/visual.json": {
+     "sha256": "34a5cb96b29a65205b56b3cf70214a25ee4f7a8add6d17575de34214a935176b",
+     "bytes": 5543
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "262ba5f0507439fd0bdc0b19b5a2efe21bbaa0d281cd2e30edde0de99e0a3886",
+     "bytes": 2877
+    }
+   },
+   "removed": []
+  },
+  "arrange_forward": {
+   "summaries": [
+    "Moved the 'Total MTD Sales' stacked column chart one step forward."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "bf7c4452c2ca6258fc0683d5825da2b5055f1f708ea74fbb1598e4cdf32b9b85",
+     "bytes": 2877
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/da32cdbb0090e885649b/visual.json": {
+     "sha256": "46fad2e55bc66da155c9f20c221fa3727b30c45210ba8135bb253a58f3f8e10b",
+     "bytes": 3150
+    }
+   },
+   "removed": []
+  },
+  "arrange_front": {
+   "summaries": [
+    "Brought the 'Total MTD Sales' stacked column chart to the front."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "aa4cdbacfc0b9522c4e02287eacc0f5f9550de20da6a15dd6e95fe21e7b495ae",
+     "bytes": 2878
+    }
+   },
+   "removed": []
+  },
+  "arrange_the_bottom_visual_back": {
+   "summaries": [
+    "The table of Agent ID is already at the back."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "arrange_the_top_visual_forward": {
+   "summaries": [
+    "The action button at 1668, 110 is already at the front."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "arrange_two_in_a_row": {
+   "summaries": [
+    "Brought the 'Agents Avg MTD Sales' card to the front.",
+    "Sent the 'Total MTD Sales' stacked column chart to the back."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "67a7fedca8c9538d50c4b39642334aeb28b54b4b8148f7a01a75d7d37e21d3b8",
+     "bytes": 5199
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/29ba010b20b2162d1536/visual.json": {
+     "sha256": "7e43498d6dd7346712d38171c789879c4ef46998c0c2f0794ce4f107ed0dd02d",
+     "bytes": 4506
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/71a164765d9c63200302/visual.json": {
+     "sha256": "34a5cb96b29a65205b56b3cf70214a25ee4f7a8add6d17575de34214a935176b",
+     "bytes": 5543
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/9479353528b0eb22b958/visual.json": {
+     "sha256": "23befd6270f44be8b9c88760e6fbae031ae5581a59e9847b34825626c623183b",
+     "bytes": 6014
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/953a59a3cad98b0b5a39/visual.json": {
+     "sha256": "df341e26adbed07102d49899ede23f707fa832cb7f14517e9a899d24e7e0d82a",
+     "bytes": 2021,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"953a59a3cad98b0b5a39\",\"position\":{\"x\":534.2857142857143,\"y\":520,\"z\":2000,\"height\":105,\"width\":288.5714285714286,\"tabOrder\":1000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Top-Bottom-N\"}},\"Property\":\"Top-Bottom-N\"}},\"queryRef\":\"Top-Bottom-N.Top-Bottom-N\",\"nativeQueryRef\":\"Top-Bottom-N\",\"active\":true}]}}},\"objects\":{\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}],\"data\":[{\"properties\":{\"numericStart\":{\"expr\":{\"Literal\":{\"Value\":\"6D\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Top-Bottom-N\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Top-Bottom-N\"}},\"Right\":{\"Literal\":{\"Value\":\"6D\"}}}}}]}},\"responsive\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"numericInputStyle\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'\"}}}}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "36663ace963321aeaf505d365fda434a029848b55658ef44ff66ed86487f6beb",
+     "bytes": 2874
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/e82e02f93055d6b0b544/visual.json": {
+     "sha256": "c06f6f56e939911d14c8b483a7c466fd4371aea079e0fed866e905ce00faa0b7",
+     "bytes": 6370
+    }
+   },
+   "removed": []
+  },
+  "arrange_unknown_visual": {
+   "error": "There is no visual 'nope' in this report. Visuals in this report: the table of Agent ID, the slicer of Top-Bottom-N, the 'Top/Bottom Field' button slicer, the 'Agents with Positive Change %' card, the 'Agents Avg MTD Sales' card, the 'Agents Avg MTD % Change' card and 9 more."
+  },
+  "batch_of_a_page_and_its_visuals": {
+   "summaries": [
+    "Added page 'Fresh'.",
+    "Added a card of Rank to page 'Fresh'.",
+    "Duplicated the 'Total MTD Sales' stacked column chart onto page 'Fresh'.",
+    "Moved page 'Fresh' to position 1.",
+    "Renamed page 'Fresh' to 'Fresher'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "501a916fd7c989255de58db4c4cbb543552b5ccb370343f53a5daa722da1f3d2",
+     "bytes": 232,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"Fresher\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000002/visual.json": {
+     "sha256": "6aee9fbc5f0f241167c640778696eaff19d0418e67c1224085f24f7954b0f394",
+     "bytes": 482,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000002\",\"position\":{\"x\":0,\"y\":0,\"z\":0,\"height\":120,\"width\":200,\"tabOrder\":0},\"visual\":{\"visualType\":\"card\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000003/visual.json": {
+     "sha256": "c6dba90e861f4e03caffb6dbd3d0096b1ec5199016aa36287f2946340835995d",
+     "bytes": 2846
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "3d0fe9cbf04f617be77490bf7a2efd83d8ceaa79b3e69be956ad32b42e9a4139",
+     "bytes": 259,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection00000000000000000001\",\"ReportSection8454c812b60b8bb83b99\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "batch_of_a_rename_only": {
+   "summaries": [
+    "Renamed measure [Unused Ratio] to [Ratio] and updated the visuals that use it."
+   ],
+   "model_operations": [
+    {
+     "op": "rename_measure",
+     "name": "Unused Ratio",
+     "new_name": "Ratio"
+    }
+   ],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Ratio": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "batch_of_model_operations_only": {
+   "summaries": [
+    "Created measure [Margin] in # Measures.",
+    "Deleted measure [Unused Ratio]."
+   ],
+   "model_operations": [
+    {
+     "op": "create_measure",
+     "table": "# Measures",
+     "name": "Margin",
+     "expression": "1",
+     "format_string": null,
+     "folder": null,
+     "description": null
+    },
+    {
+     "op": "delete_measure",
+     "name": "Unused Ratio"
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Margin": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "batch_of_nothing": {
+   "invalid": [
+    [
+     "too_short",
+     [
+      "operations"
+     ]
+    ]
+   ]
+  },
+  "batch_of_the_most_allowed": {
+   "summaries": [
+    "Hid the 'Agents Avg MTD Sales' card.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden.",
+    "The 'Agents Avg MTD Sales' card was already hidden."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "6f4792823fbcd8ba27307ada41fb64830eb33651a8058cd41856cc33402e8fd0",
+     "bytes": 5214
+    }
+   },
+   "removed": []
+  },
+  "batch_of_too_many": {
+   "invalid": [
+    [
+     "too_long",
+     [
+      "operations"
+     ]
+    ]
+   ]
+  },
+  "batch_with_a_bad_value": {
+   "invalid": [
+    [
+     "literal_error",
+     [
+      "operations",
+      "0",
+      "arrange",
+      "to"
+     ]
+    ]
+   ]
+  },
+  "batch_with_a_missing_value": {
+   "invalid": [
+    [
+     "missing",
+     [
+      "operations",
+      "0",
+      "set_visual_hidden",
+      "hidden"
+     ]
+    ]
+   ]
+  },
+  "batch_with_an_unknown_field": {
+   "invalid": [
+    [
+     "extra_forbidden",
+     [
+      "operations",
+      "0",
+      "arrange",
+      "speed"
+     ]
+    ]
+   ]
+  },
+  "batch_with_an_unknown_op": {
+   "invalid": [
+    [
+     "union_tag_invalid",
+     [
+      "operations",
+      "0"
+     ]
+    ]
+   ]
+  },
+  "batch_with_no_op": {
+   "invalid": [
+    [
+     "union_tag_not_found",
+     [
+      "operations",
+      "0"
+     ]
+    ]
+   ]
+  },
+  "delete_a_group_and_its_visuals": {
+   "summaries": [
+    "Deleted the group 'Header block' and the 4 visuals in it. It was also removed from 1 bookmark."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/bookmarks/Bookmark213a31c763c98e893e32.bookmark.json": {
+     "sha256": "66f63eac798d3bc3ef8aac605467da0a5c38018d6d8a4f1f5b33a9acd30fc85d",
+     "bytes": 379,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json\",\"displayName\":\"Details view\",\"name\":\"Bookmark213a31c763c98e893e32\",\"options\":{\"targetVisualNames\":[]},\"explorationState\":{\"version\":\"1.3\",\"activeSection\":\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"sections\":{\"ReportSection3f1c0d5e7a9b2c4d6e8f\":{\"visualContainers\":{}}}}}"
+    }
+   },
+   "removed": [
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/04ba32659627f6e8c7d7/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/2b5b8e3a7ed15138a983/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/40c896eda14bfa8f6a97/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/7799291338ca3548d7d5/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/dfb4645ec076d1209ebe/visual.json"
+   ]
+  },
+  "delete_an_inner_group": {
+   "summaries": [
+    "Deleted the group 'Filters' and the 2 visuals in it. It was also removed from 1 bookmark."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/bookmarks/Bookmark213a31c763c98e893e32.bookmark.json": {
+     "sha256": "657fbee0594c9ab2a872a2041b01c0ed76bfec16fdecc1fb8b4049c79531879e",
+     "bytes": 468,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json\",\"displayName\":\"Details view\",\"name\":\"Bookmark213a31c763c98e893e32\",\"options\":{\"targetVisualNames\":[\"dfb4645ec076d1209ebe\"]},\"explorationState\":{\"version\":\"1.3\",\"activeSection\":\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"sections\":{\"ReportSection3f1c0d5e7a9b2c4d6e8f\":{\"visualContainers\":{\"dfb4645ec076d1209ebe\":{\"singleVisual\":{\"visualType\":\"cardVisual\"}}}}}}}"
+    }
+   },
+   "removed": [
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/04ba32659627f6e8c7d7/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/2b5b8e3a7ed15138a983/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/7799291338ca3548d7d5/visual.json"
+   ]
+  },
+  "delete_two_visuals": {
+   "summaries": [
+    "Deleted the 'Total MTD Sales' stacked column chart.",
+    "Deleted the 'Avg MTD Sales by Agents' stacked column chart."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": [
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json",
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/da32cdbb0090e885649b/visual.json"
+   ]
+  },
+  "delete_unknown_visual": {
+   "error": "There is no visual 'nope' in this report. Visuals in this report: the table of Agent ID, the slicer of Top-Bottom-N, the 'Top/Bottom Field' button slicer, the 'Agents with Positive Change %' card, the 'Agents Avg MTD Sales' card, the 'Agents Avg MTD % Change' card and 9 more."
+  },
+  "delete_visual": {
+   "summaries": [
+    "Deleted the 'Total MTD Sales' stacked column chart."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": [
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json"
+   ]
+  },
+  "duplicate_a_group": {
+   "summaries": [
+    "Duplicated the group 'Header block' and the 4 visuals in it onto page 'Details'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000001/visual.json": {
+     "sha256": "1a2d90e0f6ce9499ce893671cb08f960c4aca7eaf278283cf1494dc9fb632f78",
+     "bytes": 300,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":550,\"y\":60,\"z\":8000,\"height\":200,\"width\":420,\"tabOrder\":8000},\"visualGroup\":{\"displayName\":\"Header block\",\"groupMode\":\"ScaleMode\"}}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000002/visual.json": {
+     "sha256": "2523bd22cb1529241f2313ce097d0a941405bdbda228fe5f95f6e89501b06e92",
+     "bytes": 334,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000002\",\"position\":{\"x\":40,\"y\":60,\"z\":9000,\"height\":60,\"width\":420,\"tabOrder\":9000},\"visualGroup\":{\"displayName\":\"Filters\",\"groupMode\":\"ScaleMode\"},\"parentGroupName\":\"00000000000000000001\"}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000003/visual.json": {
+     "sha256": "9e507157d1f3c9a16a69805f4e7dc92749434812069cfa5f717a0d2fc76e6c2a",
+     "bytes": 1431,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000003\",\"position\":{\"x\":40,\"y\":140,\"z\":12000,\"height\":120,\"width\":300,\"tabOrder\":10000},\"visual\":{\"visualType\":\"cardVisual\",\"query\":{\"queryState\":{\"Data\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"queryRef\":\"# Measures.dummy\",\"nativeQueryRef\":\"dummy\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"value\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"00000000000000000001\"}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000004/visual.json": {
+     "sha256": "b92f932cbd1eed122951128ef5341289efab28806a77febd295a59ceee95043c",
+     "bytes": 884,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000004\",\"position\":{\"x\":40,\"y\":60,\"z\":10000,\"height\":60,\"width\":200,\"tabOrder\":11000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"Store\",\"active\":true,\"displayName\":\"Store\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"00000000000000000002\"}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000005/visual.json": {
+     "sha256": "ab195d7d7093125f4a448a9da3ada2d200c01306f5335bc1294b2e6bd22c1cc2",
+     "bytes": 975,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000005\",\"position\":{\"x\":260,\"y\":60,\"z\":11000,\"height\":60,\"width\":200,\"tabOrder\":12000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"header\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Country'\"}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"00000000000000000002\"}"
+    }
+   },
+   "removed": []
+  },
+  "duplicate_a_grouped_visual": {
+   "summaries": [
+    "Duplicated the slicer of Store onto page 'Details'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000001/visual.json": {
+     "sha256": "23e5bb5e71e8682eabf745d9c18114b908aa10c23e84f47dc88a24e8a8d7af3b",
+     "bytes": 843,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":550,\"y\":180,\"z\":8000,\"height\":60,\"width\":200,\"tabOrder\":8000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"Store\",\"active\":true,\"displayName\":\"Store\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "duplicate_at_a_spot": {
+   "summaries": [
+    "Duplicated the 'Agents Avg MTD Sales' card onto page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The 'Agents Avg MTD Sales' card overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "da850bde54568fc4031cce6833506b7b8cf504e9f0a5f1432e6c2c3584a87d3b",
+     "bytes": 5198
+    }
+   },
+   "removed": []
+  },
+  "duplicate_on_the_same_page": {
+   "summaries": [
+    "Duplicated the 'Total MTD Sales' stacked column chart onto page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The 'Total MTD Sales' stacked column chart overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "6d92e92fa1afb73d868902c0282a1ac0876076b617ea6ed3f1af4d63374d190d",
+     "bytes": 2846
+    }
+   },
+   "removed": []
+  },
+  "duplicate_onto_a_small_page": {
+   "summaries": [
+    "Duplicated the table of Agent ID onto page 'Sales tooltip'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The table of Agent ID overlaps the 'TopN/BottomN' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSectionb7e9f1a3c5d7e9f1a3b5/visuals/00000000000000000001/visual.json": {
+     "sha256": "9d1a15261299e17c923157efe5aefa613c0e60551809ea8ca399c350732df6d3",
+     "bytes": 7165
+    }
+   },
+   "removed": []
+  },
+  "duplicate_onto_another_page": {
+   "summaries": [
+    "Duplicated the 'Total MTD Sales' stacked column chart onto page 'Details'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/00000000000000000001/visual.json": {
+     "sha256": "0f9274e5616d857ea11bb451b3de401737b3dd66aa3c1ed95087105b8301e0fe",
+     "bytes": 3058
+    }
+   },
+   "removed": []
+  },
+  "duplicate_to_an_unknown_page": {
+   "error": "There is no page named 'Nowhere'. Pages: '1', 'Details', 'Store drillthrough' and 'Sales tooltip'."
+  },
+  "duplicate_twice": {
+   "summaries": [
+    "Duplicated the 'Agents Avg MTD Sales' card onto page '1'.",
+    "Duplicated the 'Agents Avg MTD Sales' card onto page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The 'Agents Avg MTD Sales' card overlaps the 'Agents with Positive Change %' card.",
+    "There is no free space left on the page, so it was put where it covers the least.",
+    "The 'Agents Avg MTD Sales' card overlaps the 'Avg Discount per Transaction' stacked column chart."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "978d0b1ca0bd13264c157be4cf956fd699e933e1842ef8b40b2b443720fed485",
+     "bytes": 5196
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000002/visual.json": {
+     "sha256": "a7aa9e3f5f7e0fc7e543002b8e2ce3bdde0a2394d6981fc9766ca39e6192ecf7",
+     "bytes": 5198
+    }
+   },
+   "removed": []
+  },
+  "fields_add": {
+   "summaries": [
+    "Added Table MTD Sales to Y-axis of the 'Total MTD Sales' stacked column chart."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "40e0b609624d380f887290f93e714281a073c62cb9bae22d616036e15cfb5252",
+     "bytes": 3056
+    }
+   },
+   "removed": []
+  },
+  "fields_add_an_aggregated_column": {
+   "summaries": [
+    "Set Y-axis of the 'Total MTD Sales' stacked column chart to Max of Salary. Removed the sort by TopN/BottomN/ MTD Sales."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "ee7451672ccbdf60006a31bf483fa7ddb1d53e9479663b80451e8cf46cb5091f",
+     "bytes": 2697
+    }
+   },
+   "removed": []
+  },
+  "fields_add_to_a_table": {
+   "summaries": [
+    "Added StoreName and Salary to Columns of the table of Agent ID."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/e82e02f93055d6b0b544/visual.json": {
+     "sha256": "7637b7c6a9c3948ca193d6b21281411fc3681a7f890793167faa3a81deb14a6f",
+     "bytes": 6676
+    }
+   },
+   "removed": []
+  },
+  "fields_more_than_the_role_takes": {
+   "summaries": [
+    "Added StoreName to X-axis of the 'Total MTD Sales' stacked column chart."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "939a1a713692dd6ebd72ee4a7af5817d32e0dc269c11456df70180096571017d",
+     "bytes": 3033
+    }
+   },
+   "removed": []
+  },
+  "fields_on_an_unlisted_type": {
+   "error": "An actionButton has no 'Values' field well."
+  },
+  "fields_remove": {
+   "summaries": [
+    "Removed Clustered Employees from X-axis of the 'Total MTD Sales' stacked column chart. Removed 3 formatting settings for Clustered Employees."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "a6ea84e6b070f9adc71f379a81ca3a1a7016a99abeb1a24eee24cc99a6a258e6",
+     "bytes": 1666,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"b404a461ede7604a2774\",\"position\":{\"x\":174.32432432432432,\"y\":645.9459459459459,\"z\":6000,\"height\":224.32432432432432,\"width\":360.81081081081084,\"tabOrder\":7000},\"visual\":{\"visualType\":\"columnChart\",\"query\":{\"queryState\":{\"Y\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"TopN/BottomN/ MTD Sales\"}},\"queryRef\":\"# Measures.TopN/BottomN/ MTD Sales\",\"nativeQueryRef\":\"TopN/BottomN/ MTD Sales\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"TopN/BottomN/ MTD Sales\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"16D\"}}}}}],\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"innerPadding\":{\"expr\":{\"Literal\":{\"Value\":\"45L\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total MTD Sales'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "fields_remove_a_measure_with_a_sort": {
+   "summaries": [
+    "Removed TopN/BottomN/ MTD Sales from Y-axis of the 'Total MTD Sales' stacked column chart. Removed the sort by TopN/BottomN/ MTD Sales."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "db8afc212ccf28d1fea59da5af790a07470aad1a32cca8d1d2e88f84bc4160db",
+     "bytes": 2466,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"b404a461ede7604a2774\",\"position\":{\"x\":174.32432432432432,\"y\":645.9459459459459,\"z\":6000,\"height\":224.32432432432432,\"width\":360.81081081081084,\"tabOrder\":7000},\"visual\":{\"visualType\":\"columnChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"queryRef\":\"Clustered Employees.Clustered Employees\",\"nativeQueryRef\":\"Clustered Employees\",\"active\":true}]}}},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"16D\"}}}}}],\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"innerPadding\":{\"expr\":{\"Literal\":{\"Value\":\"45L\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"Right\":{\"Literal\":{\"Value\":\"'Others'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#1E90FF'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"Right\":{\"Literal\":{\"Value\":\"'TopN'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#A30024'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"Right\":{\"Literal\":{\"Value\":\"'BottomN'\"}}}}}]}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total MTD Sales'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "fields_remove_what_is_not_there": {
+   "error": "None of those fields are in Y-axis. It holds TopN/BottomN/ MTD Sales."
+  },
+  "fields_replace": {
+   "summaries": [
+    "Set Y-axis of the 'Total MTD Sales' stacked column chart to Rank. Removed the sort by TopN/BottomN/ MTD Sales."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "58462593f456823cc06b2b32c2d6ad7575f17166576fbb4aa85970ceb890eceb",
+     "bytes": 2634
+    }
+   },
+   "removed": []
+  },
+  "fields_replace_a_sorted_measure": {
+   "summaries": [
+    "Set Y-axis of the 'Total MTD Sales' stacked column chart to Rank and dummy. Removed the sort by TopN/BottomN/ MTD Sales."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "2553d3982caafbf5b32077d358ae62e680cf0ede266a3f5450efaf96d7d02636",
+     "bytes": 2783
+    }
+   },
+   "removed": []
+  },
+  "fields_replace_with_nothing": {
+   "summaries": [
+    "Set Y-axis of the 'Total MTD Sales' stacked column chart to nothing. Removed the sort by TopN/BottomN/ MTD Sales."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "db8afc212ccf28d1fea59da5af790a07470aad1a32cca8d1d2e88f84bc4160db",
+     "bytes": 2466,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"b404a461ede7604a2774\",\"position\":{\"x\":174.32432432432432,\"y\":645.9459459459459,\"z\":6000,\"height\":224.32432432432432,\"width\":360.81081081081084,\"tabOrder\":7000},\"visual\":{\"visualType\":\"columnChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"queryRef\":\"Clustered Employees.Clustered Employees\",\"nativeQueryRef\":\"Clustered Employees\",\"active\":true}]}}},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"16D\"}}}}}],\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"innerPadding\":{\"expr\":{\"Literal\":{\"Value\":\"45L\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"Right\":{\"Literal\":{\"Value\":\"'Others'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#1E90FF'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"Right\":{\"Literal\":{\"Value\":\"'TopN'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#A30024'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Clustered Employees\"}},\"Property\":\"Clustered Employees\"}},\"Right\":{\"Literal\":{\"Value\":\"'BottomN'\"}}}}}]}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total MTD Sales'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "fields_unknown_role": {
+   "error": "A stacked column chart has no 'Sparkle' field well. Its field wells are X-axis, Legend, Y-axis, Small multiples and Tooltips."
+  },
+  "hide_a_group": {
+   "summaries": [
+    "Hid the group 'Header block'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/40c896eda14bfa8f6a97/visual.json": {
+     "sha256": "afb40ddd9bf825432707edbe8a26513b8feddc3ee04ebcb09154d5a4e6d50056",
+     "bytes": 315,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"40c896eda14bfa8f6a97\",\"position\":{\"x\":40,\"y\":60,\"z\":1000,\"height\":200,\"width\":420,\"tabOrder\":1000},\"visualGroup\":{\"displayName\":\"Header block\",\"groupMode\":\"ScaleMode\"},\"isHidden\":true}"
+    }
+   },
+   "removed": []
+  },
+  "hide_unknown_visual": {
+   "error": "There is no visual 'nope' in this report. Visuals in this report: the table of Agent ID, the slicer of Top-Bottom-N, the 'Top/Bottom Field' button slicer, the 'Agents with Positive Change %' card, the 'Agents Avg MTD Sales' card, the 'Agents Avg MTD % Change' card and 9 more."
+  },
+  "hide_visual": {
+   "summaries": [
+    "Hid the 'Agents Avg MTD Sales' card."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "6f4792823fbcd8ba27307ada41fb64830eb33651a8058cd41856cc33402e8fd0",
+     "bytes": 5214
+    }
+   },
+   "removed": []
+  },
+  "measure_create": {
+   "summaries": [
+    "Created measure [Avg Discount] in # measures."
+   ],
+   "model_operations": [
+    {
+     "op": "create_measure",
+     "table": "# measures",
+     "name": "Avg Discount",
+     "expression": "AVERAGE(Sales[Discount])",
+     "format_string": "0.0%",
+     "folder": "Discounts",
+     "description": "Average discount"
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Avg Discount": "# Measures",
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_create_in_a_data_table": {
+   "summaries": [
+    "Created measure [Stores] in DimStore."
+   ],
+   "model_operations": [
+    {
+     "op": "create_measure",
+     "table": "DimStore",
+     "name": "Stores",
+     "expression": "COUNTROWS(DimStore)",
+     "format_string": null,
+     "folder": null,
+     "description": null
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Stores": "DimStore",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_create_in_an_unknown_table": {
+   "error": "The model has no table 'Nowhere'"
+  },
+  "measure_create_that_exists": {
+   "error": "A measure named 'rank' already exists"
+  },
+  "measure_create_then_delete": {
+   "summaries": [
+    "Created measure [Temp] in # Measures.",
+    "Deleted measure [Temp]."
+   ],
+   "model_operations": [
+    {
+     "op": "create_measure",
+     "table": "# Measures",
+     "name": "Temp",
+     "expression": "1",
+     "format_string": null,
+     "folder": null,
+     "description": null
+    },
+    {
+     "op": "delete_measure",
+     "name": "Temp"
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_delete_one_that_a_visual_uses": {
+   "error": "[Rank] is used by 1 visual: table 'Agent ID'. Remove or change those first."
+  },
+  "measure_delete_one_used_by_many": {
+   "error": "[dummy] is used by 4 visuals: card 'TopN/BottomN', card 'TopN/BottomN', card 'TopN/BottomN' and 1 more. Remove or change those first."
+  },
+  "measure_delete_unknown": {
+   "error": "There is no measure named 'Ghost'"
+  },
+  "measure_delete_unused": {
+   "summaries": [
+    "Deleted measure [Unused Ratio]."
+   ],
+   "model_operations": [
+    {
+     "op": "delete_measure",
+     "name": "Unused Ratio"
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_rename_and_follow_the_visuals": {
+   "summaries": [
+    "Renamed measure [Rank] to [Position] and updated the visuals that use it."
+   ],
+   "model_operations": [
+    {
+     "op": "rename_measure",
+     "name": "Rank",
+     "new_name": "Position"
+    }
+   ],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Position": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/e82e02f93055d6b0b544/visual.json": {
+     "sha256": "9405a734d64f222207f5a9e8b89d8013d24c5ab3e05d2ba1704a98094c85ec5b",
+     "bytes": 6379
+    }
+   },
+   "removed": []
+  },
+  "measure_rename_to_an_existing_name": {
+   "error": "A measure named 'DUMMY' already exists"
+  },
+  "measure_rename_unknown": {
+   "error": "There is no measure named 'Ghost'"
+  },
+  "measure_rename_unused": {
+   "summaries": [
+    "Renamed measure [Unused Ratio] to [Ratio] and updated the visuals that use it."
+   ],
+   "model_operations": [
+    {
+     "op": "rename_measure",
+     "name": "Unused Ratio",
+     "new_name": "Ratio"
+    }
+   ],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Ratio": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_rename_used_in_charts": {
+   "summaries": [
+    "Renamed measure [TopN/BottomN/ MTD Sales] to [Best MTD Sales] and updated the visuals that use it."
+   ],
+   "model_operations": [
+    {
+     "op": "rename_measure",
+     "name": "TopN/BottomN/ MTD Sales",
+     "new_name": "Best MTD Sales"
+    }
+   ],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Best MTD Sales": "# Measures",
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "e7eea0481c8da3fed49a69193be06bd22d3a43365c5e93effd76aca50b7aa97b",
+     "bytes": 3062
+    }
+   },
+   "removed": []
+  },
+  "measure_update": {
+   "summaries": [
+    "Updated measure [Unused Ratio] (expression, format string)."
+   ],
+   "model_operations": [
+    {
+     "op": "update_measure",
+     "name": "Unused Ratio",
+     "expression": "2",
+     "format_string": "0",
+     "folder": null,
+     "description": null
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_update_nothing": {
+   "error": "Say what to change in the measure"
+  },
+  "measure_update_the_folder": {
+   "summaries": [
+    "Updated measure [dummy] (folder, description)."
+   ],
+   "model_operations": [
+    {
+     "op": "update_measure",
+     "name": "dummy",
+     "expression": null,
+     "format_string": null,
+     "folder": "Misc",
+     "description": "d"
+    }
+   ],
+   "warnings": [],
+   "report_changed": false,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "measure_update_unknown": {
+   "error": "There is no measure named 'Ghost'"
+  },
+  "page_add_after_an_unknown_page": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1'"
+  },
+  "page_add_after_one": {
+   "summaries": [
+    "Added page 'Summary'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "c79353a013308cedb61d962385cdfb402567536d86c843bd6df5340103b88c4b",
+     "bytes": 237,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"Summary\",\"displayOption\":\"FitToPage\",\"height\":1080.0,\"width\":1920.0}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "35a2f80211e14046d4f2d50547c578b44e402cb2cd2a5a387b307c8d0444506a",
+     "bytes": 367,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSection00000000000000000001\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_add_after_the_first": {
+   "summaries": [
+    "Added page 'Second'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "3d61da5688fdd429e07abf7422a51e71d0a56be7cec3c43e4ecd9165ee006a67",
+     "bytes": 231,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"Second\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "3d814bab9e2caf3bb2750ce0eadeebc92c1a9eb934c0488e10f9010d8b53492d",
+     "bytes": 367,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection00000000000000000001\",\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_add_at_the_end": {
+   "summaries": [
+    "Added page 'Summary'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "f9531f2d667b95ab415a127dd7cafad442a05d27e34b8abd6b47aaf95e8ee392",
+     "bytes": 232,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"Summary\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "d885e601a8925a9c6a919a70b1cbc2d083dd92e14aed0b7ec36a9319dcac94df",
+     "bytes": 259,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection00000000000000000001\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_add_two": {
+   "summaries": [
+    "Added page 'A'.",
+    "Added page 'B'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "3a1a759a7bbd80d3e97052c6409cdfd9c997a42b3a98c5e08dfeff59d7a18f30",
+     "bytes": 226,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"A\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000002/page.json": {
+     "sha256": "28fc8c76f6875db1edb679bb63aad0b500f5e9bb81317bd4dddf1a640b2529af",
+     "bytes": 226,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000002\",\"displayName\":\"B\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "4099c536d557d42db7f1f424a82f6a1ec3e246648f2174c21c9614eea60f22e9",
+     "bytes": 295,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection00000000000000000001\",\"ReportSection00000000000000000002\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_add_with_a_taken_name": {
+   "error": "There is already a page named 'details'"
+  },
+  "page_delete": {
+   "error": "Page 'Details' is still used: On page '1', button eff2d7b0 navigates to this page; bookmark 'Details view' opens it. Deleting it switches those off, and a bookmark that only covers this page is deleted too.",
+   "asks": {
+    "kind": "remove_page_references",
+    "step": 1
+   }
+  },
+  "page_delete_a_tooltip": {
+   "error": "Page 'Sales tooltip' is still used: On page '1', column chart 'Total MTD Sales' uses this page as its tooltip. Deleting it switches that off, and a bookmark that only covers this page is deleted too.",
+   "asks": {
+    "kind": "remove_page_references",
+    "step": 1
+   }
+  },
+  "page_delete_a_tooltip_with_cleanup": {
+   "summaries": [
+    "Deleted page 'Sales tooltip'. Removed the tooltip of column chart 'Total MTD Sales' that used the deleted page."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "2605fb6379e642de157ffa7c2ad401ff795b39b8009b98b87c24add4646394b1",
+     "bytes": 2877
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "42f45a950f2b9c00c820968541f81a54a272bf6fd9eb2ba61000be746f4dfe09",
+     "bytes": 295,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": [
+    "Report/definition/pages/ReportSectionb7e9f1a3c5d7e9f1a3b5/page.json",
+    "Report/definition/pages/ReportSectionb7e9f1a3c5d7e9f1a3b5/visuals/ab18327bb6dba268ebf5/visual.json"
+   ]
+  },
+  "page_delete_both_of_two_pages": {
+   "error": "Step 3: A report needs at least one page"
+  },
+  "page_delete_the_last_one": {
+   "error": "A report needs at least one page"
+  },
+  "page_delete_unknown": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1', 2. 'Details', 3. 'Store drillthrough', 4. 'Sales tooltip'"
+  },
+  "page_delete_with_cleanup": {
+   "summaries": [
+    "Deleted page 'Details'. Removed the action of button eff2d7b0 that used the deleted page. Deleted the bookmark 'Details view' because it only covered the deleted page."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/bookmarks/bookmarks.json": {
+     "sha256": "6c014bab6d71151aae5c0d8d0c48de99dfd7a42583e028ac03a1dce756e2428b",
+     "bytes": 174,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json\",\"items\":[{\"name\":\"Bookmarkc7a5beae9c2a6a44bb3c\"}]}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/eff2d7b04706cc92f1db/visual.json": {
+     "sha256": "27af96ecf2622ea7f63725d864d82e8c2f3656da9d57875d5936ca2c8fcdc2ad",
+     "bytes": 453,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"eff2d7b04706cc92f1db\",\"position\":{\"x\":1668,\"y\":110,\"z\":15000,\"height\":40,\"width\":210,\"tabOrder\":15000},\"visual\":{\"visualType\":\"actionButton\",\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'Forward'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "3e0a31c7a884cfbfac51f95bef24a58265717de16e2a9f76b4dd7bd9812f400a",
+     "bytes": 295,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": [
+    "Report/definition/bookmarks/Bookmark213a31c763c98e893e32.bookmark.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/page.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/04ba32659627f6e8c7d7/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/2b5b8e3a7ed15138a983/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/40c896eda14bfa8f6a97/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/7799291338ca3548d7d5/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/81ab76274a5b4e9e62da/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/d6c05c8319906941fe02/visual.json",
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/dfb4645ec076d1209ebe/visual.json"
+   ]
+  },
+  "page_duplicate": {
+   "summaries": [
+    "Duplicated page 'Details' as 'Details (copy)'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "f8dd65605232868a83ea8f9313229a5f559229bd091464ce568c3bd22e86b693",
+     "bytes": 405,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"Details (copy)\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000002/visual.json": {
+     "sha256": "3816eccce808c9839de8e309c5d939a33f1546b07acc9846c08683332f8413bb",
+     "bytes": 299,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000002\",\"position\":{\"x\":40,\"y\":60,\"z\":1000,\"height\":200,\"width\":420,\"tabOrder\":1000},\"visualGroup\":{\"displayName\":\"Header block\",\"groupMode\":\"ScaleMode\"}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000003/visual.json": {
+     "sha256": "510e04536f6c5f7001e774fe5f82957c9f4d16af9864e5e90aa6fe421ed55a9f",
+     "bytes": 334,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000003\",\"position\":{\"x\":40,\"y\":60,\"z\":2000,\"height\":60,\"width\":420,\"tabOrder\":2000},\"visualGroup\":{\"displayName\":\"Filters\",\"groupMode\":\"ScaleMode\"},\"parentGroupName\":\"00000000000000000002\"}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000004/visual.json": {
+     "sha256": "ee0b928a0cf04f1062e6a1d582d7fa24e53a2b9bbb9db9cee60a8c5763d15f09",
+     "bytes": 882,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000004\",\"position\":{\"x\":40,\"y\":60,\"z\":3000,\"height\":60,\"width\":200,\"tabOrder\":3000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"Store\",\"active\":true,\"displayName\":\"Store\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"00000000000000000003\"}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000005/visual.json": {
+     "sha256": "5db064d8642c86d6989d3d2c203fa5933655f8626e82d291cab7fbd6f1c8a7f8",
+     "bytes": 973,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000005\",\"position\":{\"x\":260,\"y\":60,\"z\":4000,\"height\":60,\"width\":200,\"tabOrder\":4000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"header\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Country'\"}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"00000000000000000003\"}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000006/visual.json": {
+     "sha256": "d08c5c36a0d1b982413f532ff804c6ea5c3d120bc46ce82886ee73fa5d43da42",
+     "bytes": 1429,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000006\",\"position\":{\"x\":40,\"y\":140,\"z\":5000,\"height\":120,\"width\":300,\"tabOrder\":5000},\"visual\":{\"visualType\":\"cardVisual\",\"query\":{\"queryState\":{\"Data\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"queryRef\":\"# Measures.dummy\",\"nativeQueryRef\":\"dummy\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"value\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"00000000000000000002\"}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000007/visual.json": {
+     "sha256": "372bc482bb72159ca8f96493cfa2db93819d1aa4ef111eb543916ae100f823a6",
+     "bytes": 463,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000007\",\"position\":{\"x\":1000,\"y\":40,\"z\":6000,\"height\":120,\"width\":120,\"tabOrder\":6000},\"visual\":{\"visualType\":\"image\",\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"FixtureLogo.png\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000008/visual.json": {
+     "sha256": "5f15bc30b8fe590062dba3259ad062a8273f6d02a23a1d72534aad1b2ddc1679",
+     "bytes": 651,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000008\",\"position\":{\"x\":40,\"y\":620,\"z\":7000,\"height\":40,\"width\":200,\"tabOrder\":7000},\"visual\":{\"visualType\":\"actionButton\",\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'Forward'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmark'\"}}},\"bookmark\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmarkc7a5beae9c2a6a44bb3c'\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "35a2f80211e14046d4f2d50547c578b44e402cb2cd2a5a387b307c8d0444506a",
+     "bytes": 367,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSection00000000000000000001\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_duplicate_a_big_page": {
+   "summaries": [
+    "Duplicated page '1' as '1 (copy)'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "ca49c5c4ee13ea7844f5d94449de019d1c90cb26d46ee892e4eab165a7f4fd43",
+     "bytes": 673,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"1 (copy)\",\"displayOption\":\"FitToPage\",\"height\":1200,\"width\":1920,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F8F8F8'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Background-1-01.png'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Background-1-016077705666144604.png\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Fit'\"}}}}}}}]}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000002/visual.json": {
+     "sha256": "35285421d92279e267d959afe65d2d6a862f5095d812957b1343aa66b8893996",
+     "bytes": 6367
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000003/visual.json": {
+     "sha256": "8c0ab8fa6615287f7910ec12989265b8b8cc55133e0840d7ba0b6792ee998819",
+     "bytes": 2021,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000003\",\"position\":{\"x\":534.2857142857143,\"y\":520,\"z\":1000,\"height\":105,\"width\":288.5714285714286,\"tabOrder\":1000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Top-Bottom-N\"}},\"Property\":\"Top-Bottom-N\"}},\"queryRef\":\"Top-Bottom-N.Top-Bottom-N\",\"nativeQueryRef\":\"Top-Bottom-N\",\"active\":true}]}}},\"objects\":{\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}],\"data\":[{\"properties\":{\"numericStart\":{\"expr\":{\"Literal\":{\"Value\":\"6D\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Top-Bottom-N\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Top-Bottom-N\"}},\"Right\":{\"Literal\":{\"Value\":\"6D\"}}}}}]}},\"responsive\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"numericInputStyle\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'\"}}}}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000004/visual.json": {
+     "sha256": "5db5b37af037a1e1594a040bbf9607c564c602ffc1f4a9b05f62ae4ed7d4429b",
+     "bytes": 4506
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000005/visual.json": {
+     "sha256": "bb0800602a22086d061dacec108b95f34e22a45b2c47f790611d5231df59077c",
+     "bytes": 5945
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000006/visual.json": {
+     "sha256": "f692fbb8ac955f86e967dc7b6cfb9e3b8cf5a53e709245ea8ccbf86a9b145ef0",
+     "bytes": 5198
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000007/visual.json": {
+     "sha256": "d64d12e1e1e7ab4d69635d1cf2f818a6d560515c7f650ef0ce682f29b53a5cea",
+     "bytes": 6014
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000008/visual.json": {
+     "sha256": "f63359cb97cafa48e49faebe76cd7c77e6beaa6c0098d66525c9a54100d027bc",
+     "bytes": 5543
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000009/visual.json": {
+     "sha256": "cbb27da8a87aa23ece7bcd13d96c534aa64b324b9f3b14a789c1bae4c347e879",
+     "bytes": 2877
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/0000000000000000000a/visual.json": {
+     "sha256": "588fb3baef16e2bd592cdac810ddc7c85fcac4c65603a8c46cd33db151aba582",
+     "bytes": 3150
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/0000000000000000000b/visual.json": {
+     "sha256": "844ab2ce20fbd140ec3194d844f51c5e941fd8573023f488c12f6ef8edd0d999",
+     "bytes": 3063
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/0000000000000000000c/visual.json": {
+     "sha256": "862c212bc01d9eebfc52e542128ef4ee5c8345374a7a7edf97753a7c10c1cfd6",
+     "bytes": 3076
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/0000000000000000000d/visual.json": {
+     "sha256": "17c16a6e31a39f538c0350740af43215cd629f336f4df97106b8963366056af1",
+     "bytes": 860,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"0000000000000000000d\",\"position\":{\"x\":1668,\"y\":40,\"z\":11000,\"height\":60,\"width\":210.44776119402985,\"tabOrder\":11000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"Store\",\"active\":true,\"displayName\":\"Store\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/0000000000000000000e/visual.json": {
+     "sha256": "6b7a69678ffcc9d4beeca4b6fabfff608411a67b42d90c4efc6357d73661a83a",
+     "bytes": 964,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"0000000000000000000e\",\"position\":{\"x\":1394.4477611940297,\"y\":40,\"z\":12000,\"height\":60,\"width\":210.44776119402985,\"tabOrder\":12000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"header\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Country'\"}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/0000000000000000000f/visual.json": {
+     "sha256": "6b201c15ed58c2a553188348cdeb21875923ba19283b23edb073dba07636f897",
+     "bytes": 886,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"0000000000000000000f\",\"position\":{\"x\":1120.8955223880596,\"y\":40,\"z\":13000,\"height\":61,\"width\":210.44776119402985,\"tabOrder\":13000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000010/visual.json": {
+     "sha256": "d8a77e60942c2a9ea20a43adfa3868b27086e743e5794ed7451f1fc171aaa117",
+     "bytes": 1421,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000010\",\"position\":{\"x\":552,\"y\":515,\"z\":14000,\"height\":31.645569620253163,\"width\":143.67088607594937,\"tabOrder\":14000},\"visual\":{\"visualType\":\"cardVisual\",\"query\":{\"queryState\":{\"Data\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"queryRef\":\"# Measures.dummy\",\"nativeQueryRef\":\"dummy\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"value\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "d885e601a8925a9c6a919a70b1cbc2d083dd92e14aed0b7ec36a9319dcac94df",
+     "bytes": 259,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection00000000000000000001\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_duplicate_named": {
+   "summaries": [
+    "Duplicated page 'Store drillthrough' as 'Drill again'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection00000000000000000001/page.json": {
+     "sha256": "14abde7124b1e9e959e7f83c950b05b47d823d7e9da02df7b2a4417a72e0caf9",
+     "bytes": 872,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection00000000000000000001\",\"displayName\":\"Drill again\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280,\"type\":\"Drillthrough\",\"pageBinding\":{\"name\":\"00000000000000000004\",\"type\":\"Drillthrough\",\"parameters\":[{\"name\":\"Param_Filter00000000000000000003\",\"boundFilter\":\"Filter00000000000000000003\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}}}]},\"filterConfig\":{\"filters\":[{\"name\":\"Filter00000000000000000003\",\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"type\":\"Categorical\"}]},\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}"
+    },
+    "Report/definition/pages/ReportSection00000000000000000001/visuals/00000000000000000002/visual.json": {
+     "sha256": "2fe90dfc5cb820f7d1374cddeaf015cfb5d66f1e148d4d981694bbb5228075a9",
+     "bytes": 1387,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000002\",\"position\":{\"x\":40,\"y\":40,\"z\":1000,\"height\":160,\"width\":400,\"tabOrder\":1000},\"visual\":{\"visualType\":\"cardVisual\",\"query\":{\"queryState\":{\"Data\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"queryRef\":\"# Measures.dummy\",\"nativeQueryRef\":\"dummy\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"value\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/pages.json": {
+     "sha256": "8c65581f067df13318b04c658ac6e9fc2e6dcc54b93690c2d1af9446ddcbbcf2",
+     "bytes": 367,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSection00000000000000000001\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_duplicate_unknown": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1'"
+  },
+  "page_hide": {
+   "summaries": [
+    "Hid page 'Details'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/page.json": {
+     "sha256": "bd0a9b262d972f1fa7b95e4cd74bda5fe5d7b0c805305ebcbe4e1f90174a7f6f",
+     "bytes": 430,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"displayName\":\"Details\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"visibility\":\"HiddenInViewMode\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_hide_unknown": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1'"
+  },
+  "page_move_to_the_end": {
+   "summaries": [
+    "Moved page '1' to position 4."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/pages.json": {
+     "sha256": "a20c47a453bd3682f0423f1c4c73779ef749cce87ea9bbf5c11b4c2edda43f9a",
+     "bytes": 331,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\",\"ReportSection8454c812b60b8bb83b99\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_move_to_the_front": {
+   "summaries": [
+    "Moved page 'Details' to position 1."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/pages.json": {
+     "sha256": "4bd0a797bdca34227d1e392b66a013dc14888c80b523a97ab62d955310eab398",
+     "bytes": 331,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSection8454c812b60b8bb83b99\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_move_to_the_middle": {
+   "summaries": [
+    "Moved page 'Sales tooltip' to position 3."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/pages.json": {
+     "sha256": "a10f6a29fe25d56bdcce0d99e3d911e57bbd573f20aae305de6c0c5d35b87fcc",
+     "bytes": 331,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json\",\"pageOrder\":[\"ReportSection8454c812b60b8bb83b99\",\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"ReportSectionb7e9f1a3c5d7e9f1a3b5\",\"ReportSectiond2a4c6e8f0b1a3c5e7d9\"],\"activePageName\":\"ReportSection8454c812b60b8bb83b99\"}"
+    }
+   },
+   "removed": []
+  },
+  "page_move_unknown": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1', 2. 'Details', 3. 'Store drillthrough', 4. 'Sales tooltip'"
+  },
+  "page_rename": {
+   "summaries": [
+    "Renamed page 'Details' to 'Overview'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/page.json": {
+     "sha256": "e86a1f0a6e57a2c28099b04e894425d30ea6ebbf56f7a46296ad5f7a5012ddea",
+     "bytes": 399,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"displayName\":\"Overview\",\"displayOption\":\"FitToPage\",\"height\":720,\"width\":1280,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}"
+    }
+   },
+   "removed": []
+  },
+  "page_rename_by_id": {
+   "summaries": [
+    "Renamed page '1' to 'Start'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/page.json": {
+     "sha256": "cd30a7ff75fd8a00ed3c1d2d365bb798b59acd7e1a0346b4d396cd9e35886817",
+     "bytes": 670,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection8454c812b60b8bb83b99\",\"displayName\":\"Start\",\"displayOption\":\"FitToPage\",\"height\":1200,\"width\":1920,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F8F8F8'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Background-1-01.png'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Background-1-016077705666144604.png\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Fit'\"}}}}}}}]}}"
+    }
+   },
+   "removed": []
+  },
+  "page_rename_to_a_taken_name": {
+   "error": "There is already a page named 'STORE DRILLTHROUGH'"
+  },
+  "page_rename_unknown": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1'"
+  },
+  "page_show": {
+   "summaries": [
+    "Showed page 'Sales tooltip'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSectionb7e9f1a3c5d7e9f1a3b5/page.json": {
+     "sha256": "294437c1bc3d0ae505e04d00cf0ef9acadaffe6b6d8f7f49f5b731938d174272",
+     "bytes": 864,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSectionb7e9f1a3c5d7e9f1a3b5\",\"displayName\":\"Sales tooltip\",\"displayOption\":\"ActualSize\",\"height\":240,\"width\":320,\"type\":\"Tooltip\",\"pageBinding\":{\"name\":\"2d8f148b3b5a71fb953f\",\"type\":\"Tooltip\",\"parameters\":[{\"name\":\"Param_Filter4959aceadddc26faec5a\",\"boundFilter\":\"Filter4959aceadddc26faec5a\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}}}]},\"filterConfig\":{\"filters\":[{\"name\":\"Filter4959aceadddc26faec5a\",\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"type\":\"Categorical\"}]},\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}"
+    }
+   },
+   "removed": []
+  },
+  "page_size": {
+   "summaries": [
+    "Resized page '1' to 1600 x 900 and scaled its 15 visuals with it."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The new page has a different shape (width x0.83, height x0.75), so the visuals were stretched to match. Check the layout in Power BI."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/page.json": {
+     "sha256": "a49df247e299727c21f170f1f480ba1b1b74558f2afd2d5c51e0a7a1f23c21d4",
+     "bytes": 669,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection8454c812b60b8bb83b99\",\"displayName\":\"1\",\"displayOption\":\"FitToPage\",\"height\":900.0,\"width\":1600.0,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F8F8F8'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Background-1-01.png'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Background-1-016077705666144604.png\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Fit'\"}}}}}}}]}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "6f2faa4520a8202de1a672059e010216be7a75f02d899fb2da7c1ec0f9c563f7",
+     "bytes": 5194
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/29ba010b20b2162d1536/visual.json": {
+     "sha256": "79a78544957ee18579338210d13b89cd5f948eb2b8636f18c591352eeb07dd76",
+     "bytes": 4506
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/54be5cf0783e66471540/visual.json": {
+     "sha256": "d92ede3fbacb10bc4c036856e1e98f8957c0b3543d065666bf1eeb06da4e7055",
+     "bytes": 945,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"54be5cf0783e66471540\",\"position\":{\"x\":1162.0398,\"y\":30,\"z\":12000,\"height\":45,\"width\":175.3731,\"tabOrder\":12000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"header\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Country'\"}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/5b0dbccd61c6c4adb415/visual.json": {
+     "sha256": "f093a9ae54fe46a61799f800a13cbc22a59d7323c4b11142a4091c4123541f16",
+     "bytes": 850,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"5b0dbccd61c6c4adb415\",\"position\":{\"x\":1390,\"y\":30,\"z\":11000,\"height\":45,\"width\":175.3731,\"tabOrder\":11000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"Store\",\"active\":true,\"displayName\":\"Store\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/71a164765d9c63200302/visual.json": {
+     "sha256": "884f77083a335fe4d2972a65545b060b25b959719064e2a2fd9e33a19551fa8d",
+     "bytes": 5544
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/8a8ba163374a72762030/visual.json": {
+     "sha256": "9a01953ca4b7773d3d2542c05f8f4749c5a22335c2ecbf26ac0d25782750f8a5",
+     "bytes": 1403,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"8a8ba163374a72762030\",\"position\":{\"x\":460,\"y\":386.25,\"z\":14000,\"height\":23.7342,\"width\":119.7257,\"tabOrder\":14000},\"visual\":{\"visualType\":\"cardVisual\",\"query\":{\"queryState\":{\"Data\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"queryRef\":\"# Measures.dummy\",\"nativeQueryRef\":\"dummy\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"value\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/9479353528b0eb22b958/visual.json": {
+     "sha256": "132cae4834c30b3a0f996eed990db2233c597f2a4fb3fd1a3fc86eef603e8eae",
+     "bytes": 6014
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/953a59a3cad98b0b5a39/visual.json": {
+     "sha256": "4429d2bbcfbb1bd3c67286f68677e0fea019bd01cc53e4bc0d34a6139a8736ca",
+     "bytes": 2005,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"953a59a3cad98b0b5a39\",\"position\":{\"x\":445.2381,\"y\":390,\"z\":1000,\"height\":78.75,\"width\":240.4762,\"tabOrder\":1000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Top-Bottom-N\"}},\"Property\":\"Top-Bottom-N\"}},\"queryRef\":\"Top-Bottom-N.Top-Bottom-N\",\"nativeQueryRef\":\"Top-Bottom-N\",\"active\":true}]}}},\"objects\":{\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}],\"data\":[{\"properties\":{\"numericStart\":{\"expr\":{\"Literal\":{\"Value\":\"6D\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Top-Bottom-N\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Top-Bottom-N\"}},\"Right\":{\"Literal\":{\"Value\":\"6D\"}}}}}]}},\"responsive\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"numericInputStyle\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'\"}}}}}]},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}}}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/97d1504080b699eae7d7/visual.json": {
+     "sha256": "c4050db291e7053c3af20cf197bfe3f158e34a2bc00cdf389d7da61f849f7f18",
+     "bytes": 3058
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/ab13db00c71dcec86e99/visual.json": {
+     "sha256": "3bfc86bf75aa9d7b17e0e7d380069567be2e47b991428bf435c7e2b045183518",
+     "bytes": 3039
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "dc6c0a6002fadbbc0f0777561b3572a14cf46ac104130e08a1a427dd5630a76f",
+     "bytes": 2838
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b85aa81a8b5c60030d13/visual.json": {
+     "sha256": "f1286b78da020bf1226815e52db7b76f4bf53c0f1041da44757b9c7b6847415b",
+     "bytes": 869,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"b85aa81a8b5c60030d13\",\"position\":{\"x\":934.0796,\"y\":30,\"z\":13000,\"height\":45.75,\"width\":175.3731,\"tabOrder\":13000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/da32cdbb0090e885649b/visual.json": {
+     "sha256": "4cab41c79cec9364897e03cbf4598976f554ee46b77ac1ca4069c976256a444e",
+     "bytes": 3127
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/e82e02f93055d6b0b544/visual.json": {
+     "sha256": "c71f32b7f9e4c8fe47cf1448512035426488cd4a5e4f6aba426eeaba3b686475",
+     "bytes": 6340
+    },
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/fb4c5aa34e0b084b62b9/visual.json": {
+     "sha256": "0610b2094ad442302de0ae4ce0e510d771ee14d98b5651f81e4924a40f855448",
+     "bytes": 5946
+    }
+   },
+   "removed": []
+  },
+  "page_size_too_small": {
+   "invalid": [
+    [
+     "greater_than_equal",
+     [
+      "operations",
+      "0",
+      "set_page_size",
+      "width"
+     ]
+    ]
+   ]
+  },
+  "page_size_unknown": {
+   "error": "There is no page 'Nowhere'. The pages are: 1. '1'"
+  },
+  "page_size_with_display": {
+   "summaries": [
+    "Resized page 'Details' to 800 x 600 and scaled its 5 visuals with it."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The new page has a different shape (width x0.62, height x0.83), so the visuals were stretched to match. Check the layout in Power BI."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/page.json": {
+     "sha256": "d6e80e4e3160faf1092419d60678f05262105966a69e3f1e9132160d44707e8b",
+     "bytes": 402,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json\",\"name\":\"ReportSection3f1c0d5e7a9b2c4d6e8f\",\"displayName\":\"Details\",\"displayOption\":\"ActualSize\",\"height\":600.0,\"width\":800.0,\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/04ba32659627f6e8c7d7/visual.json": {
+     "sha256": "1e0452b92b9df47ad86ebb6d48907b39899ff36bf8968019afc2924a72479ec8",
+     "bytes": 882,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"04ba32659627f6e8c7d7\",\"position\":{\"x\":25,\"y\":50,\"z\":3000,\"height\":50,\"width\":125,\"tabOrder\":3000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"Store\",\"active\":true,\"displayName\":\"Store\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"7799291338ca3548d7d5\"}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/2b5b8e3a7ed15138a983/visual.json": {
+     "sha256": "e8a5d6a8351eba964ffc1b6094d18bf367d9ff9bf27bcd4dc9d892c33af26626",
+     "bytes": 975,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"2b5b8e3a7ed15138a983\",\"position\":{\"x\":162.5,\"y\":50,\"z\":4000,\"height\":50,\"width\":125,\"tabOrder\":4000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"items\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"header\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Country'\"}}}}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"7799291338ca3548d7d5\"}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/40c896eda14bfa8f6a97/visual.json": {
+     "sha256": "f7d96eee4496734bff4b301755b53664de0052caec247ef4a6b39c2ef14e315a",
+     "bytes": 306,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"40c896eda14bfa8f6a97\",\"position\":{\"x\":25,\"y\":50,\"z\":1000,\"height\":166.6667,\"width\":262.5,\"tabOrder\":1000},\"visualGroup\":{\"displayName\":\"Header block\",\"groupMode\":\"ScaleMode\"}}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/7799291338ca3548d7d5/visual.json": {
+     "sha256": "5b9c0286da42b3f0d59ec25d19160742cc747afb199aaa34b766fc0bcbd3434f",
+     "bytes": 336,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"7799291338ca3548d7d5\",\"position\":{\"x\":25,\"y\":50,\"z\":2000,\"height\":50,\"width\":262.5,\"tabOrder\":2000},\"visualGroup\":{\"displayName\":\"Filters\",\"groupMode\":\"ScaleMode\"},\"parentGroupName\":\"40c896eda14bfa8f6a97\"}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/81ab76274a5b4e9e62da/visual.json": {
+     "sha256": "da33e7a2608dad12ac9e46d195a1ecf0c2a642a322777637ac064108bca14751",
+     "bytes": 466,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"81ab76274a5b4e9e62da\",\"position\":{\"x\":625,\"y\":33.3333,\"z\":6000,\"height\":100,\"width\":75,\"tabOrder\":6000},\"visual\":{\"visualType\":\"image\",\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"FixtureLogo.png\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/d6c05c8319906941fe02/visual.json": {
+     "sha256": "2641be93dae671f0ee15830d504c5e0ba884dc704c2202dffbfcec4f01590598",
+     "bytes": 661,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"d6c05c8319906941fe02\",\"position\":{\"x\":25,\"y\":516.6667,\"z\":7000,\"height\":33.3333,\"width\":125,\"tabOrder\":7000},\"visual\":{\"visualType\":\"actionButton\",\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'Forward'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmark'\"}}},\"bookmark\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmarkc7a5beae9c2a6a44bb3c'\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    },
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/dfb4645ec076d1209ebe/visual.json": {
+     "sha256": "6bf0464554071ae28bb577a29166fdde899b568c4d9908727402fe6609c05676",
+     "bytes": 1436,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"dfb4645ec076d1209ebe\",\"position\":{\"x\":25,\"y\":116.6667,\"z\":5000,\"height\":100,\"width\":187.5,\"tabOrder\":5000},\"visual\":{\"visualType\":\"cardVisual\",\"query\":{\"queryState\":{\"Data\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"queryRef\":\"# Measures.dummy\",\"nativeQueryRef\":\"dummy\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"dummy\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"objects\":{\"value\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TopN/BottomN'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252423'\"}}}}}}}]},\"drillFilterOtherVisuals\":true},\"parentGroupName\":\"40c896eda14bfa8f6a97\"}"
+    }
+   },
+   "removed": []
+  },
+  "position_clamped_to_the_page": {
+   "summaries": [
+    "Moved and resized the 'Agents Avg MTD Sales' card to 1920 x 313 at (0, 887). It was kept inside the page."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The 'Agents Avg MTD Sales' card now overlaps the table of Agent ID, the 'Avg MTD % change by Agents' stacked column chart and the 'Avg Discount per Transaction' stacked column chart."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "dde199f2d5e32658175b7789560eb5c94d319f021f655536db4b39d747939bbd",
+     "bytes": 5183
+    }
+   },
+   "removed": []
+  },
+  "position_move": {
+   "summaries": [
+    "Moved the 'Agents Avg MTD Sales' card to (100, 50)."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The 'Agents Avg MTD Sales' card now overlaps the 'Agents with Positive Change %' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "e69da9fdf13696b3cc1329dd11f17ad6f4d66db7b0e34be689447904dfb669c6",
+     "bytes": 5197
+    }
+   },
+   "removed": []
+  },
+  "position_nothing": {
+   "error": "Say where to move it (x and y) or how big to make it (width, height)"
+  },
+  "position_on_a_group": {
+   "summaries": [
+    "Moved the group 'Header block' to (10, 60)."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection3f1c0d5e7a9b2c4d6e8f/visuals/40c896eda14bfa8f6a97/visual.json": {
+     "sha256": "eff429cc886613cd6d5918f009a8072e1034d6641b8ad30f3e542ce5e522df26",
+     "bytes": 299,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"40c896eda14bfa8f6a97\",\"position\":{\"x\":10,\"y\":60,\"z\":1000,\"height\":200,\"width\":420,\"tabOrder\":1000},\"visualGroup\":{\"displayName\":\"Header block\",\"groupMode\":\"ScaleMode\"}}"
+    }
+   },
+   "removed": []
+  },
+  "position_out_of_range": {
+   "invalid": [
+    [
+     "greater_than_equal",
+     [
+      "operations",
+      "0",
+      "set_position",
+      "x"
+     ]
+    ]
+   ]
+  },
+  "position_resize": {
+   "summaries": [
+    "Resized the 'Agents Avg MTD Sales' card to 500 x 120."
+   ],
+   "model_operations": [],
+   "warnings": [
+    "The 'Agents Avg MTD Sales' card now overlaps the 'Agents Avg MTD % Change' card."
+   ],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "f09aad2263c4e3625e0aa93f5a6b78e6821e702542a6ac848341c8bc870754dd",
+     "bytes": 5184
+    }
+   },
+   "removed": []
+  },
+  "position_unknown_visual": {
+   "error": "There is no visual 'nope' in this report. Visuals in this report: the table of Agent ID, the slicer of Top-Bottom-N, the 'Top/Bottom Field' button slicer, the 'Agents with Positive Change %' card, the 'Agents Avg MTD Sales' card, the 'Agents Avg MTD % Change' card and 9 more."
+  },
+  "show_visual": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "sort_by_a_column_default_direction": {
+   "summaries": [
+    "Sorted the 'Total MTD Sales' stacked column chart by Clustered Employees, descending."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "e78c89e72d6581858d7a3f9ffbe167446940fde9a7e3d2ef2e5f508fbb2671f6",
+     "bytes": 2860
+    }
+   },
+   "removed": []
+  },
+  "sort_by_a_field_not_in_the_visual": {
+   "error": "Add Rank to the visual before sorting by it"
+  },
+  "sort_by_a_measure": {
+   "summaries": [
+    "Sorted the 'Total MTD Sales' stacked column chart by TopN/BottomN/ MTD Sales, ascending."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "45fc100f5141f610df77e2bf4d5713029449bf45f45c64202a54a101c49bd1c9",
+     "bytes": 2855
+    }
+   },
+   "removed": []
+  },
+  "sort_by_an_unknown_field": {
+   "error": "# Measures has no column or measure named 'Ghost'"
+  },
+  "type_card_to_table": {
+   "summaries": [
+    "Changed the 'Agents Avg MTD Sales' card into a table. Dropped 12 settings the new type does not have: Fill custom, Outline, Padding, Value, Image, Reference labels, Divider, Reference label layout, Reference label title, Reference label detail, Layout and Label."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/2202e311b1493069e4eb/visual.json": {
+     "sha256": "a8a30010ea0597e29cf68483e34ed8c152d5bb1d4ba9f67e99f12c63d2a20e0b",
+     "bytes": 1142,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"2202e311b1493069e4eb\",\"position\":{\"x\":612,\"y\":154,\"z\":3000,\"height\":313,\"width\":354.3307086614173,\"tabOrder\":4000},\"visual\":{\"visualType\":\"tableEx\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Employees Avg MTD Sales\"}},\"queryRef\":\"# Measures.Employees Avg MTD Sales\",\"nativeQueryRef\":\"Employees Avg MTD Sales\"}]}},\"sortDefinition\":{\"sort\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Employees Avg MTD Sales\"}},\"direction\":\"Descending\"}],\"isDefaultSort\":true}},\"visualContainerObjects\":{\"title\":[{\"properties\":{\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"general\":[{\"properties\":{\"keepLayerOrder\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"padding\":[{\"properties\":{\"top\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "type_column_to_line": {
+   "summaries": [
+    "Changed the 'Total MTD Sales' stacked column chart into a line chart. Kept 9 formatting settings. Dropped 1 setting the new type does not have: Category axis (some options)."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/b404a461ede7604a2774/visual.json": {
+     "sha256": "fad5a577dd94226d24a7eb4e0fe105c4487c97794aa8586b38694a39791b7a23",
+     "bytes": 2823
+    }
+   },
+   "removed": []
+  },
+  "type_column_to_pie": {
+   "summaries": [
+    "Changed the 'Avg MTD Sales by Agents' stacked column chart into a pie chart. Kept 5 formatting settings. Dropped 2 settings the new type does not have: Category axis and Value axis."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/da32cdbb0090e885649b/visual.json": {
+     "sha256": "77562582e71002ecb6d1f48c16e5ab7fa816da3add5d18eac05533f45cf2a0b7",
+     "bytes": 2731
+    }
+   },
+   "removed": []
+  },
+  "type_of_a_group": {
+   "error": "The group 'Header block' holds other visuals; edit the visuals inside it"
+  },
+  "type_slicer_to_table": {
+   "summaries": [
+    "Changed the 'Country' slicer into a table. Dropped 3 settings the new type does not have: Data, Items and Header."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/54be5cf0783e66471540/visual.json": {
+     "sha256": "066fb9e39fa0574789047a94bf0b4c7243c0d0b78a4dc5c8f1929c7857bdc5b2",
+     "bytes": 684,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"54be5cf0783e66471540\",\"position\":{\"x\":1394.4477611940297,\"y\":40,\"z\":12000,\"height\":60,\"width\":210.44776119402985,\"tabOrder\":12000},\"visual\":{\"visualType\":\"tableEx\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"Channel\",\"active\":true,\"displayName\":\"Channel\"}]}}},\"visualContainerObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "type_table_to_card": {
+   "summaries": [
+    "Changed the table of Agent ID into a card. Left out Agent ID: a card holds measures. Left out Rank: a card has no room for it. Left out MTD Sales: a card has no room for it. Left out vs PM %: a card has no room for it. Left out vs Previous Month: a card has no room for it. Dropped 5 settings the new type does not have: Totals, Values, Grid, Column width and Column headers. Dropped 4 formatting settings for Agent ID. Dropped 4 formatting settings for vs PM %. Dropped 4 formatting settings for Rank. Dropped 4 formatting settings for MTD Sales. Dropped 2 formatting settings for vs Previous Month. Removed the sort by Rank."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/e82e02f93055d6b0b544/visual.json": {
+     "sha256": "0272229dca69e2498cdff58c0c17cc6d26963930d018c0f8f82855cd7c0ba1fe",
+     "bytes": 1427,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"e82e02f93055d6b0b544\",\"position\":{\"x\":966.1417322834645,\"y\":514.9606299212599,\"z\":0,\"height\":623.6220472440945,\"width\":894,\"tabOrder\":0},\"visual\":{\"visualType\":\"card\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Employee Name\"}},\"queryRef\":\"# Measures.Employee Name\",\"nativeQueryRef\":\"Agent Name\",\"displayName\":\"Agent Name\"}]}}},\"visualContainerObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}],\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"7D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]},\"drillFilterOtherVisuals\":true},\"filterConfig\":{\"filters\":[{\"name\":\"Filterff831044ab8c98051120\",\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank Filtering Dynamics\"}},\"type\":\"Advanced\",\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Top-Bottom-N\",\"Type\":0},{\"Name\":\"#\",\"Entity\":\"# Measures\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"#\"}},\"Property\":\"Rank Filtering Dynamics\"}},\"Right\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"howCreated\":\"User\"}]}}"
+    }
+   },
+   "removed": []
+  },
+  "type_to_one_studio_cannot_make": {
+   "error": "Studio cannot turn a visual into a map yet"
+  },
+  "validate_a_clean_multipage_report": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "validate_a_clean_report": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {},
+   "removed": []
+  },
+  "validate_dangling_format": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [
+    "b404a461ede7604a2774: labels formats a field the visual lacks (Ghost.Field)",
+    "b404a461ede7604a2774: title formats a field the visual lacks (Ghost.Other)"
+   ],
+   "parts": {},
+   "removed": []
+  },
+  "validate_misnamed_visual": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [
+    "Visual 2202e311b1493069e4eb is named 'someone-else'"
+   ],
+   "parts": {},
+   "removed": []
+  },
+  "validate_off_the_page": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [
+    "Visual 2202e311b1493069e4eb is outside the page"
+   ],
+   "parts": {},
+   "removed": []
+  },
+  "validate_page_list": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [
+    "pages.json lists a different set of pages"
+   ],
+   "parts": {},
+   "removed": []
+  },
+  "validate_shared_names": {
+   "summaries": [
+    "The 'Agents Avg MTD Sales' card was already shown."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [
+    "Two visuals share a name"
+   ],
+   "parts": {},
+   "removed": []
+  }
+ }
+}

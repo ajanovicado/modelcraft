@@ -1,0 +1,105 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-powerbi-analyst"
+version = "0.1.0"
+description = "Modelcraft — Your AI workspace for Power BI."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "MIT" }
+authors = [{ name = "Modelcraft" }]
+dependencies = [
+  "altair>=6,<7",
+  "duckdb>=1.4,<2",
+  "fastapi>=0.116,<1",
+  "filelock>=3.18,<4",
+  "jsonschema>=4.18,<5",
+  "numpy>=2.2,<3",
+  "ollama>=0.5,<1",
+  "openpyxl>=3.1,<4",
+  "pandas>=2.2,<3",
+  "psutil>=7,<8",
+  "powerbi-rag-runtime==0.1.0",
+  "pyarrow>=23.0.1,<24",
+  "pydantic>=2.11,<3",
+  "python-calamine>=0.3,<1",
+  "pyyaml>=6,<7",
+  "sqlglot>=27,<30",
+  "statsforecast>=2,<3",
+  "streamlit>=1.45,<2",
+  "uvicorn>=0.35,<1",
+  "pbixray==0.15.5",
+]
+
+[project.optional-dependencies]
+databases = [
+  "snowflake-connector-python>=3.18,<5",
+  "pyodbc>=5.2,<6",
+]
+desktop = [
+  "pyinstaller>=6.15,<7",
+]
+dev = [
+  "mypy>=1.15,<2",
+  "pandas-stubs>=2.2,<3",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.11,<1",
+  "types-psutil>=7,<8",
+  "types-PyYAML>=6,<7",
+]
+
+[project.scripts]
+ai-powerbi-analyst = "ai_powerbi_analyst.cli:main"
+ai-powerbi-studio = "ai_powerbi_analyst.studio.__main__:main"
+
+[tool.uv.sources]
+powerbi-rag-runtime = { path = "vendor/powerbi-rag-runtime" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_powerbi_analyst"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+  # Upstream FastAPI/Starlette TestClient deprecation; resolved by upstream, not this project.
+  "ignore::starlette.exceptions.StarletteDeprecationWarning",
+]
+markers = [
+  "windows: requires Windows and Power BI tooling",
+  "ollama: requires a local Ollama service",
+  "browser: requires a local browser",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+# Keep the reviewed upstream snapshot byte-identical to SOURCE_MANIFEST.json.
+extend-exclude = ["vendor/powerbi-rag-runtime"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S", "BLE"]
+# `assert` is used deliberately for internal invariants after explicit runtime
+# checks; user-facing failures always raise typed errors.
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "BLE"]
+
+[tool.coverage.run]
+branch = true
+source = ["ai_powerbi_analyst"]
+omit = ["*/cli.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "typings"
+strict = true
+packages = ["ai_powerbi_analyst"]

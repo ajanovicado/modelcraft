@@ -1,0 +1,22 @@
+{
+  "resource_profile": "standard",
+  "backend": "managed-llama-text",
+  "tag": "qwen3.5:4b-q4_K_M",
+  "context_tokens": 4096,
+  "package_sha256": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+  "prompt_cache_mib": 128,
+  "parameter_size": "4B",
+  "quantization": "Q4_K_M",
+  "license": "Apache-2.0",
+  "source_url": "https://huggingface.co/Qwen/Qwen3.5-4B",
+  "server": "ollama/lib/ollama/llama-server.exe",
+  "model_location": "user",
+  "model": "blobs/sha256-81fb60c7daa80fc1123380b98970b320ae233409f0f71a72ed7b9b0d62f40490",
+  "model_store": ".",
+  "corpus": "corpus/worked-examples.jsonl",
+  "artifact_examples": "app/artifact_examples.json",
+  "m_validator": "app/m_validation.cjs",
+  "node": "node/node.exe",
+  "hashes": {},
+  "qualification_scope": "Unqualified public-source example. No installed payload or live-model approval."
+}

@@ -1,0 +1,19 @@
+relationship 14d453f8-70be-4ef0-a4d3-09196ec6b923
+	fromColumn: 'Fact Sales'.'Month Start'
+	toColumn: 'Dim Date'.'Month Start'
+
+relationship 43a42845-ed3b-4195-887b-451599c4901f
+	fromColumn: 'Fact Sales'.Region
+	toColumn: 'Dim Region'.Region
+
+relationship 365acbb9-f560-477c-aad6-676a0c1531dd
+	fromColumn: 'Fact Sales'.Product
+	toColumn: 'Dim Product'.Product
+
+relationship f1a4fd8a-78cb-45a8-9c02-e333686c4da4
+	fromColumn: 'Fact Sales'.Segment
+	toColumn: 'Dim Customer'.Segment
+
+relationship 10920378-e732-40ac-af4c-33cdf62e6192
+	fromColumn: 'Fact Sales'.Channel
+	toColumn: 'Dim Channel'.Channel

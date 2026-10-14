@@ -1,0 +1,8 @@
+table 'Dim Customer'
+	column Segment
+		dataType: string
+		sourceColumn: Segment
+
+	partition 'Dim Customer' = m
+		mode: import
+		source = #table(type table [Segment = text], {})

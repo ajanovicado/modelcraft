@@ -1,0 +1,110 @@
+table 'Driver Contributions'
+	column Driver
+		dataType: string
+		sortByColumn: 'Driver Order'
+		sourceColumn: driver
+
+	column 'Driver Order'
+		dataType: int64
+		isHidden
+		sourceColumn: driver_order
+
+	column 'Region Filter'
+		dataType: string
+		isHidden
+		sourceColumn: region_filter
+
+	column 'Contribution Value'
+		dataType: double
+		isHidden
+		sourceColumn: contribution_value
+
+	column 'Current Net Sales'
+		dataType: double
+		isHidden
+		sourceColumn: current_net_sales
+
+	column 'Comparison Net Sales'
+		dataType: double
+		isHidden
+		sourceColumn: comparison_net_sales
+
+	column 'Current Gross Profit'
+		dataType: double
+		isHidden
+		sourceColumn: current_gross_profit
+
+	column 'Comparison Gross Profit'
+		dataType: double
+		isHidden
+		sourceColumn: comparison_gross_profit
+
+	column 'Current Gross Margin Pct'
+		dataType: double
+		isHidden
+		sourceColumn: current_gross_margin_pct
+
+	column 'Comparison Gross Margin Pct'
+		dataType: double
+		isHidden
+		sourceColumn: comparison_gross_margin_pct
+
+	measure 'Driver Contribution — All' =
+		CALCULATE(
+			SUM('Driver Contributions'[Contribution Value]),
+			'Driver Contributions'[Region Filter] = "All"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Driver Contribution — West' =
+		CALCULATE(
+			SUM('Driver Contributions'[Contribution Value]),
+			'Driver Contributions'[Region Filter] = "West"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Latest Quarter Net Sales Change %' =
+		VAR CurrentSales =
+			CALCULATE(MAX('Driver Contributions'[Current Net Sales]), 'Driver Contributions'[Region Filter] = "All")
+		VAR ComparisonSales =
+			CALCULATE(MAX('Driver Contributions'[Comparison Net Sales]), 'Driver Contributions'[Region Filter] = "All")
+		RETURN DIVIDE(CurrentSales - ComparisonSales, ComparisonSales)
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Latest Quarter Gross Profit Change' =
+		VAR CurrentProfit =
+			CALCULATE(MAX('Driver Contributions'[Current Gross Profit]), 'Driver Contributions'[Region Filter] = "All")
+		VAR ComparisonProfit =
+			CALCULATE(MAX('Driver Contributions'[Comparison Gross Profit]), 'Driver Contributions'[Region Filter] = "All")
+		RETURN CurrentProfit - ComparisonProfit
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Latest Quarter Gross Margin Change pp' =
+		VAR CurrentMargin =
+			CALCULATE(MAX('Driver Contributions'[Current Gross Margin Pct]), 'Driver Contributions'[Region Filter] = "All")
+		VAR ComparisonMargin =
+			CALCULATE(MAX('Driver Contributions'[Comparison Gross Margin Pct]), 'Driver Contributions'[Region Filter] = "All")
+		RETURN (CurrentMargin - ComparisonMargin) * 100
+		formatString: 0.0 "pp";-0.0 "pp";0.0 "pp"
+
+	measure 'Discount Contribution' =
+		CALCULATE(
+			SUM('Driver Contributions'[Contribution Value]),
+			'Driver Contributions'[Region Filter] = "All",
+			'Driver Contributions'[Driver] = "Discount"
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	/// Zero-row preparation partition. Replace through Power BI Desktop with the
+	/// frozen governed Price/Volume/Mix/Discount/Cost contribution table.
+	partition 'Driver Contributions' = m
+		mode: import
+		source =
+			#table(
+				type table [
+					driver = text,
+					region_filter = text,
+					contribution_value = number
+				],
+				{}
+			)

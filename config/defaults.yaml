@@ -1,0 +1,59 @@
+profile: client_demo
+offline_only: true
+
+model:
+  # Qwen3.5 4B is the only local model; it starts whenever its pinned files are
+  # installed, whatever the free RAM or power source.
+  # Resolved against the app root: <install>/runtime/catalog.json when packaged,
+  # <repo>/runtime/catalog.json in development (see scripts/build_store_payload.py).
+  provider: ollama
+  runtime_config_path: runtime/catalog.json
+  name: qwen3.5:4b-q4_K_M
+  candidates:
+    - qwen3.5:4b-q4_K_M
+  selected_digest: sha256:2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd
+  endpoint: http://127.0.0.1:11434
+  temperature: 0
+  max_output_tokens: 512
+  chat_output_tokens: 512
+  context_tokens: 4096
+  request_timeout_seconds: 90
+  # A cold CPU load can take more than a minute before the first streamed token.
+  stream_timeout_seconds: 300
+  max_retries: 1
+
+analytics:
+  read_only: true
+  external_access: false
+  extension_autoload: false
+  extension_install: false
+  threads: 2
+  memory_limit: 1GB
+  timeout_seconds: 15
+  max_rows: 200
+
+powerbi:
+  mode: auto
+  writer_version: 3.11.1
+  microsoft_validator_version: 0.1.4
+  desktop_bridge_version: 0.1.2
+  require_desktop_closed: true
+  validation_warning_policy: fail
+  style_preset: executive_light
+  evidence_target_page: margin_drivers
+  evidence_slot_key: conversational_evidence
+
+forecast:
+  horizon_months: 6
+  rolling_origin_folds: 3
+  fold_step_months: 3
+  interval_levels: [80, 95]
+  revenue_wape_ceiling: 0.12
+  gross_profit_wape_ceiling: 0.15
+
+scenario:
+  minimum_price_change_pct: -3
+  maximum_price_change_pct: 5
+  step_pct: 1
+  approved_price_change_pct: 3
+  price_elasticity: -0.8

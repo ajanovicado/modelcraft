@@ -1,0 +1,195 @@
+{
+  "version": "1.0",
+  "qualification": "Abstract 12x12 page structures. Slots name a recipe, visual type and ranked measure/category index; deterministic code binds reviewed catalog fields and enforces the report_visuals.json minimum sizes. Templates never add visual types, formatting, images or themes.",
+  "provenance": {
+    "repository": "https://github.com/Dashboard-Design/Power-BI-Design-Files",
+    "author": "Sajjad Ahmadi",
+    "license": "MIT",
+    "method": "Visual positions were read from the published PBIX report layouts with studio.report_import.read_report, reduced to visual families, and snapped to Studio's grid and readability minima. No report file, image, icon or theme from the repository is redistributed."
+  },
+  "default": "classic_overview",
+  "templates": [
+    {
+      "id": "classic_overview",
+      "label": "Classic overview",
+      "use_when": "General first dashboard: KPI row, headline trend and one category breakdown, then trends and detail pages.",
+      "prompt_terms": ["overview trends and detail", "overview trends", "trends and detail", "three page", "3 page"],
+      "derived_from": "Studio built-in layout",
+      "requires": {"date": false, "category_pairs": 0},
+      "pages": []
+    },
+    {
+      "id": "ranked_performance",
+      "label": "Ranked performance",
+      "use_when": "Compare members such as agents, stores or products, surface best and worst performers, leaderboards or rankings.",
+      "prompt_terms": ["rank", "ranking", "ranked", "leaderboard", "top n", "top 10", "bottom n", "bottom 10", "best performing", "worst performing", "performers"],
+      "derived_from": "Agents Performance - Dashboard",
+      "requires": {"date": false, "category_pairs": 2},
+      "pages": [
+        {
+          "id": "performance",
+          "title": "Performance",
+          "purpose": "Headline KPIs, category breakdowns and a ranked member table",
+          "slots": [
+            {"id": "kpi_1", "recipe": "kpi", "visual_type": "cardVisual", "measure": 0, "x": 0, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_2", "recipe": "kpi", "visual_type": "cardVisual", "measure": 1, "x": 4, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_3", "recipe": "kpi", "visual_type": "cardVisual", "measure": 2, "x": 8, "y": 0, "width": 4, "height": 2},
+            {"id": "breakdown_1", "recipe": "category", "visual_type": "columnChart", "measure": 0, "category": 0, "x": 0, "y": 2, "width": 4, "height": 5},
+            {"id": "breakdown_2", "recipe": "category", "visual_type": "columnChart", "measure": 1, "category": 0, "x": 0, "y": 7, "width": 4, "height": 5},
+            {"id": "ranking", "recipe": "detail", "visual_type": "tableEx", "x": 4, "y": 2, "width": 8, "height": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpi_rail_trend",
+      "label": "KPI rail with hero trend",
+      "use_when": "Time is the main story: movement over time, seasonality or trend, with supporting breakdowns.",
+      "prompt_terms": ["hero trend", "timeline", "seasonal", "seasonality"],
+      "derived_from": "Furniture Sales - Final - Dashboard",
+      "requires": {"date": true, "category_pairs": 3},
+      "pages": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "purpose": "KPI rail, headline trend and supporting category breakdowns",
+          "slots": [
+            {"id": "kpi_1", "recipe": "kpi", "visual_type": "cardVisual", "measure": 0, "x": 0, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_2", "recipe": "kpi", "visual_type": "cardVisual", "measure": 1, "x": 0, "y": 2, "width": 4, "height": 2},
+            {"id": "kpi_3", "recipe": "kpi", "visual_type": "cardVisual", "measure": 2, "x": 0, "y": 4, "width": 4, "height": 2},
+            {"id": "trend", "recipe": "trend", "visual_type": "lineChart", "measure": 0, "x": 4, "y": 0, "width": 8, "height": 6},
+            {"id": "breakdown_1", "recipe": "category", "visual_type": "barChart", "measure": 0, "category": 0, "x": 0, "y": 6, "width": 4, "height": 6},
+            {"id": "breakdown_2", "recipe": "category", "visual_type": "barChart", "measure": 0, "category": 1, "x": 4, "y": 6, "width": 4, "height": 6},
+            {"id": "breakdown_3", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 1, "category": 0, "x": 8, "y": 6, "width": 4, "height": 6}
+          ]
+        },
+        {
+          "id": "detail",
+          "title": "Detail",
+          "purpose": "Bounded operational detail",
+          "slots": [
+            {"id": "table", "recipe": "detail", "visual_type": "tableEx", "x": 0, "y": 0, "width": 12, "height": 12}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "driver_analysis",
+      "label": "Driver analysis",
+      "use_when": "Explain what drives a result: root cause, contributors, why a number moved or where variance comes from.",
+      "prompt_terms": ["root cause", "driver analysis", "key drivers", "contributors", "variance analysis", "diagnose"],
+      "derived_from": "Root Cause Analysis Dashboard",
+      "requires": {"date": true, "category_pairs": 2},
+      "pages": [
+        {
+          "id": "drivers",
+          "title": "Drivers",
+          "purpose": "KPI rail, contributing category lenses and the headline movement over time",
+          "slots": [
+            {"id": "kpi_1", "recipe": "kpi", "visual_type": "cardVisual", "measure": 0, "x": 0, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_2", "recipe": "kpi", "visual_type": "cardVisual", "measure": 1, "x": 0, "y": 2, "width": 4, "height": 2},
+            {"id": "kpi_3", "recipe": "kpi", "visual_type": "cardVisual", "measure": 2, "x": 0, "y": 4, "width": 4, "height": 2},
+            {"id": "driver_1", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 0, "category": 0, "x": 4, "y": 0, "width": 4, "height": 6},
+            {"id": "driver_2", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 0, "category": 1, "x": 8, "y": 0, "width": 4, "height": 6},
+            {"id": "trend", "recipe": "trend", "visual_type": "lineChart", "measure": 0, "x": 0, "y": 6, "width": 12, "height": 6}
+          ]
+        },
+        {
+          "id": "detail",
+          "title": "Detail",
+          "purpose": "Bounded operational detail",
+          "slots": [
+            {"id": "table", "recipe": "detail", "visual_type": "tableEx", "x": 0, "y": 0, "width": 12, "height": 12}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comparison_grid",
+      "label": "Comparison grid",
+      "use_when": "Compare several measures side by side across the same groups, such as teams, regions or segments.",
+      "prompt_terms": ["compare", "comparison", "versus", "vs", "side by side", "benchmark", "across teams", "across regions"],
+      "derived_from": "Sales Teams Quarterly Performance",
+      "requires": {"date": false, "category_pairs": 4},
+      "pages": [
+        {
+          "id": "comparison",
+          "title": "Comparison",
+          "purpose": "KPI row over a two-by-two grid of measure and category comparisons",
+          "slots": [
+            {"id": "kpi_1", "recipe": "kpi", "visual_type": "cardVisual", "measure": 0, "x": 0, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_2", "recipe": "kpi", "visual_type": "cardVisual", "measure": 1, "x": 4, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_3", "recipe": "kpi", "visual_type": "cardVisual", "measure": 2, "x": 8, "y": 0, "width": 4, "height": 2},
+            {"id": "compare_1", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 0, "category": 0, "x": 0, "y": 2, "width": 6, "height": 5},
+            {"id": "compare_2", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 1, "category": 0, "x": 6, "y": 2, "width": 6, "height": 5},
+            {"id": "compare_3", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 0, "category": 1, "x": 0, "y": 7, "width": 6, "height": 5},
+            {"id": "compare_4", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 1, "category": 1, "x": 6, "y": 7, "width": 6, "height": 5}
+          ]
+        },
+        {
+          "id": "detail",
+          "title": "Detail",
+          "purpose": "Bounded operational detail",
+          "slots": [
+            {"id": "table", "recipe": "detail", "visual_type": "tableEx", "x": 0, "y": 0, "width": 12, "height": 12}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operations_monitor",
+      "label": "Operations monitor",
+      "use_when": "Operational monitoring where people act on individual records: tickets, orders, shipments, service levels or exceptions.",
+      "prompt_terms": ["operations", "operational", "monitor", "monitoring", "ticket", "tickets", "sla", "support tickets", "helpdesk", "service level", "backlog", "exceptions"],
+      "derived_from": "IT Support Performance Dashboard (Efficiency & Resolution page)",
+      "requires": {"date": false, "category_pairs": 2},
+      "pages": [
+        {
+          "id": "operations",
+          "title": "Operations",
+          "purpose": "KPI rail, workload breakdowns and a bounded record table",
+          "slots": [
+            {"id": "kpi_1", "recipe": "kpi", "visual_type": "cardVisual", "measure": 0, "x": 0, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_2", "recipe": "kpi", "visual_type": "cardVisual", "measure": 1, "x": 0, "y": 2, "width": 4, "height": 2},
+            {"id": "kpi_3", "recipe": "kpi", "visual_type": "cardVisual", "measure": 2, "x": 0, "y": 4, "width": 4, "height": 2},
+            {"id": "workload", "recipe": "category", "visual_type": "columnChart", "measure": 0, "category": 0, "x": 4, "y": 0, "width": 8, "height": 5},
+            {"id": "breakdown", "recipe": "category", "visual_type": "clusteredBarChart", "measure": 1, "category": 0, "x": 0, "y": 6, "width": 4, "height": 6},
+            {"id": "records", "recipe": "detail", "visual_type": "tableEx", "x": 4, "y": 5, "width": 8, "height": 7}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "executive_scorecard",
+      "label": "Executive scorecard",
+      "use_when": "A dense one-page scorecard for leadership: KPIs, trend, mix and two breakdowns on a single page.",
+      "prompt_terms": ["scorecard", "ceo", "board", "leadership", "at a glance"],
+      "derived_from": "Inventory Analysis Dashboard; Awesome Chocolates - Performance Dashboard",
+      "requires": {"date": true, "category_pairs": 3},
+      "pages": [
+        {
+          "id": "scorecard",
+          "title": "Scorecard",
+          "purpose": "KPI row, headline trend, mix and two category breakdowns on one page",
+          "slots": [
+            {"id": "kpi_1", "recipe": "kpi", "visual_type": "cardVisual", "measure": 0, "x": 0, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_2", "recipe": "kpi", "visual_type": "cardVisual", "measure": 1, "x": 4, "y": 0, "width": 4, "height": 2},
+            {"id": "kpi_3", "recipe": "kpi", "visual_type": "cardVisual", "measure": 2, "x": 8, "y": 0, "width": 4, "height": 2},
+            {"id": "trend", "recipe": "trend", "visual_type": "areaChart", "measure": 0, "x": 0, "y": 2, "width": 8, "height": 5},
+            {"id": "mix", "recipe": "category", "visual_type": "donutChart", "measure": 0, "category": 0, "x": 8, "y": 2, "width": 4, "height": 5},
+            {"id": "breakdown_1", "recipe": "category", "visual_type": "columnChart", "measure": 1, "category": 0, "x": 0, "y": 7, "width": 6, "height": 5},
+            {"id": "breakdown_2", "recipe": "category", "visual_type": "barChart", "measure": 0, "category": 1, "x": 6, "y": 7, "width": 6, "height": 5}
+          ]
+        },
+        {
+          "id": "detail",
+          "title": "Detail",
+          "purpose": "Bounded operational detail",
+          "slots": [
+            {"id": "table", "recipe": "detail", "visual_type": "tableEx", "x": 0, "y": 0, "width": 12, "height": 12}
+          ]
+        }
+      ]
+    }
+  ]
+}

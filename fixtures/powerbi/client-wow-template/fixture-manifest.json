@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "status": "windows-preparation-required",
+  "desktop_render_verified": false,
+  "catalog_version": "1.0.0",
+  "catalog_hash": "80961692a8227b0d6fe17945db5849023f9eb2a4351a2d47bb1d3522f2176eec",
+  "data_hash": "fae74369b1ac4e914b3b73ec3de21441bcf7d47a37d96934084462eed9740901",
+  "data_through": "2025-12-31",
+  "semantic_model_state": "zero-row-tmdl-preparation-placeholder-with-governed-report-objects",
+  "macos_report_validation": {
+    "pbi_cli_version": "3.11.1",
+    "pbi_cli_result": "pending-revalidation-after-recipe-update",
+    "microsoft_authoring_cli_version": "0.1.4",
+    "microsoft_authoring_cli_result": "pending-revalidation-after-recipe-update",
+    "strict_offline_schema_mode_verified": false,
+    "semantic_model_desktop_open_verified": false
+  },
+  "required_windows_checks": [
+    "hydrate the prepared semantic model from the generated fixture",
+    "validate with pinned pbi-cli",
+    "validate with pinned powerbi-report-author using offline schemas",
+    "open and render in the pinned Power BI Desktop version",
+    "complete the Phase-0 repeated mutation and exact rollback gate"
+  ]
+}

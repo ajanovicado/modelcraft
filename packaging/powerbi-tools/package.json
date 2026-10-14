@@ -1,0 +1,9 @@
+{
+  "name": "modelcraft-powerbi-tools",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@microsoft/powerbi-report-authoring-cli": "0.1.4",
+    "@microsoft/powerbi-desktop-bridge-cli": "0.1.2"
+  }
+}

@@ -1,0 +1,12 @@
+table 'Dim Product'
+	column Product
+		dataType: string
+		sourceColumn: Product
+
+	column Category
+		dataType: string
+		sourceColumn: Category
+
+	partition 'Dim Product' = m
+		mode: import
+		source = #table(type table [Product = text, Category = text], {})

@@ -1,0 +1,87 @@
+{
+  "catalog_hash": "80961692a8227b0d6fe17945db5849023f9eb2a4351a2d47bb1d3522f2176eec",
+  "data_hash": "fae74369b1ac4e914b3b73ec3de21441bcf7d47a37d96934084462eed9740901",
+  "data_through": "2025-12-31",
+  "files": {
+    "catalog": {
+      "bytes": 8408,
+      "path": "semantic_catalog.yaml",
+      "sha256": "80961692a8227b0d6fe17945db5849023f9eb2a4351a2d47bb1d3522f2176eec"
+    },
+    "driver_parquet": {
+      "bytes": 10009,
+      "path": "driver_contributions.parquet",
+      "sha256": "38365fb23fd8bce81309ea1bb51282b5791a6e77c09284eef1706f0fc6425333"
+    },
+    "duckdb": {
+      "bytes": 2895872,
+      "path": "analytics.duckdb",
+      "sha256": "2bbec58ccd6dfe2db727f5929985ae81adcbb16a3894c6e724b54696dbc108b4"
+    },
+    "forecast_backtest_parquet": {
+      "bytes": 4688,
+      "path": "forecast_backtest.parquet",
+      "sha256": "6ef0b367f5f81f7fb3e5fd2bcf2ad6f98dc4b7bcf5b7e9691eba3e6fa79a8fc2"
+    },
+    "forecast_parquet": {
+      "bytes": 6248,
+      "path": "forecast.parquet",
+      "sha256": "8b4e9c5b71138abecce4b5f3d3f59ad81bddd9768f6bfffe6f06f1f124bf96b4"
+    },
+    "forecast_selection_parquet": {
+      "bytes": 6643,
+      "path": "forecast_selection.parquet",
+      "sha256": "adea772655cff439c6b7f0ac34aa4834a1c7158f05a91e7e7f756f6886253ed2"
+    },
+    "sales_parquet": {
+      "bytes": 357132,
+      "path": "sales.parquet",
+      "sha256": "a137fa1248635d41dc5f677ee0966fc6365488b40191b6cbd0b94dd7b8921b49"
+    },
+    "scenario_parquet": {
+      "bytes": 13892,
+      "path": "scenario_grid.parquet",
+      "sha256": "8f083ff2b07a64974656540b20380e5542d2f184b04adaf683e17826320ad35c"
+    }
+  },
+  "forecast_approval": [
+    {
+      "candidate_set_complete": true,
+      "forecast_version": "1.0.0",
+      "mean_wape": 0.015519112679783181,
+      "metric_id": "net_sales",
+      "quantitative_gate_passed": true,
+      "reason": "Lowest mean WAPE among candidates passing both release gates.",
+      "selected_method": "autoarima",
+      "status": "approved",
+      "wape_threshold": 0.12,
+      "wins_vs_seasonal_naive": 3
+    },
+    {
+      "candidate_set_complete": true,
+      "forecast_version": "1.0.0",
+      "mean_wape": 0.009021953753374301,
+      "metric_id": "gross_profit",
+      "quantitative_gate_passed": true,
+      "reason": "Lowest mean WAPE among candidates passing both release gates.",
+      "selected_method": "autoarima",
+      "status": "approved",
+      "wape_threshold": 0.15,
+      "wins_vs_seasonal_naive": 3
+    }
+  ],
+  "forecast_selection_rule": "Lowest three-fold mean WAPE among candidates meeting the threshold and beating seasonal naive in at least two folds; numerical ties within 1e-9 prefer AutoETS, AutoARIMA, seasonal drift, then seasonal naive.",
+  "forecast_version": "1.0.0",
+  "row_count": 13824,
+  "runtime": {
+    "duckdb": "1.5.5",
+    "full_forecast_candidate_set_requested": true,
+    "numpy": "2.5.2",
+    "pandas": "2.3.3",
+    "python": "3.12.12",
+    "statsforecast": "2.1.1"
+  },
+  "scenario_baseline": "Approved first-three-month Net Sales and Gross Profit forecasts; volume is derived at latest-quarter net ASP and unit cost reconciles forecast Gross Profit.",
+  "scenario_version": "1.0.0",
+  "version": "1.0.0"
+}

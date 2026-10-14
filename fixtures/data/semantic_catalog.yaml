@@ -1,0 +1,247 @@
+version: 1.0.0
+metrics:
+  - id: net_sales
+    name: Net Sales
+    aliases: [revenue, sales]
+    description: Revenue after contractual and transactional discounts.
+    format: "$,.0f"
+    powerbi_ref: "'Measures'[Net Sales]"
+    sql_expression: "SUM(net_sales)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: []
+  - id: units
+    name: Units
+    aliases: [volume, quantity]
+    description: Number of units sold.
+    format: ",.0f"
+    powerbi_ref: "'Measures'[Units]"
+    sql_expression: "SUM(units)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: []
+  - id: gross_profit
+    name: Gross Profit
+    aliases: [profit, gp]
+    description: Net Sales less cost of goods sold.
+    format: "$,.0f"
+    powerbi_ref: "'Measures'[Gross Profit]"
+    sql_expression: "SUM(gross_profit)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: [net_sales]
+  - id: gross_margin_pct
+    name: Gross Margin %
+    aliases: [margin, margin percent, gross margin]
+    description: Gross Profit divided by Net Sales.
+    format: ".1%"
+    powerbi_ref: "'Measures'[Gross Margin %]"
+    sql_expression: "SUM(gross_profit) / NULLIF(SUM(net_sales), 0)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: [gross_profit, net_sales]
+  - id: average_selling_price
+    name: Average Selling Price
+    aliases: [asp, selling price]
+    description: Net Sales divided by Units.
+    format: "$,.2f"
+    powerbi_ref: "'Measures'[Average Selling Price]"
+    sql_expression: "SUM(net_sales) / NULLIF(SUM(units), 0)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: [net_sales, units]
+  - id: discount_rate
+    name: Discount Rate
+    aliases: [discount, average discount]
+    description: Discount dollars divided by gross list-price value.
+    format: ".1%"
+    powerbi_ref: "'Measures'[Discount Rate]"
+    sql_expression: "1 - SUM(net_sales) / NULLIF(SUM(units * list_price), 0)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: [net_sales, units]
+  - id: unit_cost
+    name: Unit Cost
+    aliases: [cost per unit, cpu]
+    description: Cost of goods sold divided by Units.
+    format: "$,.2f"
+    powerbi_ref: "'Measures'[Unit Cost]"
+    sql_expression: "SUM(cogs) / NULLIF(SUM(units), 0)"
+    allowed_dimensions: [month, region, product, category, segment, channel]
+    dependencies: [units]
+  - id: sales_growth
+    name: Sales Growth
+    aliases: [revenue growth, growth]
+    description: Change in Net Sales versus the governed comparison period.
+    format: ".1%"
+    powerbi_ref: "'Measures'[Sales Growth]"
+    sql_expression: "SUM(net_sales)"
+    allowed_dimensions: [region, product, category, segment, channel]
+    dependencies: [net_sales]
+dimensions:
+  - id: month
+    name: Month
+    aliases: [month start, period]
+    column: month_start
+    powerbi_ref: "'Dim Date'[Month Start]"
+    data_type: date
+  - id: region
+    name: Region
+    aliases: [market, geography]
+    column: region
+    powerbi_ref: "'Dim Region'[Region]"
+    data_type: string
+  - id: product
+    name: Product
+    aliases: [sku, item]
+    column: product
+    powerbi_ref: "'Dim Product'[Product]"
+    data_type: string
+  - id: category
+    name: Category
+    aliases: [product category]
+    column: category
+    powerbi_ref: "'Dim Product'[Category]"
+    data_type: string
+  - id: segment
+    name: Segment
+    aliases: [customer segment]
+    column: segment
+    powerbi_ref: "'Dim Customer'[Segment]"
+    data_type: string
+  - id: channel
+    name: Channel
+    aliases: [sales channel]
+    column: channel
+    powerbi_ref: "'Dim Channel'[Channel]"
+    data_type: string
+report_objects:
+  - id: overview_latest_quarter_net_sales
+    name: Latest Quarter Net Sales
+    powerbi_ref: "'Measures'[Latest Quarter Net Sales]"
+    kind: measure
+    source: overview
+  - id: overview_latest_quarter_gross_profit
+    name: Latest Quarter Gross Profit
+    powerbi_ref: "'Measures'[Latest Quarter Gross Profit]"
+    kind: measure
+    source: overview
+  - id: overview_latest_quarter_gross_margin_pct
+    name: Latest Quarter Gross Margin %
+    powerbi_ref: "'Measures'[Latest Quarter Gross Margin %]"
+    kind: measure
+    source: overview
+  - id: overview_latest_quarter_sales_growth
+    name: Latest Quarter Sales Growth
+    powerbi_ref: "'Measures'[Sales Growth]"
+    kind: measure
+    source: overview
+  - id: overview_executive_finding
+    name: Executive Finding
+    powerbi_ref: "'Measures'[Executive Finding]"
+    kind: measure
+    source: overview
+  - id: driver
+    name: Driver
+    powerbi_ref: "'Driver Contributions'[Driver]"
+    kind: column
+    source: driver
+  - id: driver_contribution_all
+    name: Driver Contribution — All
+    powerbi_ref: "'Driver Contributions'[Driver Contribution — All]"
+    kind: measure
+    source: driver
+  - id: driver_contribution_west
+    name: Driver Contribution — West
+    powerbi_ref: "'Driver Contributions'[Driver Contribution — West]"
+    kind: measure
+    source: driver
+  - id: driver_net_sales_change_pct
+    name: Latest Quarter Net Sales Change %
+    powerbi_ref: "'Driver Contributions'[Latest Quarter Net Sales Change %]"
+    kind: measure
+    source: driver
+  - id: driver_gross_profit_change
+    name: Latest Quarter Gross Profit Change
+    powerbi_ref: "'Driver Contributions'[Latest Quarter Gross Profit Change]"
+    kind: measure
+    source: driver
+  - id: driver_gross_margin_change_pp
+    name: Latest Quarter Gross Margin Change pp
+    powerbi_ref: "'Driver Contributions'[Latest Quarter Gross Margin Change pp]"
+    kind: measure
+    source: driver
+  - id: driver_discount_contribution
+    name: Discount Contribution
+    powerbi_ref: "'Driver Contributions'[Discount Contribution]"
+    kind: measure
+    source: driver
+  - id: forecast_period
+    name: Forecast Period
+    powerbi_ref: "'Forecast'[Period]"
+    kind: column
+    source: forecast
+  - id: forecast_net_sales
+    name: Forecast Net Sales
+    powerbi_ref: "'Forecast'[Forecast Net Sales]"
+    kind: measure
+    source: forecast
+  - id: forecast_net_sales_lower_80
+    name: Forecast Net Sales Lower 80
+    powerbi_ref: "'Forecast'[Forecast Net Sales Lower 80]"
+    kind: measure
+    source: forecast
+  - id: forecast_net_sales_upper_80
+    name: Forecast Net Sales Upper 80
+    powerbi_ref: "'Forecast'[Forecast Net Sales Upper 80]"
+    kind: measure
+    source: forecast
+  - id: forecast_net_sales_lower_95
+    name: Forecast Net Sales Lower 95
+    powerbi_ref: "'Forecast'[Forecast Net Sales Lower 95]"
+    kind: measure
+    source: forecast
+  - id: forecast_net_sales_upper_95
+    name: Forecast Net Sales Upper 95
+    powerbi_ref: "'Forecast'[Forecast Net Sales Upper 95]"
+    kind: measure
+    source: forecast
+  - id: forecast_gross_profit
+    name: Forecast Gross Profit
+    powerbi_ref: "'Forecast'[Forecast Gross Profit]"
+    kind: measure
+    source: forecast
+  - id: next_quarter_forecast_net_sales
+    name: Next Quarter Forecast Net Sales
+    powerbi_ref: "'Forecast'[Next Quarter Forecast Net Sales]"
+    kind: measure
+    source: forecast
+  - id: next_quarter_forecast_gross_profit
+    name: Next Quarter Forecast Gross Profit
+    powerbi_ref: "'Forecast'[Next Quarter Forecast Gross Profit]"
+    kind: measure
+    source: forecast
+  - id: forecast_provenance
+    name: Forecast Provenance
+    powerbi_ref: "'Forecast'[Forecast Provenance]"
+    kind: measure
+    source: forecast
+  - id: scenario_net_sales
+    name: Approved Scenario Net Sales
+    powerbi_ref: "'Scenario Grid'[Approved Scenario Net Sales]"
+    kind: measure
+    source: scenario
+  - id: scenario_units
+    name: Approved Scenario Units
+    powerbi_ref: "'Scenario Grid'[Approved Scenario Units]"
+    kind: measure
+    source: scenario
+  - id: scenario_gross_profit
+    name: Approved Scenario Gross Profit
+    powerbi_ref: "'Scenario Grid'[Approved Scenario Gross Profit]"
+    kind: measure
+    source: scenario
+  - id: scenario_gross_margin_pct
+    name: Approved Scenario Gross Margin %
+    powerbi_ref: "'Scenario Grid'[Approved Scenario Gross Margin %]"
+    kind: measure
+    source: scenario
+  - id: scenario_assumption
+    name: Approved Scenario Assumption
+    powerbi_ref: "'Scenario Grid'[Approved Scenario Assumption]"
+    kind: measure
+    source: scenario

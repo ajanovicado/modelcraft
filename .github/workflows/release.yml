@@ -1,0 +1,169 @@
+name: Windows release candidate
+
+# No tag-triggered publication: both stages require a deliberate manual dispatch.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [build_candidate, prepare_draft]
+        default: build_candidate
+        required: true
+      source_commit:
+        description: Reviewed full 40-character source commit SHA
+        required: true
+        type: string
+      input_run_id:
+        description: Approved same-repository run containing the runtime input or signed candidate artifact
+        required: true
+        type: string
+      input_artifact:
+        description: Artifact name (portable runtime for build; candidate downloads for draft)
+        required: true
+        type: string
+      input_manifest_sha256:
+        description: Reviewed SHA-256 of input-manifest.json (build) or candidate.json (draft)
+        required: true
+        type: string
+      qualification_run_id:
+        description: For draft only, run containing artifact release-qualification
+        type: string
+      qualification_sha256:
+        description: For draft only, reviewed SHA-256 of qualification.json
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: windows-release-${{ inputs.source_commit }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: inputs.mode == 'build_candidate'
+    runs-on: windows-latest
+    environment: windows-release
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_commit }}
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.11.19'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.3'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.0'
+      - name: Check explicit inputs and download sealed runtime
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          INPUT_RUN: ${{ inputs.input_run_id }}
+          INPUT_ARTIFACT: ${{ inputs.input_artifact }}
+          INPUT_SHA: ${{ inputs.input_manifest_sha256 }}
+        run: |
+          if ($env:SOURCE_COMMIT -notmatch '^[a-fA-F0-9]{40}$' -or $env:INPUT_RUN -notmatch '^\d+$' -or $env:INPUT_SHA -notmatch '^[a-fA-F0-9]{64}$') { throw 'Exact reviewed source/runtime identities are required.' }
+          if ((git rev-parse HEAD) -ne $env:SOURCE_COMMIT) { throw 'Checkout differs from reviewed commit.' }
+          gh run download $env:INPUT_RUN --name $env:INPUT_ARTIFACT --dir .runtime/runtime-input
+          if ($LASTEXITCODE -ne 0) { throw 'Approved runtime artifact could not be downloaded.' }
+          if ((Get-FileHash -LiteralPath .runtime/runtime-input/input-manifest.json -Algorithm SHA256).Hash -ne $env:INPUT_SHA) { throw 'Runtime input manifest differs from reviewed identity.' }
+      - name: Install explicitly provisioned signing identity
+        shell: pwsh
+        env:
+          SIGNING_PFX_BASE64: ${{ secrets.WINDOWS_SIGNING_PFX_BASE64 }}
+          SIGNING_PFX_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PFX_PASSWORD }}
+          EXPECTED_THUMBPRINT: ${{ vars.WINDOWS_CERTIFICATE_THUMBPRINT }}
+          TIMESTAMP_URL: ${{ vars.WINDOWS_TIMESTAMP_URL }}
+        run: |
+          if (-not $env:SIGNING_PFX_BASE64 -or -not $env:EXPECTED_THUMBPRINT -or -not $env:TIMESTAMP_URL) { throw 'No signing identity is provisioned; this workflow never uploads unsigned candidates.' }
+          $pfx = Join-Path $env:RUNNER_TEMP 'release-signing.pfx'
+          try {
+            [IO.File]::WriteAllBytes($pfx, [Convert]::FromBase64String($env:SIGNING_PFX_BASE64))
+            $password = ConvertTo-SecureString $env:SIGNING_PFX_PASSWORD -AsPlainText -Force
+            $certificate = Import-PfxCertificate -FilePath $pfx -CertStoreLocation Cert:\CurrentUser\My -Password $password
+            if ($certificate.Thumbprint -ne $env:EXPECTED_THUMBPRINT) { throw 'Provisioned certificate differs from approved identity.' }
+          } finally { if (Test-Path -LiteralPath $pfx) { Remove-Item -LiteralPath $pfx } }
+      - name: Build signed source-frozen candidate
+        shell: pwsh
+        env:
+          CERTIFICATE_THUMBPRINT: ${{ vars.WINDOWS_CERTIFICATE_THUMBPRINT }}
+          TIMESTAMP_URL: ${{ vars.WINDOWS_TIMESTAMP_URL }}
+        run: |
+          $signTool = Get-ChildItem -Path "${env:ProgramFiles(x86)}\Windows Kits\10\bin\*\x64\signtool.exe" | Sort-Object FullName | Select-Object -Last 1
+          if (-not $signTool) { throw 'Windows SDK SignTool is unavailable.' }
+          ./scripts/build-windows-release.ps1 -RuntimeInput .runtime/runtime-input -OutputDirectory .runtime/candidate -CertificateThumbprint $env:CERTIFICATE_THUMBPRINT -TimestampUrl $env:TIMESTAMP_URL -SignToolPath $signTool.FullName
+      - uses: actions/upload-artifact@v4
+        with:
+          name: modelcraft-signed-candidate
+          path: .runtime/candidate/artifacts/
+          if-no-files-found: error
+      - name: Remove signing certificate
+        if: always()
+        shell: pwsh
+        env:
+          CERTIFICATE_THUMBPRINT: ${{ vars.WINDOWS_CERTIFICATE_THUMBPRINT }}
+        run: |
+          if ($env:CERTIFICATE_THUMBPRINT -match '^[a-fA-F0-9]{40}$') {
+            $certificatePath = "Cert:\CurrentUser\My\$env:CERTIFICATE_THUMBPRINT"
+            if (Test-Path -LiteralPath $certificatePath) { Remove-Item -LiteralPath $certificatePath }
+          }
+
+  draft:
+    if: inputs.mode == 'prepare_draft'
+    runs-on: windows-latest
+    environment: windows-release
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_commit }}
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.11.19'
+      - name: Download explicitly reviewed candidate and qualification
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          CERTIFICATE_THUMBPRINT: ${{ vars.WINDOWS_CERTIFICATE_THUMBPRINT }}
+          INPUT_RUN: ${{ inputs.input_run_id }}
+          INPUT_ARTIFACT: ${{ inputs.input_artifact }}
+          INPUT_SHA: ${{ inputs.input_manifest_sha256 }}
+          QUALIFICATION_RUN: ${{ inputs.qualification_run_id }}
+          QUALIFICATION_SHA: ${{ inputs.qualification_sha256 }}
+        run: |
+          if ($env:SOURCE_COMMIT -notmatch '^[a-fA-F0-9]{40}$' -or $env:INPUT_RUN -notmatch '^\d+$' -or $env:QUALIFICATION_RUN -notmatch '^\d+$' -or $env:INPUT_SHA -notmatch '^[a-fA-F0-9]{64}$' -or $env:QUALIFICATION_SHA -notmatch '^[a-fA-F0-9]{64}$') { throw 'Reviewed source, candidate and qualification identities are required.' }
+          gh run download $env:INPUT_RUN --name $env:INPUT_ARTIFACT --dir .runtime/downloads
+          if ($LASTEXITCODE -ne 0) { throw 'Candidate download failed.' }
+          gh run download $env:QUALIFICATION_RUN --name release-qualification --dir .runtime/qualification
+          if ($LASTEXITCODE -ne 0) { throw 'Qualification download failed.' }
+          if ((Get-FileHash .runtime/downloads/candidate.json -Algorithm SHA256).Hash -ne $env:INPUT_SHA -or (Get-FileHash .runtime/qualification/qualification.json -Algorithm SHA256).Hash -ne $env:QUALIFICATION_SHA) { throw 'Reviewed artifact identity differs.' }
+          uv run --frozen python scripts/windows_release.py qualify --output .runtime/downloads --qualification .runtime/qualification --commit $env:SOURCE_COMMIT
+          if ($LASTEXITCODE -ne 0) { throw 'Candidate qualification failed.' }
+      - name: Prepare draft with qualified bytes
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          CERTIFICATE_THUMBPRINT: ${{ vars.WINDOWS_CERTIFICATE_THUMBPRINT }}
+        run: |
+          $candidate = Get-Content .runtime/downloads/candidate.json -Raw | ConvertFrom-Json
+          $files = @($candidate.artifacts | ForEach-Object { Join-Path .runtime/downloads $_.file })
+          if ($env:CERTIFICATE_THUMBPRINT -notmatch '^[a-fA-F0-9]{40}$') { throw 'Approved signing identity is unavailable.' }
+          foreach ($file in $files) {
+            $signature = Get-AuthenticodeSignature -LiteralPath $file
+            if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Thumbprint -ne $env:CERTIFICATE_THUMBPRINT -or -not $signature.TimeStamperCertificate) { throw 'Qualified installer signature is invalid.' }
+          }
+          $files += @('.runtime/downloads/candidate.json', '.runtime/downloads/source-manifest.json', '.runtime/downloads/SHA256SUMS.txt')
+          gh release create "v$($candidate.version)" @files --draft --target $env:SOURCE_COMMIT --title "Modelcraft $($candidate.version)" --notes-file .runtime/qualification/release-notes.md
+          if ($LASTEXITCODE -ne 0) { throw 'Draft release preparation failed.' }

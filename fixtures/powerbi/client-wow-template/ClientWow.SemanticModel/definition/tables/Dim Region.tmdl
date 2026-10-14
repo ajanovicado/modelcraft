@@ -1,0 +1,8 @@
+table 'Dim Region'
+	column Region
+		dataType: string
+		sourceColumn: Region
+
+	partition 'Dim Region' = m
+		mode: import
+		source = #table(type table [Region = text], {})

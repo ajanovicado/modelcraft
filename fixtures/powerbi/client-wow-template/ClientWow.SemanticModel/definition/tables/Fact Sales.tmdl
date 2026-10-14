@@ -1,0 +1,66 @@
+table 'Fact Sales'
+	column 'Month Start'
+		dataType: dateTime
+		sourceColumn: Month Start
+
+	column Region
+		dataType: string
+		sourceColumn: Region
+
+	column Product
+		dataType: string
+		sourceColumn: Product
+
+	column Category
+		dataType: string
+		sourceColumn: Category
+
+	column Segment
+		dataType: string
+		sourceColumn: Segment
+
+	column Channel
+		dataType: string
+		sourceColumn: Channel
+
+	column Units
+		dataType: int64
+		sourceColumn: Units
+
+	column 'List Price'
+		dataType: double
+		sourceColumn: List Price
+
+	column 'Net Sales'
+		dataType: double
+		sourceColumn: Net Sales
+
+	column COGS
+		dataType: double
+		sourceColumn: COGS
+
+	column 'Gross Profit'
+		dataType: double
+		sourceColumn: Gross Profit
+
+	/// Zero-row preparation partition. Replace through Power BI Desktop with the
+	/// generated sales fixture before running the Windows release gate.
+	partition 'Fact Sales' = m
+		mode: import
+		source =
+			#table(
+				type table [
+					#"Month Start" = datetime,
+					Region = text,
+					Product = text,
+					Category = text,
+					Segment = text,
+					Channel = text,
+					Units = Int64.Type,
+					#"List Price" = number,
+					#"Net Sales" = number,
+					COGS = number,
+					#"Gross Profit" = number
+				],
+				{}
+			)

@@ -1,0 +1,23 @@
+.settings-with-knowledge { height: 100%; min-height: 0; overflow: auto; }
+.settings-with-knowledge > .content-page { height: auto; overflow: visible; }
+.knowledge-panel { margin: 0 28px 32px; padding: 24px; border: 1px solid #e2e2e7; border-radius: 14px; background: #fff; color: #18202c; }
+.knowledge-panel header { display: flex; align-items: flex-start; gap: 12px; }
+.knowledge-panel header > svg { flex-shrink: 0; margin-top: 3px; color: #7a6519; }
+.knowledge-panel header > div { min-width: 0; }
+.knowledge-panel h2 { margin: 0 0 8px; font-size: 20px; line-height: 1.3; letter-spacing: -.02em; }
+.knowledge-panel p { margin: 12px 0; line-height: 1.65; overflow-wrap: anywhere; }
+.knowledge-panel header p { margin: 0; color: #626673; font-size: 13px; max-width: 72ch; }
+.knowledge-status { color: #526152; font-size: 13px; }
+.knowledge-search { display: flex; align-items: flex-end; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
+.knowledge-search label { display: grid; gap: 8px; min-width: 0; font-size: 12px; line-height: 1.5; color: #526074; }
+.knowledge-search label:first-child { flex: 1; min-width: 200px; }
+.knowledge-search input, .knowledge-search select { min-height: 40px; border: 1px solid #ccd0d9; border-radius: 8px; padding: 8px 12px; width: 100%; font: inherit; color: #18202c; background: #fff; }
+.knowledge-search button { min-height: 40px; }
+.knowledge-boundary { border-left: 3px solid #ebc600; padding: 8px 0 8px 14px; color: #626673; font-size: 13px; }
+.knowledge-result { border: 1px solid #e2e2e7; border-radius: 10px; padding: 16px; margin: 12px 0; }
+.knowledge-result summary { cursor: pointer; font-size: 13px; font-weight: 600; line-height: 1.6; overflow-wrap: anywhere; }
+.knowledge-result summary span { font-size: 11px; color: #626673; margin-left: 10px; font-weight: 400; }
+.knowledge-result pre { margin: 16px 0; padding: 12px; border: 1px solid #e7ebef; border-radius: 8px; background: #fafbfc; white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.7 ui-monospace, monospace; max-height: 340px; overflow: auto; }
+.knowledge-result a { display: inline-block; color: #175bac; font-size: 12px; line-height: 1.6; text-underline-offset: 3px; }
+.knowledge-panel small { display: block; margin-top: 12px; color: #626673; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+@media (max-width: 700px) { .knowledge-panel { margin: 0 12px 20px; padding: 16px; } .knowledge-search label { width: 100%; } }

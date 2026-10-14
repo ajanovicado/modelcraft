@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "qualification": "Studio-authored report themes. Each file is SHA-256 pinned and registered with the PBIR customTheme contract; a theme changes colors and text styles only, never data, bindings or layout. Palettes were written for Studio; no third-party theme file is included.",
+  "default": "default",
+  "themes": [
+    {
+      "id": "default",
+      "label": "Power BI default",
+      "use_when": "No particular visual identity is requested; keep Power BI's built-in base theme.",
+      "prompt_terms": [],
+      "file": null,
+      "sha256": null
+    },
+    {
+      "id": "executive_light",
+      "label": "Executive light",
+      "use_when": "Polished leadership or client-facing reporting with a blue and orange accent.",
+      "prompt_terms": ["polished", "client facing", "boardroom", "presentation"],
+      "file": "ExecutiveLight-7f3a2c1d.json",
+      "sha256": "6f5218134acc42cceefae0e202d7fd7d8c20910accbd11b725e7684c13895743"
+    },
+    {
+      "id": "calm_teal",
+      "label": "Calm teal",
+      "use_when": "Operational, service, health or sustainability reporting that should feel calm and neutral.",
+      "prompt_terms": ["calm", "teal", "sustainability", "healthcare", "hospital"],
+      "file": "StudioCalmTeal.json",
+      "sha256": "95dd6232e40f0150fd0324587dfb1ef78bf286baa8b10a18725122b5676658e6"
+    },
+    {
+      "id": "finance_neutral",
+      "label": "Finance neutral",
+      "use_when": "Finance, variance or IBCS-style reporting: greys for context, one blue accent, green and red only for good and bad.",
+      "prompt_terms": ["finance", "financial", "ibcs", "profit and loss", "pnl", "budget", "accounting", "monochrome", "grey", "gray"],
+      "file": "StudioFinanceNeutral.json",
+      "sha256": "85b790e4af8ddef083c50492c6170e482959baf46383da79fa5568fd8558d386"
+    },
+    {
+      "id": "accessible_contrast",
+      "label": "Accessible contrast",
+      "use_when": "Color-vision-deficiency-safe palette (Okabe-Ito order) with high text contrast.",
+      "prompt_terms": ["accessible", "accessibility", "colorblind", "color blind", "colourblind", "colour blind", "high contrast", "wcag"],
+      "file": "StudioAccessibleContrast.json",
+      "sha256": "eabc61f86fd89dde08dc763757e93d03ed7dbbc73973ae18bf86a671fd95ccdf"
+    }
+  ]
+}

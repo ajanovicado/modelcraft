@@ -1,0 +1,50 @@
+{
+  "catalog_version": "1.0.0",
+  "metrics": {
+    "net_sales": "'Measures'[Net Sales]",
+    "units": "'Measures'[Units]",
+    "gross_profit": "'Measures'[Gross Profit]",
+    "gross_margin_pct": "'Measures'[Gross Margin %]",
+    "average_selling_price": "'Measures'[Average Selling Price]",
+    "discount_rate": "'Measures'[Discount Rate]",
+    "unit_cost": "'Measures'[Unit Cost]",
+    "sales_growth": "'Measures'[Sales Growth]"
+  },
+  "dimensions": {
+    "month": "'Dim Date'[Month Start]",
+    "region": "'Dim Region'[Region]",
+    "product": "'Dim Product'[Product]",
+    "category": "'Dim Product'[Category]",
+    "segment": "'Dim Customer'[Segment]",
+    "channel": "'Dim Channel'[Channel]"
+  },
+  "report_objects": {
+    "overview_latest_quarter_net_sales": "'Measures'[Latest Quarter Net Sales]",
+    "overview_latest_quarter_gross_profit": "'Measures'[Latest Quarter Gross Profit]",
+    "overview_latest_quarter_gross_margin_pct": "'Measures'[Latest Quarter Gross Margin %]",
+    "overview_latest_quarter_sales_growth": "'Measures'[Sales Growth]",
+    "overview_executive_finding": "'Measures'[Executive Finding]",
+    "driver": "'Driver Contributions'[Driver]",
+    "driver_contribution_all": "'Driver Contributions'[Driver Contribution — All]",
+    "driver_contribution_west": "'Driver Contributions'[Driver Contribution — West]",
+    "driver_net_sales_change_pct": "'Driver Contributions'[Latest Quarter Net Sales Change %]",
+    "driver_gross_profit_change": "'Driver Contributions'[Latest Quarter Gross Profit Change]",
+    "driver_gross_margin_change_pp": "'Driver Contributions'[Latest Quarter Gross Margin Change pp]",
+    "driver_discount_contribution": "'Driver Contributions'[Discount Contribution]",
+    "forecast_period": "'Forecast'[Period]",
+    "forecast_net_sales": "'Forecast'[Forecast Net Sales]",
+    "forecast_net_sales_lower_80": "'Forecast'[Forecast Net Sales Lower 80]",
+    "forecast_net_sales_upper_80": "'Forecast'[Forecast Net Sales Upper 80]",
+    "forecast_net_sales_lower_95": "'Forecast'[Forecast Net Sales Lower 95]",
+    "forecast_net_sales_upper_95": "'Forecast'[Forecast Net Sales Upper 95]",
+    "forecast_gross_profit": "'Forecast'[Forecast Gross Profit]",
+    "next_quarter_forecast_net_sales": "'Forecast'[Next Quarter Forecast Net Sales]",
+    "next_quarter_forecast_gross_profit": "'Forecast'[Next Quarter Forecast Gross Profit]",
+    "forecast_provenance": "'Forecast'[Forecast Provenance]",
+    "scenario_net_sales": "'Scenario Grid'[Approved Scenario Net Sales]",
+    "scenario_units": "'Scenario Grid'[Approved Scenario Units]",
+    "scenario_gross_profit": "'Scenario Grid'[Approved Scenario Gross Profit]",
+    "scenario_gross_margin_pct": "'Scenario Grid'[Approved Scenario Gross Margin %]",
+    "scenario_assumption": "'Scenario Grid'[Approved Scenario Assumption]"
+  }
+}

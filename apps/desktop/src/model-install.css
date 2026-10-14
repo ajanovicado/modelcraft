@@ -1,0 +1,25 @@
+.model-install { display: grid; gap: 14px; margin-bottom: 16px; padding: 20px 22px; background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--yellow); border-radius: var(--radius, 6px); }
+.model-install-head { display: flex; gap: 13px; align-items: flex-start; }
+.model-install-head > svg { flex: none; color: #2c65b3; margin-top: 2px; }
+.model-install-ready { border-left-color: #2f7c57; }
+.model-install-ready .model-install-head > svg { color: #2f7c57; }
+.model-install-head h2 { margin: 0 0 4px; font-size: 16px; }
+.model-install-head p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; max-width: 72ch; }
+.model-install-actions, .model-install-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.model-install-actions > p { flex-basis: 100%; margin: 0; font-size: 12px; }
+.model-install-note { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+.model-install-error { color: #a34722; font-size: 12px; margin: 0; overflow-wrap: anywhere; }
+.model-install-progress > span { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-variant-numeric: tabular-nums; }
+.model-install-bar { flex-basis: 100%; height: 8px; border-radius: 4px; background: #eef0f4; overflow: hidden; }
+.model-install-bar > span { display: block; height: 100%; background: var(--yellow); transition: width .4s ease; }
+.model-install-file summary { cursor: pointer; font-size: 12px; color: var(--muted); }
+.model-install-file form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.model-install-file label { flex-basis: 100%; font-size: 11px; color: var(--muted); }
+.model-install-file input { flex: 1 1 320px; min-width: 0; min-height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: 6px; font: inherit; font-size: 12px; }
+/* On the welcome screen the card sits above the centred hero and keeps its own layout. */
+.welcome-install { width: min(680px, 100%); text-align: left; margin-bottom: 18px; }
+.welcome-install:empty { display: none; }
+.welcome .model-install p { margin: 0; max-width: none; }
+/* Top-bar "Install Qwen 4B" (RuntimeStatus) reads as status text but is a button. */
+.status-action { border: 0; background: none; padding: 0; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .model-install-bar > span { transition: none; } }

@@ -1,0 +1,1 @@
+{"main-capability":{"identifier":"main-capability","description":"Narrow desktop permissions for local folder selection and the bundled studio sidecar","local":true,"windows":["main"],"permissions":["core:default","dialog:allow-open","dialog:allow-save",{"identifier":"shell:allow-execute","allow":[{"args":true,"name":"binaries/ai-powerbi-studio-engine","sidecar":true}]}]}}

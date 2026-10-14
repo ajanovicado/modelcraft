@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "package": "powerbi-rag-runtime",
+  "version": "0.1.0",
+  "source_kind": "local_directory_snapshot",
+  "captured_on": "2026-10-04",
+  "original_location_relative_to_repository": "../PowerBI-RAG/runtime",
+  "repository_url": null,
+  "revision": null,
+  "author": "Modelcraft runtime author (project owner confirmation)",
+  "license_status": "MIT_owner_confirmed",
+  "owner_confirmation": {
+    "date": "2026-10-14",
+    "evidence": "OWNER_CONFIRMATION.md",
+    "license_notice": "LICENSE",
+    "distribution_scope": "source and compiled distributions under MIT"
+  },
+  "snapshot_sha256": "c7e286d73184d2105e2c769c46f2c84bb607078b0c91060a03b3484bf936bdb5",
+  "files": {
+    "powerbi_rag_runtime/__init__.py": {
+      "sha256": "493e3d6ced0776ec58e77279f81563acc22621195db975e9c935300d7a0a39dc",
+      "size_bytes": 84
+    },
+    "powerbi_rag_runtime/backend.pyi": {
+      "sha256": "b334ca3158f38fb7dcd66e24567d4963966c3d8879e590e4adf90a946d9efe61",
+      "size_bytes": 616
+    },
+    "powerbi_rag_runtime/guards.py": {
+      "sha256": "d43bf9db982639a776a7e70f541a7327f6d48ef4e483caa4c9ea8bb08d98f89b",
+      "size_bytes": 4296
+    },
+    "powerbi_rag_runtime/guards.pyi": {
+      "sha256": "68abd798d7c31639cc2a62988086e9208ee5ae4a4abdf00e36f1cf20d5a6d5e1",
+      "size_bytes": 484
+    },
+    "powerbi_rag_runtime/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "powerbi_rag_runtime/server.py": {
+      "sha256": "0784652877be2a99cb4130565ec55ac6cc2775c2f0d61c44cb70428598a8bf87",
+      "size_bytes": 3180
+    },
+    "powerbi_rag_runtime/windows_job.py": {
+      "sha256": "0bb245c3512849c5833ddf0c96492ae123b940ae44e6335ebfccc25cb6180f4c",
+      "size_bytes": 2318
+    },
+    "powerbi_rag_runtime/windows_paging.py": {
+      "sha256": "e629b88640f970cd239e4fbdfbf1837251ce2ccf2e3b05d2ece9fdb8eaeaa237",
+      "size_bytes": 2362
+    },
+    "pyproject.toml": {
+      "sha256": "e047c43abed8dfa59db78be207e743ee59ef868687b60e693b3ab0e8e6c66b56",
+      "size_bytes": 301
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+ "family": "layout",
+ "reason": "A default-sized new visual shrinks (same shape, down to half) to fit a free gap before covering another visual.",
+ "scenarios": {
+  "add_aggregated_column": {
+   "summaries": [
+    "Added a stacked column chart of StoreName and Average of Salary to page '1'. Power BI titles it 'Average of Salary by StoreName' by itself."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "392a899a3a4cce3521bc3ef5dcb67d5f52165766b967b8b4cc7eb6b8ca881444",
+     "bytes": 748,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":150,\"width\":200,\"tabOrder\":15000},\"visual\":{\"visualType\":\"columnChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimStore\"}},\"Property\":\"StoreName\"}},\"queryRef\":\"DimStore.StoreName\",\"nativeQueryRef\":\"StoreName\"}]},\"Y\":{\"projections\":[{\"field\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimEmployee\"}},\"Property\":\"Salary\"}},\"Function\":1}},\"queryRef\":\"Average(DimEmployee.Salary)\",\"nativeQueryRef\":\"Average of Salary\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  },
+  "add_column_chart": {
+   "summaries": [
+    "Added a clustered column chart of ChannelName and Rank to page '1'. Its title is 'Rank by channel'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "b34700c9eccb467d26466252e3bb34f621d90df2916368e0068496520afeca9f",
+     "bytes": 853,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":150,\"width\":200,\"tabOrder\":15000},\"visual\":{\"visualType\":\"clusteredColumnChart\",\"query\":{\"queryState\":{\"Category\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"ChannelName\"}]},\"Y\":{\"projections\":[{\"field\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"# Measures\"}},\"Property\":\"Rank\"}},\"queryRef\":\"# Measures.Rank\",\"nativeQueryRef\":\"Rank\"}]}}},\"drillFilterOtherVisuals\":true,\"visualContainerObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Rank by channel'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}"
+    }
+   },
+   "removed": []
+  },
+  "add_slicer": {
+   "summaries": [
+    "Added a slicer of ChannelName to page '1'."
+   ],
+   "model_operations": [],
+   "warnings": [],
+   "report_changed": true,
+   "measures": {
+    "Employees Avg MTD % Change": "# Measures",
+    "Employees Avg MTD Sales": "# Measures",
+    "Rank": "# Measures",
+    "Table MTD Sales": "# Measures",
+    "TopN/BottomN/ MTD Sales": "# Measures",
+    "Unused Ratio": "# Measures",
+    "dummy": "# Measures"
+   },
+   "problems": [],
+   "parts": {
+    "Report/definition/pages/ReportSection8454c812b60b8bb83b99/visuals/00000000000000000001/visual.json": {
+     "sha256": "2643533fa66c7599b3293df611977583a102757503a3dc3e5e2ccc5482ed1c21",
+     "bytes": 512,
+     "text": "{\"$schema\":\"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json\",\"name\":\"00000000000000000001\",\"position\":{\"x\":0,\"y\":0,\"z\":15000,\"height\":238,\"width\":170,\"tabOrder\":15000},\"visual\":{\"visualType\":\"slicer\",\"query\":{\"queryState\":{\"Values\":{\"projections\":[{\"field\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimChannel\"}},\"Property\":\"ChannelName\"}},\"queryRef\":\"DimChannel.ChannelName\",\"nativeQueryRef\":\"ChannelName\"}]}}},\"drillFilterOtherVisuals\":true}}"
+    }
+   },
+   "removed": []
+  }
+ }
+}

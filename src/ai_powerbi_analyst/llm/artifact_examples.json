@@ -1,0 +1,114 @@
+[
+  {
+    "id": "sum-visible",
+    "domain": "dax",
+    "keywords": "sum summing visible filters negative adjustments",
+    "brief": "Sum visible signed values from Movements[Delta] without removing filters.",
+    "artifact": "Net Change = SUM ( Movements[Delta] )"
+  },
+  {
+    "id": "ratio-zero",
+    "domain": "dax",
+    "keywords": "ratio divide margin profit sales denominator zero",
+    "brief": "Compute visible total Earnings divided by visible total Revenue, returning zero on a zero denominator.",
+    "artifact": "Earning Rate = DIVIDE ( SUM ( Accounts[Earnings] ), SUM ( Accounts[Revenue] ), 0 )"
+  },
+  {
+    "id": "row-products",
+    "domain": "dax",
+    "keywords": "rowwise multiplied multiply quantity price qty product extended",
+    "brief": "Sum each order line quantity multiplied by its own unit rate.",
+    "artifact": "Line Value = SUMX ( OrderLines, OrderLines[Quantity] * OrderLines[UnitRate] )"
+  },
+  {
+    "id": "role-date",
+    "domain": "dax",
+    "keywords": "inactive active relationship date filtered preserving",
+    "brief": "Work has active OpenedOn and inactive ClosedOn relationships to Calendar[Date]. Sum Spend through ClosedOn.",
+    "artifact": "Closed Spend = CALCULATE ( SUM ( Work[Spend] ), USERELATIONSHIP ( Work[ClosedOn], Calendar[Date] ) )"
+  },
+  {
+    "id": "sql-group",
+    "domain": "sql",
+    "keywords": "grouped group sum total ascending",
+    "brief": "Return signed total Distance by Route, named TotalDistance, ordered by Route.",
+    "artifact": "SELECT Route, SUM(Distance) AS TotalDistance FROM Journeys GROUP BY Route ORDER BY Route"
+  },
+  {
+    "id": "sql-left",
+    "domain": "sql",
+    "keywords": "left join include unmatched missing null",
+    "brief": "Keep every Parcel, adding Carrier Label or NULL if unmatched.",
+    "artifact": "SELECT p.Id,c.Label FROM Parcels p LEFT JOIN Carriers c ON p.CarrierId=c.Id ORDER BY p.Id"
+  },
+  {
+    "id": "sql-self",
+    "domain": "sql",
+    "keywords": "leader parent manager self references",
+    "brief": "For Workers(Id,Name,BossId), return each worker with a boss and boss Name AS Boss.",
+    "artifact": "SELECT w.Id,w.Name,b.Name AS Boss FROM Workers w JOIN Workers b ON w.BossId=b.Id ORDER BY w.Id"
+  },
+  {
+    "id": "sql-anti",
+    "domain": "sql",
+    "keywords": "without unmatched anti absent exists null matching",
+    "brief": "Return every Invoice that has no Settlement, including when Settlement has unrelated NULL keys.",
+    "artifact": "SELECT i.Id FROM Invoices i WHERE NOT EXISTS (SELECT 1 FROM Settlements s WHERE s.InvoiceId=i.Id) ORDER BY i.Id"
+  },
+  {
+    "id": "m-positive",
+    "domain": "m",
+    "keywords": "strictly positive retain filter order original",
+    "brief": "Construct typed Counts(Key,Count) rows (7,6),(8,0),(9,-2); retain positive Count sorted by Key.",
+    "artifact": "let Source=#table(type table [Key=number,Count=number],{{7,6},{8,0},{9,-2}}), Result=Table.Sort(Table.SelectRows(Source,each [Count]>0),{{\"Key\",Order.Ascending}}) in Result"
+  },
+  {
+    "id": "m-add",
+    "domain": "m",
+    "keywords": "append amount qty fee multiply numeric preserving",
+    "brief": "Construct typed Lines(Key,Count,Rate), then append numeric Cost as Count times Rate.",
+    "artifact": "let Lines=#table(type table [Key=number,Count=number,Rate=number],{{7,3,5},{8,-2,4}}), Result=Table.AddColumn(Lines,\"Cost\",each [Count]*[Rate],type number) in Result"
+  },
+  {
+    "id": "m-composite",
+    "domain": "m",
+    "keywords": "merge both expand left tier composite",
+    "brief": "Left merge Jobs with Prices on BOTH Sector and Class; expand Charge, preserving left columns.",
+    "artifact": "let Jobs=#table(type table [Key=number,Sector=text,Class=text],{{7,\"Bay\",\"X\"},{8,\"Bay\",\"Y\"}}), Prices=#table(type table [Sector=text,Class=text,Charge=number],{{\"Bay\",\"X\",6},{\"Bay\",\"Y\",9}}), Joined=Table.NestedJoin(Jobs,{\"Sector\",\"Class\"},Prices,{\"Sector\",\"Class\"},\"Lookup\",JoinKind.LeftOuter), Result=Table.ExpandTableColumn(Joined,\"Lookup\",{\"Charge\"},{\"Charge\"}) in Result"
+  },
+  {
+    "id": "m-anti",
+    "domain": "m",
+    "keywords": "anti no without unmatched paid payment",
+    "brief": "Return members with no matching renewal, ordered by Key.",
+    "artifact": "let Members=#table(type table [Key=number,Name=text],{{7,\"Jo\"},{8,\"Al\"}}), Renewals=#table(type table [Key=number],{{7}}), Joined=Table.NestedJoin(Members,{\"Key\"},Renewals,{\"Key\"},\"Lookup\",JoinKind.LeftAnti), Result=Table.Sort(Table.SelectColumns(Joined,{\"Key\",\"Name\"}),{{\"Key\",Order.Ascending}}) in Result"
+  },
+  {
+    "id": "model-keys",
+    "domain": "model",
+    "keywords": "primary foreign key fact dimension cardinality standard safe",
+    "brief": "Locations has unique LocationKey; Events repeats LocationKey. Identify keys and relationship.",
+    "artifact": "Primary key Locations[LocationKey]; foreign key Events[LocationKey]. Active single-direction 1:* from Locations to Events."
+  },
+  {
+    "id": "model-unique",
+    "domain": "model",
+    "keywords": "both unique matching supported one one-to-one",
+    "brief": "Cards and CardDetails both have unique matching CardKey columns. State the Power BI relationship.",
+    "artifact": "Cards[CardKey] to CardDetails[CardKey] is 1:1 with Both cross-filter direction. Power BI one-to-one relationships filter in both directions."
+  },
+  {
+    "id": "model-bridge",
+    "domain": "model",
+    "keywords": "bridge reaches propagation direct many",
+    "brief": "Authors(AuthorKey), Titles(TitleKey), Credits(AuthorKey,TitleKey) form an author-title bridge. Author filters must reach Titles.",
+    "artifact": "Credits has one row per author-title pair. Authors[AuthorKey] to Credits[AuthorKey] is 1:* single from Authors to Credits. Titles[TitleKey] to Credits[TitleKey] is 1:* Both, allowing Credits to filter Titles. No direct Authors-Titles relationship."
+  },
+  {
+    "id": "model-date",
+    "domain": "model",
+    "keywords": "date calendar range grain marked full year",
+    "brief": "Events(EventKey,HappenedOn,Value) needs reporting by date.",
+    "artifact": "Create Calendar with one unique nonblank contiguous Date per day, covering complete calendar years of the fact date range. Mark it as the date table. Active 1:* single from Calendar[Date] to Events[HappenedOn]. Keep one fact row per event."
+  }
+]

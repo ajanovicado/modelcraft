@@ -1,0 +1,23 @@
+from collections.abc import Iterator
+from os import PathLike
+
+from pyarrow import RecordBatch, Schema, Table
+
+class ParquetWriter:
+    schema: Schema
+    def __init__(
+        self, where: str | PathLike[str], schema: Schema, *, compression: str = ...
+    ) -> None: ...
+    def write_table(self, table: Table) -> None: ...
+    def close(self) -> None: ...
+
+class FileMetaData:
+    num_rows: int
+
+class ParquetFile:
+    schema_arrow: Schema
+    metadata: FileMetaData
+    def __init__(self, source: str | PathLike[str]) -> None: ...
+    def iter_batches(self, *, batch_size: int = ...) -> Iterator[RecordBatch]: ...
+
+def write_table(table: Table, where: str | PathLike[str], *, compression: str = ...) -> None: ...

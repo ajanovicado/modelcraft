@@ -1,0 +1,1024 @@
+{
+ "clusteredColumnChart": {
+  "visual_type": "clusteredColumnChart",
+  "family": "chart",
+  "studio_draws": true,
+  "instance_selector": null,
+  "sections": [
+   {
+    "id": "size_position",
+    "title": "Size & position",
+    "controls": [
+     {
+      "id": "position.x",
+      "section": "size_position",
+      "label": "Horizontal position",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "x",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 0,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "x",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.y",
+      "section": "size_position",
+      "label": "Vertical position",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "y",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 0,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "y",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.width",
+      "section": "size_position",
+      "label": "Width",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "width",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 10,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "width",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.height",
+      "section": "size_position",
+      "label": "Height",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "height",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 10,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "height",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.z",
+      "section": "size_position",
+      "label": "Order",
+      "description": "Bring the visual to the front or send it to the back",
+      "kind": "select",
+      "object": "position",
+      "property": "z",
+      "where": "position",
+      "type": "enum",
+      "writable": true,
+      "options": [
+       {
+        "value": "front",
+        "label": "Front"
+       },
+       {
+        "value": "forward",
+        "label": "Forward"
+       },
+       {
+        "value": "backward",
+        "label": "Backward"
+       },
+       {
+        "value": "back",
+        "label": "Back"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "arrange",
+       "field": "to",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.hidden",
+      "section": "size_position",
+      "label": "Hide this visual",
+      "description": null,
+      "kind": "toggle",
+      "object": "position",
+      "property": "hidden",
+      "where": "position",
+      "type": "bool",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_visual_hidden",
+       "field": "hidden",
+       "fixed": {}
+      }
+     }
+    ]
+   },
+   {
+    "id": "number_format",
+    "title": "Number format",
+    "controls": [
+     {
+      "id": "labels.labelDisplayUnits",
+      "section": "number_format",
+      "label": "Display units",
+      "description": "Thousands, millions... for the data labels",
+      "kind": "select",
+      "object": "labels",
+      "property": "labelDisplayUnits",
+      "where": "objects",
+      "type": "enum",
+      "writable": true,
+      "options": [
+       {
+        "value": "auto",
+        "label": "Auto"
+       },
+       {
+        "value": "none",
+        "label": "None"
+       },
+       {
+        "value": "thousands",
+        "label": "Thousands"
+       },
+       {
+        "value": "millions",
+        "label": "Millions"
+       },
+       {
+        "value": "billions",
+        "label": "Billions"
+       },
+       {
+        "value": "trillions",
+        "label": "Trillions"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "display_units",
+       "fixed": {
+        "target": "data_labels"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "labels.labelPrecision",
+      "section": "number_format",
+      "label": "Decimal places",
+      "description": "Decimal places of the data labels",
+      "kind": "number",
+      "object": "labels",
+      "property": "labelPrecision",
+      "where": "objects",
+      "type": "integer",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "decimals",
+       "fixed": {
+        "target": "data_labels"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null,
+      "min": 0,
+      "max": 15
+     },
+     {
+      "id": "valueAxis.labelDisplayUnits",
+      "section": "number_format",
+      "label": "Display units",
+      "description": "Thousands, millions... for the axis",
+      "kind": "select",
+      "object": "valueAxis",
+      "property": "labelDisplayUnits",
+      "where": "objects",
+      "type": "formatting",
+      "writable": true,
+      "options": [
+       {
+        "value": "auto",
+        "label": "Auto"
+       },
+       {
+        "value": "none",
+        "label": "None"
+       },
+       {
+        "value": "thousands",
+        "label": "Thousands"
+       },
+       {
+        "value": "millions",
+        "label": "Millions"
+       },
+       {
+        "value": "billions",
+        "label": "Billions"
+       },
+       {
+        "value": "trillions",
+        "label": "Trillions"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "display_units",
+       "fixed": {
+        "target": "value_axis"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "valueAxis.labelPrecision",
+      "section": "number_format",
+      "label": "Decimal places",
+      "description": "Decimal places of the axis",
+      "kind": "number",
+      "object": "valueAxis",
+      "property": "labelPrecision",
+      "where": "objects",
+      "type": "integer",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "decimals",
+       "fixed": {
+        "target": "value_axis"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null,
+      "min": 0,
+      "max": 15
+     },
+     {
+      "id": "numberFormat.preset",
+      "section": "number_format",
+      "label": "Format",
+      "description": "A common number format for this visual only",
+      "kind": "select",
+      "object": "labels",
+      "property": "labelDisplayUnits",
+      "where": "objects",
+      "type": "enum",
+      "writable": true,
+      "options": [
+       {
+        "value": "general",
+        "label": "General (the field's own format)"
+       },
+       {
+        "value": "whole_number",
+        "label": "Whole number"
+       },
+       {
+        "value": "one_decimal",
+        "label": "One decimal (0.0)"
+       },
+       {
+        "value": "two_decimals",
+        "label": "Two decimals (0.00)"
+       },
+       {
+        "value": "percent",
+        "label": "Percentage"
+       },
+       {
+        "value": "currency",
+        "label": "Currency"
+       },
+       {
+        "value": "thousands",
+        "label": "Thousands (K)"
+       },
+       {
+        "value": "millions",
+        "label": "Millions (M)"
+       },
+       {
+        "value": "billions",
+        "label": "Billions (bn)"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "preset",
+       "fixed": {
+        "target": "data_labels"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "numberFormat.code",
+      "section": "number_format",
+      "label": "Format code",
+      "description": "A Power BI format code such as #,0.00 or 0.0%",
+      "kind": "text",
+      "object": "labels",
+      "property": "valueCustomFormatString",
+      "where": "objects",
+      "type": "text",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "format",
+       "fixed": {
+        "target": "data_labels"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     }
+    ]
+   },
+   {
+    "id": "conditional_formatting",
+    "title": "Conditional formatting",
+    "controls": [
+     {
+      "id": "cf.dataColors.minColor",
+      "section": "conditional_formatting",
+      "label": "Color of the lowest values",
+      "description": "Colors the bars by value, on a color scale",
+      "kind": "color",
+      "object": "dataPoint",
+      "property": "fill",
+      "where": "objects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_conditional_format",
+       "field": "min_color",
+       "fixed": {
+        "style": "gradient",
+        "target": "data_colors"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.dataColors.maxColor",
+      "section": "conditional_formatting",
+      "label": "Color of the highest values",
+      "description": "Colors the bars by value, on a color scale",
+      "kind": "color",
+      "object": "dataPoint",
+      "property": "fill",
+      "where": "objects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_conditional_format",
+       "field": "max_color",
+       "fixed": {
+        "style": "gradient",
+        "target": "data_colors"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.dataColors.clear",
+      "section": "conditional_formatting",
+      "label": "Remove the color rule",
+      "description": null,
+      "kind": "select",
+      "object": "dataPoint",
+      "property": "fill",
+      "where": "objects",
+      "type": "fill",
+      "writable": true,
+      "options": [
+       {
+        "value": "data_colors",
+        "label": "Remove"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "clear_conditional_format",
+       "field": "target",
+       "fixed": {}
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.titleColor.measure",
+      "section": "conditional_formatting",
+      "label": "Title color from a measure",
+      "description": "A measure that returns a color name or hex",
+      "kind": "text",
+      "object": "title",
+      "property": "fontColor",
+      "where": "visualContainerObjects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": "#252423",
+      "op": {
+       "name": "set_conditional_format",
+       "field": "measure",
+       "fixed": {
+        "style": "field_value",
+        "target": "title_color"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.background.measure",
+      "section": "conditional_formatting",
+      "label": "Background color from a measure",
+      "description": "A measure that returns a color name or hex",
+      "kind": "text",
+      "object": "background",
+      "property": "color",
+      "where": "visualContainerObjects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_conditional_format",
+       "field": "measure",
+       "fixed": {
+        "style": "field_value",
+        "target": "visual_background"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     }
+    ]
+   }
+  ]
+ },
+ "cardVisual": {
+  "visual_type": "cardVisual",
+  "family": "cardVisual",
+  "studio_draws": true,
+  "instance_selector": {
+   "id": "default",
+   "states": [
+    "default"
+   ]
+  },
+  "sections": [
+   {
+    "id": "size_position",
+    "title": "Size & position",
+    "controls": [
+     {
+      "id": "position.x",
+      "section": "size_position",
+      "label": "Horizontal position",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "x",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 0,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "x",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.y",
+      "section": "size_position",
+      "label": "Vertical position",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "y",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 0,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "y",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.width",
+      "section": "size_position",
+      "label": "Width",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "width",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 10,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "width",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.height",
+      "section": "size_position",
+      "label": "Height",
+      "description": null,
+      "kind": "number",
+      "object": "position",
+      "property": "height",
+      "where": "position",
+      "type": "numeric",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "unit": "px",
+      "min": 10,
+      "max": 20000,
+      "op": {
+       "name": "set_position",
+       "field": "height",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.z",
+      "section": "size_position",
+      "label": "Order",
+      "description": "Bring the visual to the front or send it to the back",
+      "kind": "select",
+      "object": "position",
+      "property": "z",
+      "where": "position",
+      "type": "enum",
+      "writable": true,
+      "options": [
+       {
+        "value": "front",
+        "label": "Front"
+       },
+       {
+        "value": "forward",
+        "label": "Forward"
+       },
+       {
+        "value": "backward",
+        "label": "Backward"
+       },
+       {
+        "value": "back",
+        "label": "Back"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "arrange",
+       "field": "to",
+       "fixed": {}
+      }
+     },
+     {
+      "id": "position.hidden",
+      "section": "size_position",
+      "label": "Hide this visual",
+      "description": null,
+      "kind": "toggle",
+      "object": "position",
+      "property": "hidden",
+      "where": "position",
+      "type": "bool",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_visual_hidden",
+       "field": "hidden",
+       "fixed": {}
+      }
+     }
+    ]
+   },
+   {
+    "id": "number_format",
+    "title": "Number format",
+    "controls": [
+     {
+      "id": "value.labelDisplayUnits",
+      "section": "number_format",
+      "label": "Display units",
+      "description": "Thousands, millions... for the value",
+      "kind": "select",
+      "object": "value",
+      "property": "labelDisplayUnits",
+      "where": "objects",
+      "type": "enum",
+      "writable": true,
+      "options": [
+       {
+        "value": "auto",
+        "label": "Auto"
+       },
+       {
+        "value": "none",
+        "label": "None"
+       },
+       {
+        "value": "thousands",
+        "label": "Thousands"
+       },
+       {
+        "value": "millions",
+        "label": "Millions"
+       },
+       {
+        "value": "billions",
+        "label": "Billions"
+       },
+       {
+        "value": "trillions",
+        "label": "Trillions"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": {
+       "id": "default"
+      },
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "display_units",
+       "fixed": {
+        "target": "card_value"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "value.labelPrecision",
+      "section": "number_format",
+      "label": "Decimal places",
+      "description": "Decimal places of the value",
+      "kind": "number",
+      "object": "value",
+      "property": "labelPrecision",
+      "where": "objects",
+      "type": "integer",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": {
+       "id": "default"
+      },
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "decimals",
+       "fixed": {
+        "target": "card_value"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null,
+      "min": 0,
+      "max": 15
+     },
+     {
+      "id": "numberFormat.preset",
+      "section": "number_format",
+      "label": "Format",
+      "description": "A common number format for this visual only",
+      "kind": "select",
+      "object": "value",
+      "property": "labelDisplayUnits",
+      "where": "objects",
+      "type": "enum",
+      "writable": true,
+      "options": [
+       {
+        "value": "general",
+        "label": "General (the field's own format)"
+       },
+       {
+        "value": "whole_number",
+        "label": "Whole number"
+       },
+       {
+        "value": "one_decimal",
+        "label": "One decimal (0.0)"
+       },
+       {
+        "value": "two_decimals",
+        "label": "Two decimals (0.00)"
+       },
+       {
+        "value": "percent",
+        "label": "Percentage"
+       },
+       {
+        "value": "currency",
+        "label": "Currency"
+       },
+       {
+        "value": "thousands",
+        "label": "Thousands (K)"
+       },
+       {
+        "value": "millions",
+        "label": "Millions (M)"
+       },
+       {
+        "value": "billions",
+        "label": "Billions (bn)"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": {
+       "id": "default"
+      },
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "preset",
+       "fixed": {
+        "target": "card_value"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "numberFormat.code",
+      "section": "number_format",
+      "label": "Format code",
+      "description": "A Power BI format code such as #,0.00 or 0.0%",
+      "kind": "text",
+      "object": "value",
+      "property": "customFormatString",
+      "where": "objects",
+      "type": "text",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": {
+       "id": "default"
+      },
+      "theme_default": null,
+      "op": {
+       "name": "set_number_format",
+       "field": "format",
+       "fixed": {
+        "target": "card_value"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     }
+    ]
+   },
+   {
+    "id": "conditional_formatting",
+    "title": "Conditional formatting",
+    "controls": [
+     {
+      "id": "cf.valueColor.measure",
+      "section": "conditional_formatting",
+      "label": "Value color from a measure",
+      "description": "A measure that returns a color name or hex, like \"red\" or \"#D64550\"",
+      "kind": "text",
+      "object": "value",
+      "property": "fontColor",
+      "where": "objects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": {
+       "id": "default"
+      },
+      "theme_default": "#252423",
+      "op": {
+       "name": "set_conditional_format",
+       "field": "measure",
+       "fixed": {
+        "style": "field_value",
+        "target": "font_color"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.valueColor.clear",
+      "section": "conditional_formatting",
+      "label": "Remove the value color rule",
+      "description": null,
+      "kind": "select",
+      "object": "value",
+      "property": "fontColor",
+      "where": "objects",
+      "type": "fill",
+      "writable": true,
+      "options": [
+       {
+        "value": "font_color",
+        "label": "Remove"
+       }
+      ],
+      "studio_render": true,
+      "instance_selector": {
+       "id": "default"
+      },
+      "theme_default": "#252423",
+      "op": {
+       "name": "clear_conditional_format",
+       "field": "target",
+       "fixed": {}
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.titleColor.measure",
+      "section": "conditional_formatting",
+      "label": "Title color from a measure",
+      "description": "A measure that returns a color name or hex",
+      "kind": "text",
+      "object": "title",
+      "property": "fontColor",
+      "where": "visualContainerObjects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": "#252423",
+      "op": {
+       "name": "set_conditional_format",
+       "field": "measure",
+       "fixed": {
+        "style": "field_value",
+        "target": "title_color"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     },
+     {
+      "id": "cf.background.measure",
+      "section": "conditional_formatting",
+      "label": "Background color from a measure",
+      "description": "A measure that returns a color name or hex",
+      "kind": "text",
+      "object": "background",
+      "property": "color",
+      "where": "visualContainerObjects",
+      "type": "fill",
+      "writable": true,
+      "options": null,
+      "studio_render": true,
+      "instance_selector": null,
+      "theme_default": null,
+      "op": {
+       "name": "set_conditional_format",
+       "field": "measure",
+       "fixed": {
+        "style": "field_value",
+        "target": "visual_background"
+       }
+      },
+      "scope": "visual",
+      "field_arg": null
+     }
+    ]
+   }
+  ]
+ }
+}

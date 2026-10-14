@@ -1,0 +1,32 @@
+@import "./segmented-control.css";
+
+.conversation-history-panel { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; padding: 18px; background: #fff; color: var(--text, #172033); }
+.conversation-history-panel > * { flex-shrink: 0; }
+.conversation-history-panel > header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.conversation-history-panel > header > div { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 14px; line-height: 1.5; }
+.conversation-history-panel > header button, .conversation-history-more { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 32px; border: 1px solid var(--border, #dfe3e8); border-radius: 7px; padding: 6px 10px; background: #fff; font-size: 11px; line-height: 1.5; cursor: pointer; }
+.conversation-history-hint { margin: 12px 0 16px; color: #687385; font-size: 12px; line-height: 1.6; }
+.conversation-history-search { display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 8px 10px; border: 1px solid #dfe3e8; border-radius: 8px; color: #687385; background: #fafbfc; }
+.conversation-history-search svg { flex-shrink: 0; }
+.conversation-history-search:focus-within { border-color: #ac8b13; outline: 2px solid #f2c81124; }
+.conversation-history-search input { min-width: 0; width: 100%; padding: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 12px; line-height: 1.5; }
+.conversation-history-results { padding: 14px 0 10px; color: #687385; font-size: 11px; line-height: 1.5; }
+.conversation-history-panel ol { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.conversation-history-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 1px solid #e4e7ec; border-radius: 10px; padding: 12px; background: #fff; text-align: left; cursor: pointer; }
+.conversation-history-row:hover { background: #fffbeb; border-color: #e3cf79; }
+.conversation-history-row > span { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.conversation-history-row strong { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: #172033; font-size: 12px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.conversation-history-row svg { flex-shrink: 0; color: #687385; }
+.conversation-history-preview { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #687385; font-size: 12px; line-height: 1.5; }
+.conversation-history-row small { color: #687385; font-size: 10px; line-height: 1.5; }
+.conversation-history-empty { padding: 32px 12px; text-align: center; }
+.conversation-history-empty strong { font-size: 13px; }
+.conversation-history-empty p { margin: 8px 0 0; color: #687385; font-size: 12px; line-height: 1.6; }
+.conversation-history-more { margin: 12px auto; }
+.conversation-history-filters { margin-top: 12px; }
+.conversation-history-filters .segmented-control__button { min-height: 30px; padding-inline: 8px; font-size: 11px; }
+.conversation-history-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.conversation-history-badges > span { border-radius: 4px; padding: 2px 6px; background: #eef1f5; color: #526074; font-size: 10px; line-height: 1.5; font-weight: 600; }
+.conversation-history-badges .conversation-history-current { background: #eaf4ef; color: #256048; }
+.chat-message[data-message-id]:focus { outline: 2px solid #c5a443; outline-offset: 3px; border-radius: 7px; }
+.conversation-history-panel button:focus-visible { outline: 2px solid #a07c0b; outline-offset: 2px; }

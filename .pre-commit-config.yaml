@@ -1,0 +1,66 @@
+# Install hooks locally with: pre-commit install
+# Requires uv and Node.js on PATH (same toolchain as CI).
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # Formatting must preserve reviewed snapshot and fixture identities.
+      - id: end-of-file-fixer
+        exclude: &pinned_bytes ^(LICENSE$|vendor/powerbi-rag-runtime/|fixtures/|runtime/|evidence/golden-answers\.jsonl$|src/ai_powerbi_analyst/powerbi/report_themes/)
+      - id: trailing-whitespace
+        exclude: *pinned_bytes
+        args: [--markdown-linebreak-ext=md]
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-added-large-files
+        # Reviewed synthetic data and scrubbed structural reports are intentional.
+        exclude: ^fixtures/(data/.*\.(duckdb|parquet)|imported/(structure-twin|multipage)\.pbix)$
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: [--fix=lf]
+        exclude: ^(LICENSE$|vendor/powerbi-rag-runtime/|fixtures/|runtime/|evidence/golden-answers\.jsonl$|src/ai_powerbi_analyst/powerbi/report_themes/|.*\.(ps1|bat|cmd)$)
+
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: uv run ruff check src tests
+        language: system
+        pass_filenames: false
+        files: \.py$
+
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format --check src tests
+        language: system
+        pass_filenames: false
+        files: \.py$
+
+      - id: mypy
+        name: mypy
+        entry: uv run mypy src/ai_powerbi_analyst
+        language: system
+        pass_filenames: false
+        files: \.py$
+
+      - id: eslint
+        name: eslint (desktop)
+        entry: npm run lint --prefix apps/desktop
+        language: system
+        pass_filenames: false
+        files: ^apps/desktop/src/
+
+      - id: tsc
+        name: tsc (desktop)
+        entry: npm run typecheck --prefix apps/desktop
+        language: system
+        pass_filenames: false
+        files: ^apps/desktop/src/
+
+      - id: cargo-fmt
+        name: cargo fmt (src-tauri)
+        entry: cargo fmt --manifest-path apps/desktop/src-tauri/Cargo.toml -- --check
+        language: system
+        pass_filenames: false
+        files: ^apps/desktop/src-tauri/.*\.rs$

@@ -1,0 +1,8 @@
+table 'Dim Channel'
+	column Channel
+		dataType: string
+		sourceColumn: Channel
+
+	partition 'Dim Channel' = m
+		mode: import
+		source = #table(type table [Channel = text], {})

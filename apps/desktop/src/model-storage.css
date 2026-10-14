@@ -1,0 +1,56 @@
+.storage-mode-badge { display:inline-flex; align-items:center; flex-shrink:0; padding:2px 7px; border:1px solid #d4dfef; border-radius:4px; background:#f3f7fd; color:#355c8a; font-size:10px; line-height:16px; font-weight:600; white-space:nowrap; }
+.storage-mode-badge.storage-unknown { border-color:#e1e5eb; background:#f5f6f8; color:#637083; }
+.model-storage-summary { flex-shrink:0; padding:9px 16px; border-bottom:1px solid var(--border, #dfe3eb); font-size:11px; color:#334157; }
+.model-storage-summary > summary { display:flex; flex-wrap:wrap; align-items:center; gap:8px; cursor:pointer; list-style:none; }
+.model-storage-summary > summary::before { content:"▸"; width:8px; }
+.model-storage-summary[open] > summary::before { content:"▾"; }
+.storage-counts { color:#667488; font-size:10px; }
+.model-storage-content { padding-top:8px; max-height:360px; overflow:auto; }
+.model-storage-content p { margin:6px 0; line-height:1.6; }
+.storage-snapshot-note { color:#667488; }
+.storage-table-scroll { max-height:240px; overflow:auto; margin:10px 0; border:1px solid #e1e5eb; border-radius:5px; }
+.storage-table-scroll table { width:100%; border-collapse:collapse; text-align:left; font-size:11px; }
+.storage-table-scroll th, .storage-table-scroll td { padding:7px 10px; border-bottom:1px solid #edf0f4; vertical-align:top; }
+.storage-table-scroll th { background:#f7f8fa; font-weight:600; position:sticky; top:0; z-index:1; }
+.storage-table-scroll td:first-child { overflow-wrap:anywhere; }
+.storage-table-scroll small { display:block; font-size:10px; margin-top:3px; }
+.storage-mode-help > summary { cursor:pointer; color:#355c8a; padding:6px 0; }
+.storage-mode-help dl { margin:8px 0; }
+.storage-mode-help dl > div { display:grid; grid-template-columns:100px minmax(0,1fr); gap:10px; padding:5px 0; }
+.storage-mode-help dt { font-weight:600; }
+.storage-mode-help dd { margin:0; line-height:1.6; }
+.table-storage-note { margin:12px 0; padding:10px 12px; background:#f7f9fc; border:1px solid #e1e5eb; border-radius:5px; font-size:11px; }
+.table-storage-note > div { display:flex; gap:8px; align-items:center; }
+.table-storage-note p { margin:6px 0; line-height:1.6; }
+.table-storage-note small { color:#667488; line-height:1.6; }
+.me-list .storage-mode-badge { margin-top:5px; width:max-content; }
+@media(max-width:900px) { .storage-table-scroll table { min-width:560px; } .storage-counts { flex-basis:100%; padding-left:30px; } }
+
+/* Storage facts stay compact, with enough room to read the model's limitations. */
+.model-storage-summary { container: storage-summary / inline-size; padding: 12px 16px; line-height: 1.5; }
+.model-storage-summary > summary { gap: 8px 10px; min-height: 24px; }
+.model-storage-summary > summary::before,
+.model-storage-summary > summary > svg { flex-shrink: 0; }
+.model-storage-summary .storage-counts { font-size: 11px; line-height: 1.5; }
+.model-storage-content { padding-top: 12px; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.model-storage-content p { margin: 0 0 12px; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.storage-table-scroll { margin: 16px 0; }
+.storage-table-scroll table { min-width: 560px; font-size: 12px; }
+.storage-table-scroll th,
+.storage-table-scroll td { padding: 10px 12px; line-height: 1.5; }
+.storage-table-scroll tbody tr:last-child td { border-bottom: 0; }
+.storage-table-scroll small { margin-top: 4px; font-size: 11px; line-height: 1.5; }
+.storage-mode-help > summary { padding: 8px 0; line-height: 1.5; }
+.storage-mode-help dl { margin: 8px 0 16px; }
+.storage-mode-help dl > div { gap: 16px; padding: 8px 0; }
+.storage-mode-help dd { overflow-wrap: anywhere; }
+.table-storage-note { margin: 12px 0; padding: 12px; line-height: 1.5; }
+.table-storage-note > div { flex-wrap: wrap; gap: 8px; }
+.table-storage-note p { margin: 10px 0 8px; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.table-storage-note small { display: block; font-size: 11px; line-height: 1.6; }
+@container storage-summary (max-width: 680px) {
+  .storage-counts { flex-basis: 100%; padding-left: 32px; }
+}
+@container storage-summary (max-width: 480px) {
+  .storage-mode-help dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 10px 0; }
+}

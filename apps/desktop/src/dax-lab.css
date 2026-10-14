@@ -1,0 +1,264 @@
+.dax-lab { display: grid; grid-template-rows: minmax(0, 1fr); gap: 0; }
+.dax-lab-body { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 18px; padding: 0 24px 24px; }
+.dax-lab-schema { border: 1px solid var(--border); border-radius: 12px; background: #fbfcfe; padding: 14px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; align-content: start; max-height: calc(100vh - 260px); overflow-y: auto; overflow-x: hidden; }
+.dax-lab-schema h2 { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.dax-schema-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.dax-schema-head span { font-size: 11px; color: var(--muted); }
+.dax-schema-search { display: flex; align-items: center; gap: 8px; padding: 0 10px; min-height: 34px; border: 1px solid var(--border); border-radius: 8px; background: #fbfcfe; color: var(--muted); }
+.dax-schema-search > svg { flex-shrink: 0; }
+.dax-schema-search:focus-within { border-color: #8fb7f2; background: #fff; box-shadow: 0 0 0 2px #dbe8ff; }
+.dax-schema-search input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 12.5px; color: var(--text); outline: none; }
+.dax-schema-clear { display: grid; place-items: center; width: 18px; height: 18px; padding: 0; border: 0; border-radius: 50%; background: #e8ecf2; color: var(--muted); cursor: pointer; }
+.dax-schema-clear:hover { background: #dbe1ea; color: var(--text); }
+/* Collapsible groups: a chevron that turns when open, like a file tree. */
+.dax-lab-table { border-radius: 8px; }
+.dax-lab-table summary { display: flex; align-items: center; gap: 6px; min-height: 32px; font-size: 13px; line-height: 1.5; font-weight: 600; cursor: pointer; padding: 5px 6px; border-radius: 7px; list-style: none; user-select: none; }
+.dax-lab-table summary::-webkit-details-marker { display: none; }
+.dax-lab-table summary:hover { background: #f1f4f9; }
+.dax-lab-table summary:focus-visible { outline: 2px solid #8fb7f2; outline-offset: 1px; }
+.dax-schema-chevron { flex: 0 0 auto; color: var(--muted); transition: transform .15s ease; }
+.dax-lab-table[open] > summary .dax-schema-chevron { transform: rotate(90deg); }
+.dax-schema-icon { flex: 0 0 auto; color: #5b6b84; }
+.dax-schema-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dax-lab-rows { margin-left: auto; flex: 0 0 auto; padding: 1px 7px; border-radius: 999px; background: #eef1f6; font-size: 10.5px; font-weight: 600; color: var(--muted); }
+.dax-lab-table { min-width: 0; }
+/* minmax(0,1fr): an implicit auto track grows to the full nowrap name width. */
+.dax-lab-table ul, .dax-lab-measures { list-style: none; margin: 2px 0 4px 13px; padding: 0 0 0 8px; border-left: 1px solid #e4e8ef; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; }
+.dax-lab-table li button, .dax-lab-measures li button { display: flex; align-items: center; gap: 8px; min-height: 30px; width: 100%; padding: 5px 8px; border: 0; border-radius: 6px; background: transparent; font: inherit; font-size: 12px; line-height: 1.5; color: var(--text); cursor: pointer; text-align: left; }
+.dax-lab-table li button:hover, .dax-lab-measures li button:hover, .dax-lab-table li button:focus-visible, .dax-lab-measures li button:focus-visible { background: #eef4ff; outline: none; }
+.dax-lab-table li button:disabled, .dax-lab-measures li button:disabled { cursor: default; opacity: .6; }
+.dax-field-icon { flex: 0 0 auto; color: #8a96a8; }
+.dax-field-integer, .dax-field-number { color: #2f7d6e; }
+.dax-field-date, .dax-field-datetime { color: #b07a1e; }
+.dax-field-string { color: #1d58b7; }
+.dax-field-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dax-measure-tag { flex: 0 0 auto; padding: 0 6px; border-radius: 5px; background: #eef1f6; font-size: 10.5px; color: var(--muted); text-transform: lowercase; }
+.dax-measure-tag.dax { background: #f3ecfb; color: #6b3fa0; text-transform: none; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .dax-schema-chevron { transition: none; } }
+.dax-lab-main { display: flex; flex-direction: column; gap: 16px; min-height: 0; overflow: auto; }
+.dax-lab-main > * { flex-shrink: 0; }
+.dax-lab-examples { display: flex; flex-wrap: wrap; gap: 6px; }
+.dax-lab-examples button { font: inherit; font-size: 11.5px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--muted); cursor: pointer; }
+.dax-lab-examples button:hover, .dax-lab-examples button:focus-visible { color: var(--text); border-color: #8fb7f2; outline: none; }
+.dax-lab-editor { width: 100%; min-height: 96px; resize: vertical; font-family: "Cascadia Code", "JetBrains Mono", Consolas, monospace; font-size: 13px; line-height: 1.65; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; background: #0f172a; color: #e2e8f0; caret-color: #fff; }
+.dax-lab-editor:focus { outline: 2px solid #b9d4ff; outline-offset: 1px; }
+.dax-lab-editor::placeholder { color: #64748b; }
+.dax-lab-error, .dax-lab-saved { display: flex; gap: 8px; align-items: flex-start; padding: 12px 14px; border-radius: 9px; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.dax-lab-error { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+.dax-lab-saved { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+.dax-lab-error svg, .dax-lab-saved svg { flex: 0 0 auto; margin-top: 1px; }
+.dax-lab-results { display: flex; flex-direction: column; flex: 1 0 auto; gap: 8px; }
+.dax-lab-truncated { color: #b45309; font-weight: 600; }
+.dax-lab-grid-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: auto; max-height: calc(100vh - 420px); background: #fff; }
+.dax-lab-grid { border-collapse: collapse; width: 100%; height: 100%; font-size: 12.5px; }
+.dax-lab-grid thead { height: 34px; }
+.dax-lab-grid th { position: sticky; top: 0; background: #f8fafc; border-bottom: 1px solid var(--border); padding: 8px 12px; text-align: left; font-weight: 600; white-space: nowrap; z-index: 1; }
+.dax-lab-grid td { padding: 6px 12px; border-bottom: 1px solid #f1f5f9; white-space: nowrap; }
+.dax-lab-grid tbody tr:hover { background: #f8faff; }
+.dax-lab-grid .dax-grand-total td { background: #f3f5f8; border-top: 2px solid var(--border); font-weight: 700; }
+.dax-lab-blank { color: var(--muted); font-style: italic; }
+.dax-lab-save { display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); padding-top: 16px; }
+.dax-lab-save input { flex: 1 1 220px; min-height: 36px; font: inherit; font-size: 13px; line-height: 1.5; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; }
+.dax-lab-save input:focus { outline: 2px solid #b9d4ff; outline-offset: 1px; }
+.dax-lab-hint { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); margin: 0; }
+@media (max-width: 900px) { .dax-lab-body { grid-template-columns: 1fr; } .dax-lab-schema { max-height: 220px; } }
+
+.content-page.dax-lab { max-width: none; width: 100%; height: 100%; min-height: 0; margin: 0; padding: 24px; background: #f7f8fa; container: dax-lab / inline-size; }
+.dax-lab .dax-ask-button { background: #fffbeb; border-color: #e8d899; color: #594917; }
+.dax-lab .dax-lab-body { grid-template-columns: minmax(0,1fr); min-height: 0; padding: 0; align-items: stretch; }
+.dax-lab .dax-lab-body.with-schema { grid-template-columns: minmax(320px, .85fr) 220px minmax(360px, 1.35fr); }
+.dax-lab .dax-lab-schema { min-height: 0; max-height: none; background: #fff; }
+.dax-lab-main { min-width: 0; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
+.dax-editor-heading, .dax-results-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.dax-editor-heading h2, .dax-results-heading h2 { font-size: 14px; line-height: 1.5; margin: 0; }
+.dax-editor-heading > span, .dax-results-heading span { color: var(--muted); font-size: 11px; }
+.dax-lab-editor { min-height: 130px; border-color: #253247; padding: 16px; tab-size: 2; }
+.dax-lab button:disabled { opacity: .5; cursor: not-allowed; }
+.dax-lab button:focus-visible, .dax-lab select:focus-visible { outline: 2px solid #8fb7f2; outline-offset: 2px; }
+.dax-assistant { display: grid; gap: 12px; border: 1px solid #eadba0; background: #fffdf5; border-radius: 10px; padding: 14px; }
+.dax-assistant header, .dax-suggestion header, .dax-assistant header > div { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.dax-assistant header strong, .dax-suggestion header strong { font-size: 13px; }
+.dax-assistant header svg { color: #8b701e; }
+.dax-assistant textarea { width: 100%; min-height: 76px; resize: vertical; border: 1px solid #dfd9c4; border-radius: 7px; padding: 10px 12px; background: #fff; font: inherit; font-size: 13px; line-height: 1.5; }
+.dax-assistant textarea:focus { outline: 2px solid #e6d27a; outline-offset: 1px; }
+.dax-assistant-footer, .dax-suggestion footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.dax-assistant-footer span, .dax-suggestion footer span { font-size: 11px; color: var(--muted); line-height: 1.5; }
+.dax-assistant-footer button, .dax-suggestion footer button { flex-shrink: 0; } .dax-undo-suggestion { padding: 0; background: none; border: none; color: #78601e; font: inherit; font-size: 11px; text-align: left; cursor: pointer; }
+.dax-suggestion { display: grid; gap: 10px; padding: 14px; border: 1px solid #cbdcf3; background: #f7faff; border-radius: 10px; }
+.dax-suggestion pre { margin: 0; padding: 12px; max-height: 220px; overflow: auto; background: #fff; border: 1px solid #e1e8f2; border-radius: 7px; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dax-results-empty { flex: 1 0 190px; min-height: 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; padding: 24px; border: 1px dashed #dbe2ec; border-radius: 10px; background: #fafbfd; color: #647084; }
+.dax-results-empty strong { color: #526071; font-size: 13px; font-weight: 600; }
+.dax-results-empty span { font-size: 12px; max-width: 320px; line-height: 1.6; }
+.dax-lab-results { gap: 16px; border-top: 1px solid var(--border); padding-top: 16px; }
+.dax-lab-results > * { flex-shrink: 0; }
+.dax-lab-results .dax-lab-grid-wrap { flex: 1 1 160px; min-height: 160px; contain: size; }
+.dax-result-scalar { flex-grow: 1; align-content: center; }
+.dax-result-chart { flex-grow: 1; }
+.dax-result-plan { margin-top: auto; }
+.dax-results-heading > div:first-child { display: grid; gap: 4px; }
+.dax-result-switch { display: flex; padding: 3px; background: #f1f4f8; border-radius: 7px; gap: 2px; }
+.dax-result-switch button { display: flex; align-items: center; gap: 5px; font: inherit; font-size: 11px; padding: 6px 9px; border: 0; background: transparent; color: #607086; border-radius: 5px; cursor: pointer; }
+.dax-result-switch button[aria-pressed=true] { background: #fff; color: #20334e; box-shadow: 0 1px 3px #12223b14; }
+.dax-result-scalar { display: grid; gap: 12px; padding: 26px; border: 1px solid #dbe4ef; border-radius: 10px; background: linear-gradient(120deg,#f6f9fd,#fff); }
+.dax-result-scalar > span { font-size: 12px; color: #526071; }
+.dax-result-scalar strong { font-size: clamp(24px,4cqi,40px); font-weight: 650; letter-spacing: -.03em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.dax-result-scalar small { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.dax-chart-fields { display: flex; gap: 12px; }
+.dax-chart-fields label { min-width: 0; flex: 1; display: grid; gap: 5px; font-size: 11px; color: #526071; }
+.dax-chart-fields select { width: 100%; height: 34px; border: 1px solid var(--border); border-radius: 6px; padding: 0 8px; background: #fff; color: var(--text); }
+.dax-result-chart { width: 100%; min-width: 0; }
+.dax-result-chart .chart { height: 100%; width: 100%; }
+.dax-chart-note, .dax-lab-truncated { font-size: 11px; margin: 0; color: var(--muted); }
+.dax-lab-truncated { color: #936421; }
+.dax-result-plan { border-top: 1px solid #eef1f5; padding-top: 10px; color: var(--muted); font-size: 11px; }
+.dax-result-plan summary { cursor: pointer; }
+.dax-result-plan code { display: block; margin-top: 8px; overflow-wrap: anywhere; }
+.dax-date-preview { display: flex; flex-direction: column; flex: 1 0 auto; min-width: 0; gap: 12px; border-top: 1px solid var(--border); padding-top: 14px; }
+.dax-date-preview > .dax-lab-results { border-top: 0; padding-top: 0; }
+.dax-preview-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 10px 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: 9px; color: #607086; }
+.dax-preview-controls label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; font-size: 12px; line-height: 1.5; font-weight: 600; }
+.dax-preview-controls select, .dax-inspect-select select { height: 32px; max-width: 100%; padding: 0 26px 0 9px; border: 1px solid var(--border); border-radius: 6px; color: var(--text); background: white; font: inherit; font-size: 12px; }
+.dax-preview-note { margin-left: auto; font-size: 11px; line-height: 1.5; font-weight: 400; color: var(--muted); }
+.dax-group-search { flex: 1 1 180px; min-width: 120px; max-width: 270px; position: relative; }
+.dax-group-search svg { position: absolute; left: 9px; pointer-events: none; }
+.dax-group-search input { width: 100%; min-width: 0; height: 32px; padding: 0 8px 0 30px; border: 1px solid var(--border); border-radius: 6px; background: #fff; font: inherit; font-size: 12px; font-weight: 400; }
+.dax-date-chart { min-height: 260px; height: clamp(260px, 36vh, 460px); flex: 1 0 260px; min-width: 0; }
+.dax-date-chart .chart { width: 100%; height: 100%; }
+.dax-period-link { background: none; border: 0; padding: 2px 0; color: #365e99; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.dax-inspect-select { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.dax-period-details { border: 1px solid var(--border); border-radius: 9px; padding: 12px; background: #fafbfd; }
+.dax-period-details > header { display: flex; align-items: start; justify-content: space-between; gap: 12px; font-size: 13px; }
+.dax-period-details header p { font-size: 11px; margin: 5px 0 0; color: var(--muted); }
+.dax-period-details .dax-lab-results { margin-top: 12px; }
+.dax-period-details .dax-result-switch { display: none; }
+.dax-period-details .dax-lab-grid-wrap { flex: none; contain: none; max-height: 300px; }
+.dax-date-preview .dax-lab-grid { height: auto; }
+.dax-lab .dax-lab-save { flex-wrap: wrap; }
+.dax-lab-save input { min-width: 0; }
+@container dax-lab (max-width: 800px) {
+  .dax-lab-main, .dax-lab-schema { padding: 16px; }
+  .dax-lab-rows { display: none; }
+  .dax-assistant-footer, .dax-suggestion footer { flex-wrap: wrap; }
+}
+@media (max-width: 700px) { .content-page.dax-lab { padding: 16px; } }
+
+.dax-assistant header label { font-size: 13px; font-weight: 600; }
+.dax-local-label { color: #887742; font-size: 10px; font-weight: 500; }
+.dax-assistant-status { display: flex; align-items: center; gap: 7px; color: #657386; font-size: 11px; min-height: 18px; }
+.dax-conversation { position: relative; display: flex; flex-direction: column; min-height: 0; min-width: 0; border: 1px solid var(--border); border-radius: 12px; background: #fff; overflow: hidden; }
+.dax-conversation-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex-shrink: 0; padding: 16px 18px; border-bottom: 1px solid #eef0f3; }
+.dax-conversation-heading h2 { margin: 0; font-size: 14px; font-weight: 650; }
+.dax-conversation-heading p { margin: 4px 0 0; font-size: 11px; line-height: 1.5; color: var(--muted); }
+.dax-chat-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 6px; margin-left: auto; }
+.dax-chat-action { display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 5px 8px; border: 1px solid #e4e7ec; border-radius: 7px; background: #fff; font: inherit; font-size: 11px; line-height: 1.5; color: #526071; cursor: pointer; white-space: nowrap; }
+.dax-chat-action:hover { color: #26364c; background: #f7f8fa; }
+.dax-history-count { padding: 0 5px; border-radius: 5px; background: #eef1f5; font-size: 10px; }
+.dax-answer-copy { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 8px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.dax-answer-copy button, .dax-load-earlier { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; background: transparent; border: 0; padding: 4px 0; color: var(--muted); font: inherit; font-size: 11px; line-height: 1.5; cursor: pointer; }
+.dax-answer-copy button:hover, .dax-load-earlier:hover { color: var(--text); }
+.dax-load-earlier { align-self: center; padding: 6px 10px; border: 1px solid var(--border); border-radius: 7px; }
+.dax-storage-status { flex-shrink: 0; padding: 8px 14px; }
+.dax-response-state { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font-size: 11px; color: #936421; }
+.dax-chat-action:disabled { opacity: .5; cursor: default; }
+.dax-conversation .chat-archive-panel { position: static; padding: 18px 20px; }
+.dax-chat-confirm { display: flex; align-items: center; flex-wrap: wrap; flex-shrink: 0; gap: 8px 12px; padding: 12px 20px; border-bottom: 1px solid #eef0f3; background: #fffbeb; font-size: 11px; line-height: 1.6; }
+.dax-chat-confirm > span { flex: 1 1 180px; }
+.dax-conversation .chat-archived-banner { flex-wrap: wrap; row-gap: 4px; }
+.dax-archive-actions { display: inline-flex; gap: 12px; margin-left: auto; }
+.dax-archive-actions button { white-space: nowrap; }
+.dax-thread { display: flex; flex-direction: column; flex: 1 1 0; gap: 24px; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 22px 20px; scrollbar-width: thin; }
+.dax-thread:focus-visible { outline: 2px solid #b9d4ff; outline-offset: -3px; }
+.dax-chat-welcome { margin: auto 0; padding: 24px 6px; text-align: center; }
+.dax-chat-welcome > svg { color: #8b701e; }
+.dax-chat-welcome h3 { font-size: 18px; font-weight: 650; letter-spacing: -.02em; margin: 16px 0 10px; }
+.dax-chat-welcome p { font-size: 13px; line-height: 1.7; color: var(--muted); max-width: 340px; margin: 0 auto 20px; }
+.dax-chat-welcome button { margin-inline: auto; }
+.dax-chat-composer { flex-shrink: 0; padding: 12px 14px 14px; }
+.dax-chat-composer .chat-input-box { border-radius: 16px; }
+.dax-chat-composer .chat-input-box textarea { font-size: 13px; }
+.dax-chat-composer .chat-local-label { font-size: 10px; }
+.dax-chat-hint { margin: 9px 4px 0; font-size: 10px; color: var(--muted); line-height: 1.5; text-align: center; }
+.dax-jump-latest { position: absolute; bottom: 185px; left: 50%; transform: translateX(-50%); box-shadow: 0 3px 12px #12223b14; white-space: nowrap; }
+.dax-chat-recovery { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.dax-chat-recovery p { margin-top: 0; }
+.dax-turn { display: grid; gap: 20px; flex-shrink: 0; min-width: 0; }
+.dax-turn-goal { display: flex; justify-content: flex-end; }
+.dax-turn-goal > span { max-width: 90%; padding: 12px 15px; border-radius: 16px 16px 4px 16px; background: #f3f3f5; font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dax-turn-answer { min-width: 0; font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+.dax-turn-answer .chat-message-author { margin-bottom: 10px; }
+.dax-turn-answer .rich-text { display: block; font-size: inherit; line-height: inherit; }
+.dax-turn-answer .rich-text > :first-child { margin-top: 0; }
+.dax-turn-answer .rich-text p { margin: 0 0 12px; white-space: pre-wrap; }
+.dax-turn-answer .rich-text > :last-child { margin-bottom: 0; }
+.dax-turn-answer .rich-text ul, .dax-turn-answer .rich-text ol { margin: 10px 0 12px; padding-left: 22px; }
+.dax-turn-answer .rich-text li { margin: 6px 0; padding-left: 2px; }
+.dax-turn-answer .rich-text h4 { margin: 20px 0 8px; font-size: 14px; line-height: 1.5; }
+.dax-turn-answer .rich-text code { font-size: .88em; padding: 2px 5px; border-radius: 4px; }
+.dax-turn-answer .rich-code-block pre code { padding: 0; background: none; color: #20334e; font-size: inherit; }
+.dax-turn-answer pre { margin: 0 0 10px; padding: 12px; max-height: 220px; overflow: auto; background: #fff; border: 1px solid #e1e8f2; border-radius: 7px; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dax-turn-answer .rich-code-block pre { margin: 0; padding: 14px; max-height: 320px; border: 0; border-radius: 0; background: #f9fbfd; line-height: 1.65; }
+.dax-turn-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.dax-turn-actions p { flex: 1 1 200px; margin: 0; font-size: 12px; color: #526176; line-height: 1.5; }
+.dax-turn-actions input { flex: 1 1 160px; min-width: 140px; min-height: 34px; border: 1px solid #d7dce4; border-radius: 7px; padding: 7px 10px; font: inherit; font-size: 12px; line-height: 1.5; background: #fff; }
+.dax-turn-actions input:focus { outline: 2px solid #bfd0ee; outline-offset: 1px; }
+.dax-turn-actions button { display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.dax-turn-actions .dax-action-error { flex-basis: 100%; color: #8d4a30; font-size: 11px; }
+.dax-turn-created { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 12px; color: #166534; }
+.dax-formula-in-editor { display: inline-flex; align-items: center; gap: 5px; color: #45705e; font-size: 11px; }
+.dax-formula-actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.dax-formula-actions .secondary { min-height: 32px; padding: 6px 10px; font-size: 11px; }
+.dax-undo-suggestion { display: inline-flex; align-items: center; gap: 6px; justify-self: start; }
+.dax-ai-details, .dax-save-details { font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 12px; }
+.dax-ai-details > summary, .dax-save-details > summary { cursor: pointer; font-weight: 500; }
+.dax-ai-details > :not(summary) { margin-top: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.dax-ai-details pre { white-space: pre-wrap; }
+.dax-save-details summary svg { vertical-align: middle; margin-right: 5px; }
+.dax-save-details .dax-lab-save { border: 0; padding-bottom: 12px; }
+
+@container dax-lab (max-width: 1100px) {
+  .dax-lab .dax-lab-body.with-schema { grid-template-columns: 170px minmax(0, 1fr); grid-template-rows: minmax(460px, 65cqh) minmax(440px, 1fr); overflow-y: auto; gap: 12px; }
+  .dax-conversation { grid-column: 1 / -1; }
+  .dax-lab-schema { padding: 12px; }
+  .dax-lab-rows { display: none; }
+}
+@container dax-lab (max-width: 580px) {
+  .dax-lab .dax-lab-body.with-schema { grid-template-columns: minmax(0, 1fr); grid-template-rows: 460px 160px minmax(440px, 1fr); }
+  .dax-conversation-heading { padding: 14px; }
+  .dax-thread { padding: 18px 14px; }
+}
+
+.dax-selected-field { padding: 14px; border: 1px solid var(--border); border-radius: 9px; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.dax-selected-field > button { align-self: flex-start; }
+.dax-selected-field small { color:var(--muted); }
+.dax-native-group { display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-size:12px; }
+.dax-native-group select { max-width:260px; padding:7px; border:1px solid var(--border); border-radius:6px; }
+.dax-native-group small { color:var(--muted); }
+
+/* The shared assistant owns the chat column; DAX keeps the schema and scratchpad. */
+.dax-lab.external-conversation .dax-lab-body.with-schema { grid-template-columns: 200px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+.shared-assistant-conversation { height: 100%; border: 0; border-radius: 0; }
+.shared-assistant-conversation .dax-conversation-heading { padding: 8px 16px; gap: 6px 8px; font-size: 11px; line-height: 1.5; color: var(--muted); }
+.shared-assistant-conversation .dax-chat-actions { gap: 4px; }
+.shared-assistant-conversation .dax-chat-action { min-height: 28px; padding: 4px 6px; border: 0; background: transparent; }
+.shared-assistant-conversation .dax-thread { padding: 20px 18px; gap: 24px; }
+.shared-assistant-conversation button:disabled { opacity: .5; cursor: not-allowed; }
+.shared-assistant-conversation button:focus-visible { outline: 2px solid #8fb7f2; outline-offset: 2px; }
+.dax-handoff { display: grid; gap: 8px; flex-shrink: 0; margin: 12px 14px 0; padding: 12px; border: 1px solid #cbdcf3; border-radius: 9px; background: #f7faff; font-size: 11px; line-height: 1.5; }
+.dax-handoff > div { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.dax-handoff p { margin: 0; max-height: 85px; overflow: auto; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dax-handoff small { color: var(--muted); font-size: 10px; }
+.dax-handoff-formula summary { cursor: pointer; color: #365e99; }
+.dax-handoff-formula pre { margin: 8px 0 0; max-height: 160px; overflow: auto; padding: 8px; border: 1px solid #dbe4ef; border-radius: 6px; background: #fff; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 11px; }
+.dax-handoff-storage { flex-shrink: 0; margin: 8px 14px 0; color: #936421; font-size: 10px; line-height: 1.5; }
+.dax-handoff > button { justify-self: start; padding: 2px 0; border: 0; background: transparent; font: inherit; color: #365e99; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.dax-calculation-outcome { display: grid; gap: 4px; margin: 0 0 12px; padding: 10px 12px; border: 1px solid #dbe4ef; border-radius: 8px; background: #f8fafc; font-size: 11px; line-height: 1.6; }
+.dax-calculation-outcome strong { color: #365e99; font-weight: 600; }
+.dax-calculation-outcome span { color: var(--muted); }
+.dax-calculation-outcome.clarification { border-color: #eadba0; background: #fffdf5; }
+.dax-calculation-outcome.clarification strong { color: #78601e; }
+@container dax-lab (max-width: 1100px) {
+  .dax-lab.external-conversation .dax-lab-body.with-schema { grid-template-columns: 170px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+}
+@container dax-lab (max-width: 580px) {
+  .dax-lab.external-conversation .dax-lab-body.with-schema { grid-template-columns: minmax(0, 1fr); grid-template-rows: 160px minmax(440px, 1fr); }
+}

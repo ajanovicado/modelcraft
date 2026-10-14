@@ -1,0 +1,122 @@
+{
+  "name": "ExecutiveLight-7f3a2c1d.json",
+  "dataColors": [
+    "#1D58B7",
+    "#F36A21",
+    "#2F7D6E",
+    "#7A56A1",
+    "#D6A019",
+    "#5B6B84",
+    "#A83D5D",
+    "#3F8FC7"
+  ],
+  "good": "#2F7D6E",
+  "neutral": "#D6A019",
+  "bad": "#C94A45",
+  "maximum": "#1D58B7",
+  "center": "#D6A019",
+  "minimum": "#E7EFFC",
+  "null": "#C7CED9",
+  "foreground": "#17243C",
+  "background": "#F7F9FC",
+  "secondaryBackground": "#FFFFFF",
+  "tableAccent": "#1D58B7",
+  "firstLevelElements": "#17243C",
+  "secondLevelElements": "#5B6678",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#17243C"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#17243C"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 9,
+      "color": "#5B6678"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E1E6EF"
+              }
+            },
+            "radius": 8,
+            "width": 1
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontSize": 11,
+            "fontColor": {
+              "solid": {
+                "color": "#17243C"
+              }
+            }
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineColor": {
+              "solid": {
+                "color": "#E7EBF2"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "position": "Top"
+          }
+        ]
+      }
+    },
+    "clusteredBarChart": {
+      "*": {
+        "legend": [
+          {
+            "show": false
+          }
+        ]
+      }
+    }
+  }
+}

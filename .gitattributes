@@ -1,0 +1,35 @@
+# Normalize text files to LF in the repository; platform checkouts stay native.
+* text=auto
+
+# Windows scripts need CRLF to run reliably.
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Shell scripts must stay LF even on Windows checkouts.
+*.sh text eol=lf
+
+# Report themes are SHA-256 pinned; line endings are part of their identity.
+src/ai_powerbi_analyst/powerbi/report_themes/*.json text eol=lf
+
+# Binary assets — never normalize.
+*.png binary
+*.ico binary
+*.icns binary
+*.parquet binary
+*.pbip binary
+*.pbix binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+
+# The runtime source snapshot is hash-pinned; preserve its reviewed bytes.
+vendor/powerbi-rag-runtime/** -text
+LICENSE -text
+
+# Golden fixture manifests and deterministic answer bytes must survive checkout.
+fixtures/** -text
+evidence/golden-answers.jsonl -text
+
+# The public runtime example includes a pinned profile hash.
+runtime/** -text

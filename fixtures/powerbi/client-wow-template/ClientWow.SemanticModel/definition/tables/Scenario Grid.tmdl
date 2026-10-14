@@ -1,0 +1,76 @@
+table 'Scenario Grid'
+	column 'Price Change Pct'
+		dataType: int64
+		sourceColumn: price_change_pct
+
+	column 'Scenario Net Sales'
+		dataType: double
+		isHidden
+		sourceColumn: net_sales
+
+	column 'Scenario Units'
+		dataType: double
+		isHidden
+		sourceColumn: scenario_units
+
+	column 'Scenario Gross Profit'
+		dataType: double
+		isHidden
+		sourceColumn: gross_profit
+
+	column 'Scenario Gross Margin Pct'
+		dataType: double
+		isHidden
+		sourceColumn: gross_margin_pct
+
+	column Assumption
+		dataType: string
+		isHidden
+		sourceColumn: assumption
+
+	measure 'Approved Scenario Net Sales' =
+		CALCULATE(
+			SUM('Scenario Grid'[Scenario Net Sales]),
+			'Scenario Grid'[Price Change Pct] = 3
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Approved Scenario Units' =
+		CALCULATE(
+			SUM('Scenario Grid'[Scenario Units]),
+			'Scenario Grid'[Price Change Pct] = 3
+		)
+		formatString: #,0
+
+	measure 'Approved Scenario Gross Profit' =
+		CALCULATE(
+			SUM('Scenario Grid'[Scenario Gross Profit]),
+			'Scenario Grid'[Price Change Pct] = 3
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Approved Scenario Gross Margin %' =
+		CALCULATE(
+			SUM('Scenario Grid'[Scenario Gross Margin Pct]),
+			'Scenario Grid'[Price Change Pct] = 3
+		)
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Approved Scenario Assumption' =
+		"+3% price · elasticity -0.8 · mechanical scenario, not a prediction"
+
+	/// Zero-row preparation partition. Replace through Power BI Desktop with the
+	/// frozen -3% through +5% scenario grid and select the approved +3% row.
+	partition 'Scenario Grid' = m
+		mode: import
+		source =
+			#table(
+				type table [
+					price_change_pct = Int64.Type,
+					net_sales = number,
+					scenario_units = number,
+					gross_profit = number,
+					gross_margin_pct = number
+				],
+				{}
+			)

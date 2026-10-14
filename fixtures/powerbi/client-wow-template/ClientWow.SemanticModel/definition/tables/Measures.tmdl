@@ -1,0 +1,101 @@
+table Measures
+	column Placeholder
+		dataType: string
+		isHidden
+		sourceColumn: Placeholder
+
+	measure 'Net Sales' = SUM('Fact Sales'[Net Sales])
+		formatString: $#,0;($#,0);$#,0
+
+	measure Units = SUM('Fact Sales'[Units])
+		formatString: #,0
+
+	measure 'Gross Profit' = SUM('Fact Sales'[Gross Profit])
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Gross Margin %' = DIVIDE([Gross Profit], [Net Sales])
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Average Selling Price' = DIVIDE([Net Sales], [Units])
+		formatString: $#,0.00;($#,0.00);$#,0.00
+
+	measure 'Discount Rate' =
+		1 - DIVIDE(
+			[Net Sales],
+			SUMX('Fact Sales', 'Fact Sales'[Units] * 'Fact Sales'[List Price])
+		)
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Unit Cost' = DIVIDE(SUM('Fact Sales'[COGS]), [Units])
+		formatString: $#,0.00;($#,0.00);$#,0.00
+
+	measure 'Sales Growth' =
+		VAR CurrentSales =
+			CALCULATE(
+				[Net Sales],
+				REMOVEFILTERS('Dim Date'),
+				'Dim Date'[Month Start] >= DATE(2025, 10, 1),
+				'Dim Date'[Month Start] <= DATE(2025, 12, 1)
+			)
+		VAR PriorSales =
+			CALCULATE(
+				[Net Sales],
+				REMOVEFILTERS('Dim Date'),
+				'Dim Date'[Month Start] >= DATE(2024, 10, 1),
+				'Dim Date'[Month Start] <= DATE(2024, 12, 1)
+			)
+		RETURN
+			DIVIDE(CurrentSales - PriorSales, PriorSales)
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Latest Quarter Net Sales' =
+		CALCULATE(
+			[Net Sales],
+			REMOVEFILTERS('Dim Date'),
+			'Dim Date'[Month Start] >= DATE(2025, 10, 1),
+			'Dim Date'[Month Start] <= DATE(2025, 12, 1)
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Latest Quarter Gross Profit' =
+		CALCULATE(
+			[Gross Profit],
+			REMOVEFILTERS('Dim Date'),
+			'Dim Date'[Month Start] >= DATE(2025, 10, 1),
+			'Dim Date'[Month Start] <= DATE(2025, 12, 1)
+		)
+		formatString: $#,0;($#,0);$#,0
+
+	measure 'Latest Quarter Gross Margin %' =
+		DIVIDE([Latest Quarter Gross Profit], [Latest Quarter Net Sales])
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Latest Quarter Gross Margin Change pp' =
+		VAR PriorSales =
+			CALCULATE(
+				[Net Sales],
+				REMOVEFILTERS('Dim Date'),
+				'Dim Date'[Month Start] >= DATE(2024, 10, 1),
+				'Dim Date'[Month Start] <= DATE(2024, 12, 1)
+			)
+		VAR PriorProfit =
+			CALCULATE(
+				[Gross Profit],
+				REMOVEFILTERS('Dim Date'),
+				'Dim Date'[Month Start] >= DATE(2024, 10, 1),
+				'Dim Date'[Month Start] <= DATE(2024, 12, 1)
+			)
+		RETURN
+			([Latest Quarter Gross Margin %] - DIVIDE(PriorProfit, PriorSales)) * 100
+		formatString: 0.0 "pp";-0.0 "pp";0.0 "pp"
+
+	measure 'Executive Finding' =
+		"2025 Q4 vs 2024 Q4: Net Sales "
+			& FORMAT([Sales Growth], "+0.0%;-0.0%;0.0%")
+			& "; Gross Margin "
+			& FORMAT([Latest Quarter Gross Margin Change pp], "+0.0;-0.0;0.0")
+			& " pp."
+
+	partition Measures = m
+		mode: import
+		source = #table(type table [Placeholder = text], {{"Measures"}})

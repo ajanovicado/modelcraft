@@ -1,0 +1,116 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+
+      - name: Install Python package
+        run: uv sync --frozen --extra dev
+
+      - name: Ruff
+        run: uv run ruff check src tests typings
+
+      - name: Ruff format
+        run: uv run ruff format --check src tests typings
+
+      - name: Mypy
+        run: uv run mypy src/ai_powerbi_analyst
+
+      - name: Pytest
+        run: |
+          $testRoot = Join-Path $env:RUNNER_TEMP ('pt-' + [guid]::NewGuid().ToString('N').Substring(0, 8))
+          if (Test-Path -LiteralPath $testRoot) { throw 'Use a fresh isolated test directory.' }
+          uv run pytest --basetemp $testRoot
+
+      - name: Python dependency audit
+        shell: pwsh
+        run: |
+          $auditRoot = Join-Path $env:RUNNER_TEMP ('audit-' + [guid]::NewGuid().ToString('N'))
+          New-Item -ItemType Directory -Path $auditRoot | Out-Null
+          # Own application/runtime source is reviewed and tested locally. Query
+          # exact registry versions from both locks without resolving or installing.
+          $projects = @(
+            @{ Name = 'application'; Path = '.' },
+            @{ Name = 'powerbi-tools'; Path = 'packaging/powerbi-tools' }
+          )
+          foreach ($project in $projects) {
+            $requirements = Join-Path $auditRoot ($project.Name + '.txt')
+            uv export --frozen --project $project.Path --all-extras --no-emit-project --no-emit-local --output-file $requirements --quiet
+            if ($LASTEXITCODE -ne 0) { throw 'Frozen dependency export failed.' }
+            uvx --python 3.12.12 --from pip-audit==2.10.1 pip-audit --requirement $requirements --require-hashes --disable-pip --strict --progress-spinner off
+            if ($LASTEXITCODE -ne 0) { throw 'Locked dependency audit failed.' }
+          }
+
+      - name: Frontend install
+        working-directory: apps/desktop
+        run: npm ci
+
+      - name: Frontend lint
+        working-directory: apps/desktop
+        run: npm run lint
+
+      - name: Frontend unit tests
+        working-directory: apps/desktop
+        run: npm test
+
+      - name: Frontend typecheck and build
+        working-directory: apps/desktop
+        run: npm run build
+
+      - name: Install browser for chat regressions
+        working-directory: apps/desktop
+        run: npx playwright install chromium
+
+      - name: Chat browser regressions
+        working-directory: apps/desktop
+        run: npm run test:chat-browser
+
+      - name: Model setup browser regressions
+        working-directory: apps/desktop
+        run: npm run test:model-browser
+
+      - name: Frontend dependency audit
+        working-directory: apps/desktop
+        run: npm audit --audit-level=high
+
+  rust:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri
+
+      - name: Rust format
+        working-directory: apps/desktop/src-tauri
+        run: cargo fmt --check
+
+      - name: Rust clippy
+        working-directory: apps/desktop/src-tauri
+        run: cargo clippy --locked --all-targets --features source-check -- -D warnings
+
+      - name: Rust check
+        working-directory: apps/desktop/src-tauri
+        run: cargo check --locked --features source-check

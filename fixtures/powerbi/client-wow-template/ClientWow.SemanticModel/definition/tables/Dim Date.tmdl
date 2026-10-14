@@ -1,0 +1,8 @@
+table 'Dim Date'
+	column 'Month Start'
+		dataType: dateTime
+		sourceColumn: Month Start
+
+	partition 'Dim Date' = m
+		mode: import
+		source = #table(type table [#"Month Start" = datetime], {})

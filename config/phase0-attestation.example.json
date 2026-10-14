@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "gates": {
+    "ten_representative_mutations_reopen": false,
+    "rollback_exact": false,
+    "structured_output_floor_met": false,
+    "complete_flow_offline": false,
+    "pbi_cli_validation_passed": false,
+    "microsoft_validation_passed": false,
+    "strict_offline_schema_verified": false,
+    "desktop_render_verified": false,
+    "populated_cache_verified": false
+  },
+  "pins": {
+    "pbi_cli_version": "3.11.1",
+    "microsoft_validator_version": "0.1.4",
+    "desktop_version": "0.0.0.0",
+    "windows_build": "0.0.0",
+    "python_version": "3.12.12",
+    "node_version": "0.0.0",
+    "pbir_schema_versions": {
+      "pbip_properties": "1.0.0",
+      "semantic_model_definition_properties": "1.0.0",
+      "report_definition_properties": "2.0.0",
+      "report": "3.2.0",
+      "page": "2.1.0",
+      "pages_metadata": "1.0.0",
+      "version_metadata": "1.0.0"
+    },
+    "ollama_version": "0.0.0",
+    "model_tag": "qwen3.5:4b-q4_K_M",
+    "model_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "artifact_hashes": {
+    "data_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_data_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_hashes": {
+      "sales_parquet": "0000000000000000000000000000000000000000000000000000000000000000",
+      "driver_parquet": "0000000000000000000000000000000000000000000000000000000000000000",
+      "forecast_parquet": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_parquet": "0000000000000000000000000000000000000000000000000000000000000000",
+      "forecast_backtest_parquet": "0000000000000000000000000000000000000000000000000000000000000000",
+      "forecast_selection_parquet": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "duckdb_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "catalog_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "pbip_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "report_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "semantic_model_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "semantic_model_cache_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "baseline_workspace_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "receipts": {
+    "environment": {
+      "path": "evidence/phase0/environment.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "kill_test": {
+      "path": "evidence/phase0/kill_test.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "model_evaluation": {
+      "path": "evidence/phase0/model_evaluation.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "strict_offline": {
+      "path": "evidence/phase0/strict_offline.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "desktop_render": {
+      "path": "evidence/phase0/desktop_render.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "pbi_cli_validation": {
+      "path": "evidence/phase0/pbi_cli_validation.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "microsoft_validation": {
+      "path": "evidence/phase0/microsoft_validation.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+}

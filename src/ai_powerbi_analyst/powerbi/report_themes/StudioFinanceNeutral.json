@@ -1,0 +1,127 @@
+{
+  "name": "StudioFinanceNeutral.json",
+  "dataColors": [
+    "#404040",
+    "#1F4E79",
+    "#7F7F7F",
+    "#2E75B6",
+    "#595959",
+    "#9DC3E6",
+    "#A6A6A6",
+    "#D0D0D0"
+  ],
+  "good": "#2E7D32",
+  "neutral": "#7F7F7F",
+  "bad": "#C62828",
+  "maximum": "#1F4E79",
+  "center": "#7F7F7F",
+  "minimum": "#EDEDED",
+  "null": "#C7CED9",
+  "foreground": "#222222",
+  "background": "#F7F7F7",
+  "secondaryBackground": "#FFFFFF",
+  "tableAccent": "#404040",
+  "firstLevelElements": "#222222",
+  "secondLevelElements": "#555555",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#222222"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#222222"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 9,
+      "color": "#555555"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#DDDDDD"
+              }
+            },
+            "radius": 8,
+            "width": 1
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontSize": 11,
+            "fontColor": {
+              "solid": {
+                "color": "#222222"
+              }
+            }
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F7F7F7"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineColor": {
+              "solid": {
+                "color": "#E8E8E8"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "position": "Top"
+          }
+        ]
+      }
+    }
+  }
+}

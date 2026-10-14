@@ -1,0 +1,13 @@
+.async-action-button { display: inline-grid !important; grid-template-columns: 14px auto; align-items: center; justify-content: center; gap: 6px; flex-shrink: 0; white-space: nowrap; transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease; }
+.async-action-icon { display: grid; place-items: center; width: 14px; height: 14px; }
+.async-action-icon svg { display: block; }
+.async-action-labels { display: inline-grid; min-width: 0; text-align: center; }
+.async-action-label { grid-area: 1 / 1; visibility: hidden; }
+.async-action-label.is-visible { visibility: visible; animation: async-action-reveal 140ms ease-out; }
+.async-action-button[data-action-state="pending"]:disabled { opacity: 1; cursor: wait; }
+.async-action-button[data-action-state="success"]:disabled { opacity: 1; color: #28734f; border-color: #c8dfd3; background: #f1f8f4; cursor: default; }
+.async-action-button[data-action-state="error"] { color: #8d4a30; border-color: #e8d0c4; background: #fffaf7; }
+.async-action-spinner { animation: async-action-spin 900ms linear infinite; }
+@keyframes async-action-spin { to { transform: rotate(360deg); } }
+@keyframes async-action-reveal { from { opacity: .4; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .async-action-button { transition: none; } .async-action-label.is-visible, .async-action-spinner { animation: none; } }

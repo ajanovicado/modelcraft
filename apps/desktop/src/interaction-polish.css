@@ -1,0 +1,171 @@
+/* Keep native disclosures and request controls; polish their visible feedback. */
+:is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary {
+  width: fit-content;
+  max-width: 100%;
+  min-height: 28px;
+  padding-block: 5px;
+  border-radius: 5px;
+  list-style: none;
+  color: #626875;
+  line-height: 1.5;
+  transition: color 140ms ease;
+}
+
+:is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary::-webkit-details-marker {
+  display: none;
+}
+
+:is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 9px 1px 2px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 180ms ease;
+}
+
+:is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details)[open] > summary::before {
+  transform: translateY(-2px) rotate(45deg);
+}
+
+:is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary:hover {
+  color: #2f3540;
+}
+
+:is(.revision-review-disclosure, .chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary:focus-visible {
+  outline: 2px solid #a98b18;
+  outline-offset: 3px;
+}
+
+/* Older engines retain the native instant reveal. No extra mounted focus targets. */
+@supports selector(details::details-content) and (interpolate-size: allow-keywords) {
+  :is(.revision-review-disclosure, .chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) {
+    interpolate-size: allow-keywords;
+  }
+
+  :is(.revision-review-disclosure, .chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details)::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition: block-size 180ms cubic-bezier(.2, .7, .2, 1), opacity 140ms ease, content-visibility 180ms allow-discrete;
+  }
+
+  :is(.revision-review-disclosure, .chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details)[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+.conversation-change .revision-review {
+  border-color: #dce6e2;
+  box-shadow: 0 2px 8px #183c2c05;
+}
+
+.revision-review-heading > span:nth-child(2) small {
+  color: #626875;
+  line-height: 1.5;
+}
+
+.chat-message-tools {
+  align-items: center;
+  flex-wrap: wrap;
+  color: #707782;
+}
+
+.chat-message-tools button {
+  color: #646a74;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.chat-message-tools button[data-feedback] {
+  min-width: 64px;
+}
+
+.chat-message-tools button[data-feedback="copied"] {
+  background: #edf7f0;
+  color: #256343;
+}
+
+.chat-message-time {
+  color: #757b85;
+  font-variant-numeric: tabular-nums;
+}
+
+.response-activity {
+  gap: 8px;
+  padding: 4px 9px;
+  border: 1px solid #eee3b8;
+  border-radius: 999px;
+  background: #fffbef;
+  color: #70602b;
+}
+
+.chat-message-author .response-activity {
+  padding: 2px 7px;
+}
+
+.chat-input-box {
+  border-color: #dce0e6;
+  box-shadow: 0 2px 3px #1d1d1f03, 0 5px 18px #1d1d1f04;
+}
+
+.chat-input-box:focus-within {
+  border-color: #c4a937;
+  box-shadow: 0 0 0 3px #f2c81114, 0 4px 14px #1d1d1f04;
+}
+
+.chat-context-chip {
+  border-color: #eddfa8;
+  background: #fffbeb;
+}
+
+.chat-context-chip small {
+  color: #71613a;
+}
+
+.chat-input-box textarea::placeholder,
+.chat-local-label,
+.chat-input-hint {
+  color: #707782;
+}
+
+.chat-send-button {
+  width: 34px;
+  height: 34px;
+  box-shadow: 0 1px 2px #5c4b0810;
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.chat-send-button:active:not(:disabled) {
+  transform: scale(.95);
+}
+
+.chat-send-button:focus-visible,
+.chat-context-chip:focus-visible,
+.chat-message-tools button:focus-visible {
+  outline: 2px solid #a98b18;
+  outline-offset: 3px;
+}
+
+.chat-send-button:disabled {
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.revision-review-disclosure, .chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details)::details-content,
+  :is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary,
+  :is(.chat-dax-context, .dax-handoff-formula, .dax-ai-details, .dax-save-details) > summary::before,
+  .revision-review-chevron,
+  .chat-input-box,
+  .chat-send-button,
+  .chat-message-tools button {
+    transition: none;
+  }
+
+  .chat-send-button:active:not(:disabled) {
+    transform: none;
+  }
+}

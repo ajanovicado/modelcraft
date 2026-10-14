@@ -1,0 +1,127 @@
+{
+  "name": "StudioCalmTeal.json",
+  "dataColors": [
+    "#0E6E7E",
+    "#C8553D",
+    "#2F4858",
+    "#B07A1E",
+    "#5B7B9A",
+    "#3FA7A0",
+    "#8C5E58",
+    "#9BB7A6"
+  ],
+  "good": "#2E7D5B",
+  "neutral": "#B07A1E",
+  "bad": "#C8553D",
+  "maximum": "#0E6E7E",
+  "center": "#B07A1E",
+  "minimum": "#E3F1F2",
+  "null": "#C7CED9",
+  "foreground": "#1E3134",
+  "background": "#F6F8F7",
+  "secondaryBackground": "#FFFFFF",
+  "tableAccent": "#0E6E7E",
+  "firstLevelElements": "#1E3134",
+  "secondLevelElements": "#52666A",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#1E3134"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#1E3134"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 9,
+      "color": "#52666A"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#DCE5E3"
+              }
+            },
+            "radius": 8,
+            "width": 1
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontSize": 11,
+            "fontColor": {
+              "solid": {
+                "color": "#1E3134"
+              }
+            }
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F6F8F7"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineColor": {
+              "solid": {
+                "color": "#E6ECEB"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "position": "Top"
+          }
+        ]
+      }
+    }
+  }
+}
