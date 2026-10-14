@@ -12,8 +12,8 @@
   ],
   "files": {
     ".gitattributes": {
-      "sha256": "83d03fc8032234566e9c4b2b314d444940760ae13eb2822dde2cd634d1aa0a48",
-      "bytes": 920
+      "sha256": "084936745be98c63a175dc5555f19b103d288828910787a60be11897c2d4237a",
+      "bytes": 962
     },
     ".github/ISSUE_TEMPLATE/bug_report.md": {
       "sha256": "717cd271260885bf8ba12763fe976b4e3c4ab1c8015888e6d7e2c46bc155af7b",
@@ -24,8 +24,8 @@
       "bytes": 211
     },
     ".github/workflows/ci.yml": {
-      "sha256": "5bd55ea8f24b82995ca3fd271ad735322e89822a4ced8dc8439f8500d6d5d373",
-      "bytes": 3844
+      "sha256": "e9058c8cc36cdbaae481edfb6a9718f52c7c9bbb4ffd46817a6685ee5702e755",
+      "bytes": 3907
     },
     ".github/workflows/release.yml": {
       "sha256": "045a24b9fa59443a07ff850135d935253661536d4fa3fdccdc59fe7d85c8c8ec",
@@ -36,8 +36,8 @@
       "bytes": 802
     },
     ".pre-commit-config.yaml": {
-      "sha256": "3c4302e0b77e8413955c22f732f85f163913e1639472e1dc3eaea99a72690f82",
-      "bytes": 2274
+      "sha256": "c745cd827349cb164f8aaf6c9926785628ebbbc13f937ed85ce207ac4b8df885",
+      "bytes": 2350
     },
     ".python-version": {
       "sha256": "f01d748a75eb195e6fd73201279bfb23f09036ddd360eb3e9ff40ef042acbc8a",
@@ -3788,6 +3788,6 @@
     "native payloads",
     "development runtime seals"
   ],
-  "refreshed_at": "2026-10-14T21:53:12.469007+00:00",
+  "refreshed_at": "2026-10-14T22:16:45.714777+00:00",
   "identity_scope": "Exported source and ZIP file bytes before Git line-ending conversion; not a cross-platform checkout-byte certification"
 }

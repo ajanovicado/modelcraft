@@ -11,6 +11,7 @@
 
 # Report themes are SHA-256 pinned; line endings are part of their identity.
 src/ai_powerbi_analyst/powerbi/report_themes/*.json text eol=lf
+config/ExecutiveLight-7f3a2c1d.json -text
 
 # Binary assets — never normalize.
 *.png binary

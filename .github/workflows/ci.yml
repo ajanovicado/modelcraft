@@ -37,7 +37,7 @@ jobs:
         run: |
           $testRoot = Join-Path $env:RUNNER_TEMP ('pt-' + [guid]::NewGuid().ToString('N').Substring(0, 8))
           if (Test-Path -LiteralPath $testRoot) { throw 'Use a fresh isolated test directory.' }
-          uv run pytest --basetemp $testRoot
+          uv run --frozen --with pytest-xdist==3.8.0 --with execnet==2.1.2 pytest -n 4 --basetemp $testRoot
 
       - name: Python dependency audit
         shell: pwsh

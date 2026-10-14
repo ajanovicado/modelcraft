@@ -6,7 +6,7 @@ repos:
     hooks:
       # Formatting must preserve reviewed snapshot and fixture identities.
       - id: end-of-file-fixer
-        exclude: &pinned_bytes ^(LICENSE$|vendor/powerbi-rag-runtime/|fixtures/|runtime/|evidence/golden-answers\.jsonl$|src/ai_powerbi_analyst/powerbi/report_themes/)
+        exclude: &pinned_bytes ^(LICENSE$|vendor/powerbi-rag-runtime/|fixtures/|runtime/|evidence/golden-answers\.jsonl$|config/ExecutiveLight-7f3a2c1d\.json$|src/ai_powerbi_analyst/powerbi/report_themes/)
       - id: trailing-whitespace
         exclude: *pinned_bytes
         args: [--markdown-linebreak-ext=md]
@@ -19,7 +19,7 @@ repos:
       - id: detect-private-key
       - id: mixed-line-ending
         args: [--fix=lf]
-        exclude: ^(LICENSE$|vendor/powerbi-rag-runtime/|fixtures/|runtime/|evidence/golden-answers\.jsonl$|src/ai_powerbi_analyst/powerbi/report_themes/|.*\.(ps1|bat|cmd)$)
+        exclude: ^(LICENSE$|vendor/powerbi-rag-runtime/|fixtures/|runtime/|evidence/golden-answers\.jsonl$|config/ExecutiveLight-7f3a2c1d\.json$|src/ai_powerbi_analyst/powerbi/report_themes/|.*\.(ps1|bat|cmd)$)
 
   - repo: local
     hooks:
